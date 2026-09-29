@@ -1,3 +1,59 @@
+const images = [
+    "../image/banner1.jpg",
+    "../image/banner2.jpg",
+    "../image/banner3.jpg",
+    "../image/banner4.jpg"
+];
+
+let currentIndex = 0;
+
+const slide = document.getElementById("slide");
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+
+function showSlide(index) {
+    slide.style.backgroundImage = `url("${images[index]}")`;
+}
+
+
+
+showSlide(currentIndex);
+
+
+
+nextBtn.addEventListener("click", () => {
+
+    currentIndex++;
+
+    if (currentIndex >= images.length) {
+        currentIndex = 0;
+    }
+
+    showSlide(currentIndex);
+});
+
+
+
+prevBtn.addEventListener("click", () => {
+
+    currentIndex--;
+
+    if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+    }
+
+    showSlide(currentIndex);
+});
+
+
+
+
+
+
+
+
+
 function bulidSlider(name, options) {
     if (typeof Swiper === 'undefined') return;
     const container = document.querySelector('.' + name + '-swiper');
