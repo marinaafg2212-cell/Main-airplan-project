@@ -108,104 +108,155 @@
 
 
     <!-- hero section---------------------------------------- -->
-  <!-- hero section ---------------------------------------- -->
-<main>
-    <section class="hero" id="hero">
+    <!-- hero section ---------------------------------------- -->
+    <!-- Hero Section -->
+    <main class="main">
+        <section class="home section">
 
-        <div class="slider-track">
+            <img src="image/banner1.jpg" alt="Airplane" class="home--bg">
+            <div class="home--blur"></div>
 
-            <div class="slide" id="slide"></div>
+            <div class="home--container container">
 
-            <div class="slid-overly"></div>
+                <!-- Text -->
+                <div class="home--data">
 
-            <button class="slider-arrow prev" id="prevBtn">&#10094;</button>
-            <button class="slider-arrow next" id="nextBtn">&#10095;</button>
+                    <span class="home--subtitle">DISCOVER THE WORLD</span>
 
-            <div class="hero-content">
+                    <h1 class="home--title">
+                        Fly Beyond
+                        <span>Limits</span>
+                    </h1>
 
-                <div class="airplane-symbol">
-                    ✈
+                    <p class="home--description">
+                        Experience the freedom of the sky and discover
+                        beautiful destinations around the world.
+                    </p>
+
+                    <a href="#" class="button">
+                        Explore Now
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
                 </div>
 
-                <h1>
-                    Fly farther.<br>
-                    Go beyond.
-                </h1>
 
-               <div class="hero-buttons">  
-                    <a href="#" class="primary-button">Find a Flight</a>  
-                    <a href="#" class="secondary-button">Explore Destinations</a>  
-                </div>  
+                <!-- Slider -->
+                <div class="home--swiper">
 
-            </div>
-
-        </div>
-
-    </section>
-</main>
-
-
-        <!-- above-------------------------------------------- -->
-        <section class="flight-search">
-
-            <div class="search-card">
-
-                <div class="search-tabs">
-                    <button class="active">Round trip</button>
-                    <button>One way</button>
-                    <button>Multi-city</button>
-                </div>
-
-                <div class="search-fields">
-
-                    <div class="field">
-                        <span class="field-label">From</span>
-                        <select id="country" name="country">
-                            <option value="">Select a country</option>
-                            <option value="afghanistan">Afghanistan</option>
-                            <option value="korea">South Korea</option>
-                            <option value="kazakhstan">Kazakhstan</option>
-                            <option value="usa">United States</option>
-                        </select>
-
-                        <small>KBL · Afghanistan</small>
+                    <div class="slide is-active">
+                        <article class="home--article">
+                            <img src="image/banner1.jpg" alt="Airplane" class="home--img">
+                        </article>
                     </div>
 
-                    <div class="swap">⇄</div>
-
-                    <div class="field">
-                        <span class="field-label">To</span>
-                        <select id="country" name="country">
-                            <option value="">Select a country</option>
-                            <option value="afghanistan">Afghanistan</option>
-                            <option value="korea">South Korea</option>
-                            <option value="kazakhstan">Kazakhstan</option>
-                            <option value="usa">United States</option>
-                        </select>
-                        <small>DXB · United Arab Emirates</small>
+                    <div class="slide">
+                        <article class="home--article">
+                            <img src="image/banner2.jpg" alt="Airplane" class="home--img">
+                        </article>
                     </div>
 
-                    <div class="field">
-                        <span class="field-label">Departure</span>
+                    <div class="slide">
+                        <article class="home--article">
+                            <img src="image/banner3.jpg" alt="Airplane" class="home--img">
+                        </article>
+                    </div>
 
-                        <strong><input type="date" id="date"></strong>
+                    <div class="slide">
+                        <article class="home--article">
+                            <img src="image/banner1.jpg" alt="Airplane" class="home--img">
+                        </article>
                     </div>
 
 
+                    <!-- Arrows -->
+                    <div class="slide-controls">
 
-                    <button class="search-button">
-                        Search flights
-                    </button>
+                        <button class="slide-arrow" data-slide-prev aria-label="Previous slide">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+
+                        <button class="slide-arrow" data-slide-next aria-label="Next slide">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+
+                    </div>
 
                 </div>
 
             </div>
 
         </section>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
 
 
-        <!-- catagories------------------------------------------ -->
-        <section id="catagories" class="catagories">
+
+
+    <!-- above-------------------------------------------- -->
+    <section class="flight-search">
+
+        <div class="search-card">
+
+            <div class="search-tabs">
+                <button class="active">Round trip</button>
+                <button>One way</button>
+                <button>Multi-city</button>
+            </div>
+
+            <div class="search-fields">
+
+                <div class="field">
+                    <span class="field-label">From</span>
+                    <select id="country" name="country">
+                        <option value="">Select a country</option>
+                        <option value="afghanistan">Afghanistan</option>
+                        <option value="korea">South Korea</option>
+                        <option value="kazakhstan">Kazakhstan</option>
+                        <option value="usa">United States</option>
+                    </select>
+
+                    <small>KBL · Afghanistan</small>
+                </div>
+
+                <div class="swap">⇄</div>
+
+                <div class="field">
+                    <span class="field-label">To</span>
+                    <select id="country" name="country">
+                        <option value="">Select a country</option>
+                        <option value="afghanistan">Afghanistan</option>
+                        <option value="korea">South Korea</option>
+                        <option value="kazakhstan">Kazakhstan</option>
+                        <option value="usa">United States</option>
+                    </select>
+                    <small>DXB · United Arab Emirates</small>
+                </div>
+
+                <div class="field">
+                    <span class="field-label">Departure</span>
+
+                    <strong><input type="date" id="date"></strong>
+                </div>
+
+
+
+                <button class="search-button">
+                    Search flights
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- catagories------------------------------------------ -->
+    <!-- <section id="catagories" class="catagories">
             <div class="container">
                 <div class="sec-head">
                     <span class="script">Winderful Place For You</span>
@@ -279,186 +330,186 @@
                 </div>
 
             </div>
-        </section>
+        </section> -->
 
-        <section class="features">
+    <section class="features">
 
-            <div class="feature">
-                <div class="feature-icon">✈</div>
-                <h3>Worldwide destinations</h3>
-                <p>
-                    Reach the places you've always wanted to see
-                    with convenient routes around the world.
-                </p>
+        <div class="feature">
+            <div class="feature-icon">✈</div>
+            <h3>Worldwide destinations</h3>
+            <p>
+                Reach the places you've always wanted to see
+                with convenient routes around the world.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">◈</div>
+            <h3>Simple travel</h3>
+            <p>
+                Everything you need for a smooth and comfortable
+                journey, all in one place.
+            </p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">★</div>
+            <h3>Better experience</h3>
+            <p>
+                Enjoy thoughtful service and a modern experience
+                from booking to arrival.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- gallery-------------------------------------------------- -->
+    <div class="head-title">
+        <h1>gallery </h1>
+        <div class="gallery_grid">
+
+
+            <!-- Image 1 -->
+            <div class="gallery_item">
+                <img src="image/a32f1e152b4e21e93bc14a71ac37f434.jpg" alt="">
+                <a href="#lb-1" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
             </div>
 
-            <div class="feature">
-                <div class="feature-icon">◈</div>
-                <h3>Simple travel</h3>
-                <p>
-                    Everything you need for a smooth and comfortable
-                    journey, all in one place.
-                </p>
+            <!-- Image 2 -->
+            <div class="gallery_item">
+                <img src="image/ffc58ac813fb5f9a8595c76553ff2605.jpg" alt="">
+                <a href="#lb-2" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
             </div>
 
-            <div class="feature">
-                <div class="feature-icon">★</div>
-                <h3>Better experience</h3>
-                <p>
-                    Enjoy thoughtful service and a modern experience
-                    from booking to arrival.
-                </p>
+            <!-- Image 3 -->
+            <div class="gallery_item">
+                <img src="image/f2c6ca21ffaf37202acb91c1e205d4b1.jpg" alt="">
+                <a href="#lb-3" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
             </div>
 
-        </section>
-
-        <!-- gallery-------------------------------------------------- -->
-        <div class="head-title">
-            <h1>gallery </h1>
-            <div class="gallery_grid">
-
-
-                <!-- Image 1 -->
-                <div class="gallery_item">
-                    <img src="image/a32f1e152b4e21e93bc14a71ac37f434.jpg" alt="">
-                    <a href="#lb-1" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
-                <!-- Image 2 -->
-                <div class="gallery_item">
-                    <img src="image/ffc58ac813fb5f9a8595c76553ff2605.jpg" alt="">
-                    <a href="#lb-2" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
-                <!-- Image 3 -->
-                <div class="gallery_item">
-                    <img src="image/f2c6ca21ffaf37202acb91c1e205d4b1.jpg" alt="">
-                    <a href="#lb-3" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
-                <!-- Image 4 -->
-                <div class="gallery_item">
-                    <img src="image/c17930568d13a40f9382b298fe70d143.jpg" alt="">
-                    <a href="#lb-4" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
-                <!-- Image 5 -->
-                <div class="gallery_item">
-                    <img src="image/b6d4dff3bd024ce91f6f852f11103fbf.jpg" alt="">
-                    <a href="#lb-5" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
-                <!-- Image 6 -->
-                <div class="gallery_item">
-                    <img src="image/c17930568d13a40f9382b298fe70d143.jpg" alt="">
-                    <a href="#lb-6" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
-                <!-- Image 7 -->
-                <div class="gallery_item">
-                    <img src="image/ab0bc7120f51d78b8d050cf33059e6ac.jpg" alt="">
-                    <a href="#lb-7" class="gallery_zoom" aria-label="Open image">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                </div>
-
+            <!-- Image 4 -->
+            <div class="gallery_item">
+                <img src="image/c17930568d13a40f9382b298fe70d143.jpg" alt="">
+                <a href="#lb-4" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
             </div>
+
+            <!-- Image 5 -->
+            <div class="gallery_item">
+                <img src="image/b6d4dff3bd024ce91f6f852f11103fbf.jpg" alt="">
+                <a href="#lb-5" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </div>
+
+            <!-- Image 6 -->
+            <div class="gallery_item">
+                <img src="image/c17930568d13a40f9382b298fe70d143.jpg" alt="">
+                <a href="#lb-6" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </div>
+
+            <!-- Image 7 -->
+            <div class="gallery_item">
+                <img src="image/ab0bc7120f51d78b8d050cf33059e6ac.jpg" alt="">
+                <a href="#lb-7" class="gallery_zoom" aria-label="Open image">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </div>
+
         </div>
+    </div>
 
-        <!-- Lightbox 1 -->
-        <div id="lb-1" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+    <!-- Lightbox 1 -->
+    <div id="lb-1" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
 
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
-
-
-        <!-- Lightbox 2 -->
-        <div id="lb-2" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
-
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
-
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
 
 
-        <!-- Lightbox 3 -->
-        <div id="lb-3" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+    <!-- Lightbox 2 -->
+    <div id="lb-2" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
 
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
-
-
-        <!-- Lightbox 4 -->
-        <div id="lb-4" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
-
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
-
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
 
 
-        <!-- Lightbox 5 -->
-        <div id="lb-5" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+    <!-- Lightbox 3 -->
+    <div id="lb-3" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
 
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
-
-
-        <!-- Lightbox 6 -->
-        <div id="lb-6" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
-
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
-
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
 
 
-        <!-- Lightbox 7 -->
-        <div id="lb-7" class="lightbox">
-            <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+    <!-- Lightbox 4 -->
+    <div id="lb-4" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
-            <a href="#gallery" class="lightbox_close" aria-label="close">
-                <i></i>
-            </a>
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
 
-            <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
-        </div>
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
+
+
+    <!-- Lightbox 5 -->
+    <div id="lb-5" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
+
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
+
+
+    <!-- Lightbox 6 -->
+    <div id="lb-6" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
+
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
+
+
+    <!-- Lightbox 7 -->
+    <div id="lb-7" class="lightbox">
+        <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
+
+        <a href="#gallery" class="lightbox_close" aria-label="close">
+            <i></i>
+        </a>
+
+        <img src="image/afb8f5188049b070c1bf41b560a21d99.jpg" alt="">
+    </div>
     </main>
 
     <footer>
@@ -469,7 +520,7 @@
 
 </body>
 
-
+<script src="js/slider.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/javascript.js"></script>
 
