@@ -237,9 +237,7 @@ h4 {
 
 
 /* hero  home---------------------------------------- */
-/* ================================
-   HERO SECTION
-================================ */
+
 
 .home {
     position: relative;
@@ -260,7 +258,7 @@ h4 {
     z-index: -3;
 }
 
-/* Dark luxury overlay */
+/* Dark luxury overlay ==================================*/
 .home--blur {
     position: absolute;
     inset: 0;
@@ -277,9 +275,7 @@ h4 {
 }
 
 
-/* ================================
-   CONTAINER
-================================ */
+
 
 .home--container {
     width: 100%;
@@ -296,9 +292,7 @@ h4 {
 }
 
 
-/* ================================
-   TEXT
-================================ */
+
 
 .home--data {
     flex: 1;
@@ -320,7 +314,7 @@ h4 {
 }
 
 
-/* Main title */
+
 
 .home--title {
     margin: 0 0 22px;
@@ -336,9 +330,7 @@ h4 {
 
 .home--title span {
     display: block;
-
     color: transparent;
-
     background: linear-gradient(90deg,
             #ffffff,
             #8ec5ff);
@@ -348,15 +340,12 @@ h4 {
 }
 
 
-/* Description */
+
 
 .home--description {
     max-width: 520px;
-
     margin-bottom: 32px;
-
     color: rgba(255, 255, 255, .78);
-
     font-size: 1rem;
     line-height: 1.8;
 }
@@ -389,12 +378,13 @@ h4 {
 
 .button i {
     transition: transform .35s ease;
+    
 }
 
 .button:hover {
-    background: white;
+   border: none;
     color: #061c2c;
-
+background: #1769e0;
     transform: translateY(-3px);
 
     box-shadow:
@@ -429,7 +419,7 @@ h4 {
 }
 
 
-/* Each slide */
+
 
 .slide {
     position: absolute;
@@ -460,7 +450,7 @@ h4 {
 }
 
 
-/* Image */
+
 
 .home--article {
     width: 100%;
@@ -477,7 +467,7 @@ h4 {
 }
 
 
-/* Image overlay */
+
 
 .home--article::after {
     content: "";
@@ -492,9 +482,7 @@ h4 {
 }
 
 
-/* ================================
-   SLIDER ARROWS
-================================ */
+
 
 .slide-controls {
     position: absolute;
@@ -549,9 +537,6 @@ h4 {
 }
 
 
-/* ================================
-   RESPONSIVE
-================================ */
 
 @media screen and (max-width: 900px) {
 
@@ -606,6 +591,195 @@ h4 {
     }
 }
 
+
+
+
+
+/* after banner */
+
+
+.journey-section {
+    background: #ffffff;
+    padding: 120px 6%;
+    overflow: hidden;
+}
+
+.journey-container {
+    max-width: 1300px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 0.8fr 1.8fr 1.5fr;
+    gap: 65px;
+    align-items: start;
+}
+
+
+
+.journey-small {
+    padding-top: 12px;
+}
+
+.journey-small span {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    font-weight: 700;
+    color: #777;
+}
+
+.journey-small p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #888;
+    max-width: 150px;
+    margin-top: 18px;
+}
+
+
+
+.journey-content h2 {
+    font-size: clamp(36px, 3.5vw, 49px);
+    font-weight: 650;
+    line-height: 1.18;
+    letter-spacing: -2px;
+    color: #171717;
+    margin-bottom: 28px;
+}
+
+.journey-content h2 span {
+    color: #a5a5a5;
+}
+
+.journey-content > p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #858585;
+    max-width: 410px;
+    margin-bottom: 35px;
+}
+
+
+/* problem---------------- */
+.journey-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 15px 25px;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 50px;
+
+    background: #1769e0;
+    color: white;
+
+    font-size: .9rem;
+    font-weight: 600;
+
+    backdrop-filter: blur(12px);
+
+    transition: all .35s ease;
+}
+
+.journey-link span {
+    font-size: 19px;
+}
+
+.journey-link:hover {
+    background: #171717;
+    color: white;
+}
+
+
+
+.journey-visual {
+    position: relative;
+    height: 390px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.journey-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+
+    transition: transform 0.7s ease;
+}
+
+.journey-visual:hover img {
+    transform: scale(1.04);
+}
+
+
+
+.journey-image-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 18px;
+    color: white;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.45)
+    );
+}
+
+
+
+@media (max-width: 1000px) {
+
+    .journey-container {
+        grid-template-columns: 1fr 2fr;
+        gap: 35px;
+    }
+
+    .journey-visual {
+        grid-column: 2;
+        height: 350px;
+    }
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    .journey-section {
+        padding: 75px 6%;
+    }
+
+    .journey-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .journey-small {
+        padding: 0;
+    }
+
+    .journey-content h2 {
+        font-size: 36px;
+        letter-spacing: -1.5px;
+    }
+
+    .journey-visual {
+        grid-column: auto;
+        height: 320px;
+    }
+
+}
 
 /* .hero {
     min-height: 570px;
@@ -1122,7 +1296,7 @@ footer {
 .gallery_grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 235px);
+    grid-template-rows: repeat(3, 190px);
     grid-template-areas:
         "a a b c"
         "a a d e"
@@ -1273,4 +1447,202 @@ footer {
 .lightbox_close:hover {
     background: var(--navy);
     transform: rotate(90deg);
+}
+
+
+
+/* responive grallay-------------------------------- */
+
+
+
+
+/* expernace-------------------------- */
+/* BENEFITS SECTION */
+
+.benefits-section {
+    padding: 110px 6%;
+    background: #f5f4f1;
+    overflow: hidden;
+}
+
+.benefits-container {
+    max-width: 1350px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns: 0.9fr 1.8fr 0.55fr;
+    gap: 35px;
+    align-items: stretch;
+}
+
+/* HEADING */
+
+.benefits-heading {
+    padding-top: 15px;
+}
+
+.benefits-heading > span {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #888;
+}
+
+.benefits-heading h2 {
+    font-size: clamp(35px, 4vw, 55px);
+    line-height: 0.98;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #171717;
+    margin: 35px 0 25px;
+}
+
+.benefits-heading p {
+    max-width: 220px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+}
+
+/* GRID */
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+/* CARDS */
+
+.benefit-card {
+    background: #fff;
+    min-height: 245px;
+    padding: 30px 27px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    transition: 0.35s ease;
+}
+
+.benefit-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+}
+
+/* NUMBER */
+
+.benefit-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 38px;
+    height: 38px;
+
+    background: #151515;
+    color: #fff;
+
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+
+    margin-bottom: 35px;
+}
+
+/* CARD TEXT */
+
+.benefit-card h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: #202020;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #858585;
+    max-width: 270px;
+}
+
+/* SIDE DESIGN */
+
+.benefits-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 0;
+    position: relative;
+}
+
+.side-circle {
+    width: 125px;
+    height: 125px;
+    border: 12px solid #a5a5a5;
+    border-radius: 50%;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.04);
+}
+
+.side-number {
+    font-size: 90px;
+    font-weight: 300;
+    color:#a5a5a5;
+    line-height: 1;
+}
+
+.side-text {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #888;
+    text-align: center;
+}
+
+.side-arrow {
+    font-size: 75px;
+    font-weight: 200;
+    color: #a5a5a5;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .benefits-container {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .benefits-side {
+        display: none;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .benefits-section {
+        padding: 75px 6%;
+    }
+
+    .benefits-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .benefits-heading h2 {
+        font-size: 43px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .benefit-card {
+        min-height: 210px;
+    }
+
 }
