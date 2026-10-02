@@ -311,7 +311,7 @@ h4 {
     letter-spacing: 4px;
 
     color: #b8d9ff;
-    
+
 }
 
 
@@ -322,7 +322,7 @@ h4 {
 
     font-size: clamp(3rem, 5vw, 5.8rem);
     line-height: .95;
-    
+
 
     font-weight: 700;
     letter-spacing: -3px;
@@ -627,7 +627,7 @@ h4 {
     letter-spacing: 2.5px;
     font-weight: 700;
     color: #777;
-    
+
 }
 
 .journey-small p {
@@ -647,7 +647,7 @@ h4 {
     letter-spacing: -2px;
     color: #171717;
     margin-bottom: 28px;
-   
+
 }
 
 .journey-content h2 span {
@@ -1310,7 +1310,7 @@ footer {
 .head-title {
     text-align: center;
     padding-bottom: 40px;
-     font-size: clamp(35px, 4vw, 55px);
+    font-size: clamp(35px, 4vw, 55px);
     line-height: 0.98;
     font-weight: 800;
     letter-spacing: -2px;
@@ -1465,7 +1465,7 @@ footer {
 
 
 /* expernace-------------------------- */
-/* BENEFITS SECTION */
+
 
 .benefits-section {
     padding: 110px 6%;
@@ -1482,8 +1482,6 @@ footer {
     gap: 35px;
     align-items: stretch;
 }
-
-/* HEADING */
 
 .benefits-heading {
     padding-top: 15px;
@@ -1512,7 +1510,7 @@ footer {
     color: #777;
 }
 
-/* GRID */
+
 
 .benefits-grid {
     display: grid;
@@ -1520,17 +1518,15 @@ footer {
     gap: 18px;
 }
 
-/* CARDS */
+
 
 .benefit-card {
     background: #fff;
     min-height: 245px;
     padding: 30px 27px;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     transition: 0.35s ease;
 }
 
@@ -1545,21 +1541,17 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-
     width: 38px;
     height: 38px;
-
     background: #151515;
     color: #fff;
-
     border-radius: 10px;
     font-size: 11px;
     font-weight: 600;
-
     margin-bottom: 35px;
 }
 
-/* CARD TEXT */
+
 
 .benefit-card h3 {
     font-size: 21px;
@@ -1575,7 +1567,7 @@ footer {
     max-width: 270px;
 }
 
-/* SIDE DESIGN */
+
 
 .benefits-side {
     display: flex;
@@ -1615,7 +1607,7 @@ footer {
     color: #a5a5a5;
 }
 
-/* TABLET */
+
 
 @media (max-width: 1000px) {
 
@@ -1628,7 +1620,6 @@ footer {
     }
 }
 
-/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -1657,7 +1648,7 @@ footer {
 
 
 /* coutemer------------------------ */
-/*=============== TESTIMONIAL ===============*/
+
 
 .testimonial {
     padding: 80px 0;
@@ -1668,7 +1659,7 @@ footer {
     font-size: 45px;
     line-height: 1.1;
     margin-bottom: 60px;
-     font-size: clamp(35px, 4vw, 55px);
+    font-size: clamp(35px, 4vw, 55px);
     line-height: 0.98;
     font-weight: 800;
     letter-spacing: -2px;
@@ -1676,7 +1667,7 @@ footer {
     margin: 35px 0 25px;
 }
 
-/* Main Box */
+
 .testimonial--container {
     width: 900px;
     max-width: 100%;
@@ -1691,7 +1682,7 @@ footer {
     overflow: hidden;
 }
 
-/* Left Image */
+
 .testimonial--image {
     width: 100%;
     height: 400px;
@@ -1705,7 +1696,7 @@ footer {
     display: block;
 }
 
-/* Right Content */
+
 .testimonial--content {
     padding: 55px 35px 30px;
     position: relative;
@@ -1725,7 +1716,7 @@ footer {
     margin-bottom: 35px;
 }
 
-/* Profile */
+
 .testimonial--profile {
     display: flex;
     align-items: center;
@@ -1793,4 +1784,199 @@ footer {
     .section--title {
         font-size: 35px;
     }
+}
+
+/* =========================
+   INTEGRATION SECTION
+========================= */
+
+.integration-section {
+    width: 100%;
+    padding: 70px 8% 45px;
+    background: #ffffff;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.integration-section h2 {
+    margin: 0 auto 55px;
+    font-size: 25px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #1d1d24;
+}
+
+
+/* Logos */
+
+.logos-container {
+    max-width: 1050px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 50px;
+    row-gap: 48px;
+    align-items: center;
+    justify-items: center;
+}
+
+.title{
+     font-size: 30px;
+    line-height: 1.4;
+    margin-bottom: 60px;
+    font-size: clamp(35px, 4vw, 55px);
+    line-height: 0.98;
+    font-weight: 800;
+   
+    color: #171717;
+    margin: 35px 0 25px;
+}
+.logo-item {
+    min-width: 130px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #22242b;
+}
+
+.logo-item img {
+    width: 300px;
+    max-height: 80px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.9;
+    transition: 0.3s ease;
+   
+}
+.logo-item1 img{
+     width: 200px;
+    max-height: 45px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.9;
+    transition: 0.3s ease;
+}
+
+.logo-item img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+
+/* Text Logos */
+
+.swiss-logo {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.logo-item small {
+    font-size: 8px;
+    margin-top: -2px;
+}
+
+.ramco-logo {
+    font-size: 27px;
+    font-weight: 500;
+    letter-spacing: -1px;
+}
+
+.amos-logo {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.tray-logo {
+    font-size: 23px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.avsight-logo {
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.cc-logo {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.rusada-logo {
+    font-size: 20px;
+    font-weight: 700;
+    font-style: italic;
+}
+
+
+
+
+.more-text {
+    margin-top: 35px;
+    margin-bottom: 65px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #55555c;
+}
+
+
+
+
+.security-section {
+    max-width: 1220px;
+    min-height: 255px;
+    margin: 0 auto 60px;
+    padding: 45px 55px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background:
+        linear-gradient(
+            135deg,
+            #292b3b,
+            #181927
+        );
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+    .logos-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+    .integration-section {
+        padding: 50px 20px 30px;
+    }
+
+    .integration-section h2 {
+        font-size: 21px;
+    }
+
+    .logos-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 15px;
+    }
+
+    .logo-item {
+        min-width: 100px;
+    }
+
+   
 }
