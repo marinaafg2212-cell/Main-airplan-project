@@ -48,7 +48,11 @@
 
 
 
-    <!-- tailwanid------------------------------------------------->
+    <!-- ------------------------------------------------->
+     <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
@@ -64,17 +68,22 @@
         <a href="#" class="logo">
             <span class="logo-icon">✈</span>
             <span>Skyline</span>
-        </a>
 
+        </a>
+        <input type="checkbox" id="menu-check">
+
+        <label for="menu-check" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
         <nav class="nav-links">
             <!-- nav-------------------------------------------------- -->
             <div class="nav-item">
-                <a href="#" class="active">Home</a>
-                <a href="#">Book</a>
-                <a href="#">Destinations</a>
-                <a href="#">Resources</a>
-                <a href="#">Contact us</a>
-                <a href="#">Book a Flight</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="./searchFlight.html">Search Flights</a>
+                <a href="#">Track Flight</a>
+                <a href="#">About</a>
+                <a href="#">FAQ</a>
+
             </div>
             <!-- Simple mobile nav panel -->
             <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
@@ -82,26 +91,29 @@
                     style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
                     <li><a href="#hero-slider" style="display:block;padding:10px 8px;font-weight:600;">Home</a>
                     </li>
-                    <li><a href="destinations.html" style="display:block;padding:10px 8px;font-weight:600;">Flights</a>
+                    <li><a href="destinations.html" style="display:block;padding:10px 8px;font-weight:600;">Search
+                            Flights</a>
                     </li>
-                    <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Hotels</a>
+                    <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Track Flight</a>
                     </li>
-                    <li><a href="restaurants.html"
-                            style="display:block;padding:10px 8px;font-weight:600;">Destinations</a></li>
-                    <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">Resources</a>
+                    <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
                     </li>
-                    <li><a href="#cars" style="display:block;padding:10px 8px;font-weight:600;">Contact us</a></li>
-                    <li><a href="#business-registration" style="display:block;padding:10px 8px;font-weight:600;">Book a
-                            Flight</a></li>
+                    <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
+                    </li>
+                    <li><a href="#cars" style="display:block;padding:10px 8px;font-weight:600;">Log in/a></li>
+                    <li><a href="#business-registration"
+                            style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
                 </ul>
             </div>
 
+
         </nav>
-        <!-- searching right part================----------------------------------------- -->
+
 
         <div class="nav-actions">
 
             <a href="#" class="try-button">Log in</a>
+            <a href="#" class="try-button">Register</a>
         </div>
 
     </header>
@@ -192,6 +204,121 @@
     <br>
     <br>
     <br>
+    <section class="flight-search">
+        <div class="search--content">
+            <h1>Find Your Perfect Flight</h1>
+            <p>Search and book to destinations worldwide with our easy-to-use platform</p>
+        </div>
+        <div class="flight-search">
+
+            <!-- Trip Type -->
+            <div class="trip-type">
+                <button class="trip-btn active">
+                    <i class="fa-solid fa-right-left"></i>
+                    Round Trip
+                </button>
+
+                <button class="trip-btn">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    One Way
+                </button>
+            </div>
+
+
+            <div class="search-fields">
+
+                <!-- From -->
+                <div class="flight-field">
+                    <i class="fa-solid fa-plane-departure field-icon"></i>
+
+                    <div class="field-content">
+                        <label>FROM</label>
+
+                        <select>
+                            <option selected disabled>Select departure city</option>
+                            <option>Accra (ACC)</option>
+                            <option>Amsterdam (AMS)</option>
+                            <option>Athens (ATH)</option>
+                            <option>Atlanta (ATL)</option>
+                            <option>Bangkok (BKK)</option>
+                            <option>Barcelona (BCN)</option>
+                            <option>Beijing (PEK)</option>
+                            <option>Kabul (KBL)</option>
+                            <option>Dubai (DXB)</option>
+                            <option>London (LHR)</option>
+                            <option>New York (JFK)</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <!-- To -->
+                <div class="flight-field">
+                    <i class="fa-solid fa-plane-arrival field-icon"></i>
+
+                    <div class="field-content">
+                        <label>TO</label>
+
+                        <select>
+                            <option selected disabled>Select arrival city</option>
+                            <option>Accra (ACC)</option>
+                            <option>Amsterdam (AMS)</option>
+                            <option>Athens (ATH)</option>
+                            <option>Atlanta (ATL)</option>
+                            <option>Bangkok (BKK)</option>
+                            <option>Barcelona (BCN)</option>
+                            <option>Beijing (PEK)</option>
+                            <option>Kabul (KBL)</option>
+                            <option>Dubai (DXB)</option>
+                            <option>London (LHR)</option>
+                            <option>New York (JFK)</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <!-- Date -->
+                <div class="flight-field">
+                    <i class="fa-solid fa-calendar-days field-icon"></i>
+
+                    <div class="field-content">
+                        <label>DEPARTURE</label>
+                        <input type="date">
+                    </div>
+                </div>
+
+
+                <!-- Passengers -->
+
+
+
+                <!-- Class -->
+                <div class="flight-field">
+                    <i class="fa-solid fa-chair field-icon"></i>
+
+                    <div class="field-content">
+                        <label>CLASS</label>
+
+                        <select>
+                            <option>Economy</option>
+                            <option>Premium Economy</option>
+                            <option>Business</option>
+                            <option>First Class</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <button class="search-flight">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                Search Flights
+            </button>
+
+        </div>
+
+    </section>
 
     <!-- ABOUT / JOURNEY SECTION -->
 
@@ -244,62 +371,7 @@
 
 
     <!-- above-------------------------------------------- -->
-    <!-- <section class="flight-search">
 
-        <div class="search-card">
-
-            <div class="search-tabs">
-                <button class="active">Round trip</button>
-                <button>One way</button>
-                <button>Multi-city</button>
-            </div>
-
-            <div class="search-fields">
-
-                <div class="field">
-                    <span class="field-label">From</span>
-                    <select id="country" name="country">
-                        <option value="">Select a country</option>
-                        <option value="afghanistan">Afghanistan</option>
-                        <option value="korea">South Korea</option>
-                        <option value="kazakhstan">Kazakhstan</option>
-                        <option value="usa">United States</option>
-                    </select>
-
-                    <small>KBL · Afghanistan</small>
-                </div>
-
-                <div class="swap">⇄</div>
-
-                <div class="field">
-                    <span class="field-label">To</span>
-                    <select id="country" name="country">
-                        <option value="">Select a country</option>
-                        <option value="afghanistan">Afghanistan</option>
-                        <option value="korea">South Korea</option>
-                        <option value="kazakhstan">Kazakhstan</option>
-                        <option value="usa">United States</option>
-                    </select>
-                    <small>DXB · United Arab Emirates</small>
-                </div>
-
-                <div class="field">
-                    <span class="field-label">Departure</span>
-
-                    <strong><input type="date" id="date"></strong>
-                </div>
-
-
-
-                <button class="search-button">
-                    Search flights
-                </button>
-
-            </div>
-
-        </div>
-
-    </section> -->
 
 
     <!-- catagories------------------------------------------ -->
@@ -416,7 +488,7 @@
         <div class="gallery_grid">
 
 
-            <!-- Image 1 -->
+            <!-- Image 1 ------------------------->
             <div class="gallery_item">
                 <img src="image/e348e29320fe406a75d105a5073d3cd1.jpg" alt="">
                 <a href="#lb-1" class="gallery_zoom" aria-label="Open image">
@@ -424,7 +496,7 @@
                 </a>
             </div>
 
-            <!-- Image 2 -->
+            <!-- Image 2 ------------------->
             <div class="gallery_item">
                 <img src="image/ab0bc7120f51d78b8d050cf33059e6ac.jpg" alt="">
                 <a href="#lb-2" class="gallery_zoom" aria-label="Open image">
@@ -432,7 +504,7 @@
                 </a>
             </div>
 
-            <!-- Image 3 -->
+            <!-- Image 3 --------------------->
             <div class="gallery_item">
                 <img src="image/913fd5b33ff5c9b2f201b8286c5f17c3.jpg" alt="">
                 <a href="#lb-3" class="gallery_zoom" aria-label="Open image">
@@ -440,7 +512,7 @@
                 </a>
             </div>
 
-            <!-- Image 4 -->
+            <!-- Image 4 --------------->
             <div class="gallery_item">
                 <img src="image/599416ffa5885e697cd82a8fecb0a498.jpg" alt="">
                 <a href="#lb-4" class="gallery_zoom" aria-label="Open image">
@@ -448,7 +520,7 @@
                 </a>
             </div>
 
-            <!-- Image 5 -->
+            <!-- Image 5 ---------------->
             <div class="gallery_item">
                 <img src="image/f2c6ca21ffaf37202acb91c1e205d4b1.jpg" alt="">
                 <a href="#lb-5" class="gallery_zoom" aria-label="Open image">
@@ -456,7 +528,7 @@
                 </a>
             </div>
 
-            <!-- Image 6 -->
+            <!-- Image 6 --------------->
             <div class="gallery_item">
                 <img src="image/a56f514dbc1a2c732226821b3e1d8c89.jpg" alt="">
                 <a href="#lb-6" class="gallery_zoom" aria-label="Open image">
@@ -464,7 +536,7 @@
                 </a>
             </div>
 
-            <!-- Image 7 -->
+            <!-- Image 7 ------------->
             <div class="gallery_item">
                 <img src="image/80ef86d1ce4d86195e5f0ba41f3f4a0b.jpg" alt="">
                 <a href="#lb-7" class="gallery_zoom" aria-label="Open image">
@@ -475,7 +547,7 @@
         </div>
     </div>
 
-    <!-- Lightbox 1 -->
+    <!-- Lightbox 1---------------- -->
     <div id="lb-1" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -487,7 +559,7 @@
     </div>
 
 
-    <!-- Lightbox 2 -->
+    <!-- Lightbox 2 -------------------->
     <div id="lb-2" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -499,7 +571,7 @@
     </div>
 
 
-    <!-- Lightbox 3 -->
+    <!-- Lightbox 3 ------------------->
     <div id="lb-3" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -511,7 +583,7 @@
     </div>
 
 
-    <!-- Lightbox 4 -->
+    <!-- Lightbox 4 ------------------------->
     <div id="lb-4" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -523,7 +595,7 @@
     </div>
 
 
-    <!-- Lightbox 5 -->
+    <!-- Lightbox 5 -------------------->
     <div id="lb-5" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -535,7 +607,7 @@
     </div>
 
 
-    <!-- Lightbox 6 -->
+    <!-- Lightbox 6 ------------------->
     <div id="lb-6" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -547,7 +619,7 @@
     </div>
 
 
-    <!-- Lightbox 7 -->
+    <!-- Lightbox 7 ---------------->
     <div id="lb-7" class="lightbox">
         <a href="#gallery" class="lightbox_backdrop" aria-label="close"></a>
 
@@ -561,13 +633,13 @@
 
 
     <!-- expernace========================------------------------- -->
-    <!-- WHY CHOOSE US SECTION -->
+
 
     <section class="benefits-section" id="benefits">
 
         <div class="benefits-container">
 
-            <!-- Section Heading -->
+            <!-- Section Heading =====------------------------------------------------>
             <div class="benefits-heading">
                 <span>THE AIRPLAN EXPERIENCE</span>
                 <h2>
@@ -581,7 +653,7 @@
                 </p>
             </div>
 
-            <!-- Benefit Cards -->
+            <!-- Benefit Cards ------------------------------------->
             <div class="benefits-grid">
 
                 <div class="benefit-card">
@@ -634,7 +706,7 @@
 
             </div>
 
-            <!-- Decorative Side -->
+            <!-- Decorative Side ------------------------------>
             <div class="benefits-side">
                 <span class="side-circle"></span>
                 <span class="side-number">04</span>
@@ -650,8 +722,7 @@
 
 
     <!-- coutomar------------------------------ -->
-    <!-- coutomar------------------------------ -->
-    <!-- TESTIMONIAL -->
+
     <section class="testimonial section" id="testimonial">
         <h2 class="section--title">What Are<br>They Saying?</h2>
 
@@ -659,7 +730,7 @@
 
             <!-- Image -->
             <div class="testimonial--image">
-                <img id="testimonialImage" src="image/599416ffa5885e697cd82a8fecb0a498.jpg" alt="">
+                <img id="testimonialImage" src="image/913fd5b33ff5c9b2f201b8286c5f17c3.jpg" alt="">
             </div>
 
             <!-- Content -->
@@ -698,63 +769,152 @@
 
 
     <!-- logo and sporting  -->
-     <!-- Integration Section -->
-<section class="integration-section">
 
-    <h2 class="title">Seamless Integration<br>with Your Existing Systems</h2>
+    <section class="integration-section">
 
-    <div class="logos-container">
+        <h2 class="title">Seamless Integration<br>with Your Existing Systems</h2>
 
-        <div class="logo-item">
-            <img src="image/oracle logo.jpg" alt="Oracle">
+        <div class="logos-container">
+
+            <div class="logo-item">
+                <img src="image/oracle logo.jpg" alt="Oracle">
+            </div>
+
+            <div class="logo-item1">
+                <img src="https://cdn.simpleicons.org/sap" alt="SAP">
+            </div>
+
+            <div class="logo-item">
+                <span class="swiss-logo">IFS</span>
+                <small>AviationSoftware</small>
+            </div>
+
+            <div class="logo-item">
+                <img src="image/swiss logo.jpg" alt="IFS">
+            </div>
+
+            <div class="logo-item">
+                <span class="ramco-logo">ramco</span>
+            </div>
+
+
+            <div class="logo-item">
+                <span class="amos-logo">AMOS ✦</span>
+            </div>
+
+            <div class="logo-item">
+                <span class="tray-logo">Tray</span>
+            </div>
+
+            <div class="logo-item">
+                <span class="avsight-logo">➤ AvSight</span>
+            </div>
+
+            <div class="logo-item">
+                <span class="cc-logo">◉CC</span>
+            </div>
+
+            <div class="logo-item">
+                <span class="rusada-logo">◢ Rusada</span>
+            </div>
+
         </div>
 
-        <div class="logo-item1">
-            <img src="https://cdn.simpleicons.org/sap" alt="SAP">
+        <p class="more-text">and more...</p>
+
+    </section>
+
+
+
+    <!-- footer------------------------------ -->
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <!-- Logo & About -->
+            <div class="footer-box">
+                <h2 class="footer-logo">
+                    <i class="fa-solid fa-plane-departure"></i>
+                    Skyline
+                </h2>
+
+                <p>
+                    Your journey starts with Skyline.
+                    Discover flights, destinations and unforgettable travel experiences.
+                </p>
+
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+
+
+            <!-- Quick Links -->
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+
+                <a href="#home">Home</a>
+                <a href="#flights">Flights</a>
+                <a href="#destinations">Destinations</a>
+                <a href="#hotels">Hotels</a>
+            </div>
+
+
+            <!-- Travel -->
+            <div class="footer-box">
+                <h3>Travel</h3>
+
+                <a href="#">
+                    <i class="fa-solid fa-plane"></i> Book a Flight
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-search"></i>Search Flight
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-location-dot"></i> Destinations
+                </a>
+
+                <a href="#">
+                    <i class="fa-solid fa-suitcase"></i> Travel Guide
+                </a>
+            </div>
+
+
+            <!-- Support -->
+            <div class="footer-box">
+                <h3>Support</h3>
+
+                <a href="#">Help Center</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
         </div>
 
-        <div class="logo-item">
-            <span class="swiss-logo">✚ SWISS</span>
-            <small>AviationSoftware</small>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 Skyline. All rights reserved.
+            </p>
+
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+
         </div>
 
-        <div class="logo-item">
-            <img src="image/swiss logo.jpg" alt="IFS">
-        </div>
-
-        <div class="logo-item">
-            <span class="ramco-logo">ramco</span>
-        </div>
-
-
-        <div class="logo-item">
-            <span class="amos-logo">AMOS ✦</span>
-        </div>
-
-        <div class="logo-item">
-            <span class="tray-logo">Tray</span>
-        </div>
-
-        <div class="logo-item">
-            <span class="avsight-logo">➤ AvSight</span>
-        </div>
-
-        <div class="logo-item">
-            <span class="cc-logo">◉CC</span>
-        </div>
-
-        <div class="logo-item">
-            <span class="rusada-logo">◢ Rusada</span>
-        </div>
-
-    </div>
-
-    <p class="more-text">and more...</p>
-
-</section>
-
-
-
+    </footer>
 
 
 

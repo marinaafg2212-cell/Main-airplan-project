@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline in everywhere</title>
+    <title>Airplanes | Explore Flights and Aviation</title>
+
+    <meta name="description"
+        content="Explore airplanes, flights, destinations, airlines, and useful information for your next journey.">
+
+    <meta property="og:title" content="Airplanes | Explore Flights and Aviation">
+
+
+    <!-- font and icons----------------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+    <!-- css ------------------------------------------------------>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <!-- other links=----------------------- -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/searchFlight.css">
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+    <!-- ------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">✈</span>
+            <span>Skyline</span>
+
+        </a>
+        <input type="checkbox" id="menu-check">
+
+        <label for="menu-check" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <nav class="nav-links">
+            <!-- nav-------------------------------------------------- -->
+            <div class="nav-item">
+                <a href="./index.html">Home</a>
+                <a href="searchFlight.html" class="active">Search Flights</a>
+                <a href="#">Track Flight</a>
+                <a href="#">About</a>
+                <a href="#">FAQ</a>
+
+            </div>
+            <!-- Simple mobile nav panel -->
+            <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
+                <ul
+                    style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
+                    <li><a href="#hero-slider" style="display:block;padding:10px 8px;font-weight:600;">Home</a>
+                    </li>
+                    <li><a href="destinations.html" style="display:block;padding:10px 8px;font-weight:600;">Search
+                            Flights</a>
+                    </li>
+                    <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Track Flight</a>
+                    </li>
+                    <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
+                    </li>
+                    <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
+                    </li>
+                    <li><a href="#cars" style="display:block;padding:10px 8px;font-weight:600;">Log in/a></li>
+                    <li><a href="#business-registration"
+                            style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
+                </ul>
+            </div>
+
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="#" class="try-button">Log in</a>
+            <a href="#" class="try-button">Register</a>
+        </div>
+
+    </header>
+
+    <!-- search part -->
+    <section class="flight-search1">
+
+        <div class="search-fields1">
+
+
+            <div class="search-box1 trip-box1">
+                <label>TRIP TYPE</label>
+
+                <select>
+                    <option>One Way</option>
+                    <option>Round Trip</option>
+                </select>
+            </div>
+
+
+
+            <div class="search-box1">
+                <label>FROM</label>
+                <input type="text">
+            </div>
+
+
+
+            <button class="swap-flight1">
+                <i class="fa-solid fa-right-left"></i>
+            </button>
+
+
+
+            <div class="search-box1">
+                <label>TO</label>
+                <input type="text">
+            </div>
+
+
+
+            <div class="search-box1">
+                <label>DEPART</label>
+
+                <input type="date">
+            </div>
+
+
+
+
+
+
+            <div class="search-box1">
+                <label>CABIN CLASS</label>
+
+                <select>
+                    <option>Economy</option>
+                    <option>Premium Economy</option>
+                    <option>Business</option>
+                    <option>First Class</option>
+                </select>
+            </div>
+
+
+            <!-- Search -->
+            <button class="search-flight1">
+                SEARCH
+            </button>
+
+        </div>
+
+
+
+    </section>
+
+    <!-- box--------------------- -->
+
+
+
+    <section class="flight-results1">
+
+
+
+        <!-- RESULTS AREA -->
+        <div class="results-layout1">
+
+
+
+            <aside class="flight-sidebar1">
+
+
+
+
+                <!-- Popular Filters---------------- -->
+
+                <div class="popular-filter1">
+
+                    <div class="filter-heading">
+                        <h3>Popular Filters</h3>
+                       
+                    </div>
+
+                    <div class="filter-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Search">
+                    </div>
+
+
+                    <label class="check-option">
+                        <input type="checkbox">
+                        <span>1 Stop</span>
+                        <b>17</b>
+                    </label>
+
+                    <label class="check-option">
+                        <input type="checkbox">
+                        <span>Non Stop</span>
+                        <b>12</b>
+                    </label>
+
+                    <label class="check-option">
+                        <input type="checkbox">
+                        <span>Morning Flights</span>
+                        <b>8</b>
+                    </label>
+
+                    <label class="check-option">
+                        <input type="checkbox">
+                        <span>Evening Flights</span>
+                        <b>10</b>
+                    </label>
+
+                    <div class="filter-heading">
+                        <h3>Price Range</h3>
+                      
+                    </div>
+
+                    <div class="price-values">
+                        <span>$80</span>
+                        <span>$500</span>
+                    </div>
+
+                    <input type="range" min="80" max="1000" value="300">
+                    <br>
+                    <br>
+
+                    <h3>Airlines</h3>
+
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Emirates</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Lufthansa</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">American Airlines</span>
+                    </label>
+
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Air France</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">British Airways</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Qatar Airways</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Delta Airlines</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Turkish Airlines</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">Cathay Airlines</span>
+                    </label>
+                    <label class="check-option">
+
+                        <input type="checkbox">
+                        <span><img src="" alt="">United Airlines</span>
+                    </label>
+                    <label class="check-option">
+
+
+                </div>
+
+
+                <!-- Price Filter --------------------------------->
+
+
+
+            </aside>
+
+
+
+            <main class="flight-main1">
+
+<!-- js need---------------------------------------------------------------------- -->
+                <div></div>
+
+
+
+                <div class="promo-row1">
+
+                    <div class="promo-card1">
+                        <div class="promo-icon">
+                            <i class="fa-solid fa-ticket"></i>
+                        </div>
+
+                        <div>
+                            <h4>FLIGHT10</h4>
+                            <p>Get up to $25 off on your flight</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right promo-arrow"></i>
+                    </div>
+
+
+                    <div class="promo-card1">
+                        <div class="promo-icon">
+                            <i class="fa-solid fa-tag"></i>
+                        </div>
+
+                        <div>
+                            <h4>FLYSAFE</h4>
+                            <p>Save more on your flight booking</p>
+                        </div>
+
+                        <i class="fa-solid fa-chevron-right promo-arrow"></i>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="special-fare1">
+
+                    <div class="special-icon">
+                        <i class="fa-solid fa-user-graduate"></i>
+                    </div>
+
+                    <div>
+                        <h4>Special fares are available</h4>
+                        <p>
+                            Additional discounts may be available for eligible travellers.
+                        </p>
+                    </div>
+
+                </div>
+
+
+
+            </main>
+        </div>
+    </section>
+
+
+
+</body>
+
+</html>
