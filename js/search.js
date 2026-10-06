@@ -1,11 +1,3 @@
-/* =========================================================
-   SKYLINE FLIGHT SEARCH SYSTEM
-========================================================= */
-
-
-/* =========================================================
-   COUNTRIES
-========================================================= */
 
 const countries = [
     "Afghanistan",
@@ -225,9 +217,7 @@ const countries = [
 ];
 
 
-/* =========================================================
-   AIRLINES
-========================================================= */
+
 
 const airlines = [
     "Emirates",
@@ -253,9 +243,7 @@ const airlines = [
 ];
 
 
-/* =========================================================
-   AIRLINE CODES
-========================================================= */
+
 
 const airlineCodes = {
     "Emirates": "EK",
@@ -281,9 +269,7 @@ const airlineCodes = {
 };
 
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+
 
 const fromCountry = document.getElementById("from-country");
 const toCountry = document.getElementById("to-country");
@@ -340,9 +326,7 @@ const airlineFilters =
     document.getElementById("airline-filters");
 
 
-/* =========================================================
-   APPLICATION STATE
-========================================================= */
+
 
 let searched = false;
 
@@ -355,9 +339,7 @@ let currentPage = 1;
 const flightsPerPage = 5;
 
 
-/* =========================================================
-   CREATE COUNTRY OPTIONS
-========================================================= */
+
 
 function populateCountries() {
 
@@ -384,9 +366,6 @@ function populateCountries() {
 }
 
 
-/* =========================================================
-   CREATE AIRLINE FILTERS
-========================================================= */
 
 function createAirlineFilters() {
 
@@ -413,9 +392,6 @@ function createAirlineFilters() {
 }
 
 
-/* =========================================================
-   TRIP TYPE
-========================================================= */
 
 tripTypeInputs.forEach(input => {
 
@@ -437,9 +413,7 @@ tripTypeInputs.forEach(input => {
 });
 
 
-/* =========================================================
-   COUNTRY SWAP
-========================================================= */
+
 
 swapButton.addEventListener("click", function () {
 
@@ -452,9 +426,7 @@ swapButton.addEventListener("click", function () {
 });
 
 
-/* =========================================================
-   GET TRIP TYPE
-========================================================= */
+
 
 function getTripType() {
 
@@ -469,13 +441,7 @@ function getTripType() {
 }
 
 
-/* =========================================================
-   GENERATE FLIGHTS
-=========================================================
 
-   اینجا برای تمام کشورها پرواز تولید می‌شود.
-   لازم نیست برای هر کشور دستی کارت بنویسیم.
-========================================================= */
 
 function generateFlights(from, to, selectedClass) {
 
@@ -486,10 +452,7 @@ function generateFlights(from, to, selectedClass) {
     }
 
 
-    /*
-       برای هر مسیر چند Airline انتخاب می‌کنیم.
-       این باعث می‌شود هر Route چند Flight داشته باشد.
-    */
+   
 
     const selectedAirlines = [
         airlines[
@@ -518,9 +481,7 @@ function generateFlights(from, to, selectedClass) {
     ];
 
 
-    /*
-       ساعت‌های مختلف
-    */
+//    time-----------------------------------
 
     const flightTimes = [
         {
@@ -565,9 +526,7 @@ function generateFlights(from, to, selectedClass) {
             airlineCodes[airline] || "SK";
 
 
-        /*
-           قیمت بر اساس کلاس
-        */
+        
 
         let basePrice = 250 + index * 85;
 
@@ -584,10 +543,7 @@ function generateFlights(from, to, selectedClass) {
         }
 
 
-        /*
-           مدت پرواز تصادفی نیست؛
-           بر اساس route به صورت محاسباتی ساخته می‌شود.
-        */
+       
 
         const durationHours =
             3 + ((from.length + to.length + index) % 9);
@@ -661,9 +617,7 @@ function generateFlights(from, to, selectedClass) {
 }
 
 
-/* =========================================================
-   SEARCH FLIGHTS
-========================================================= */
+
 
 function searchFlights() {
 
@@ -760,9 +714,7 @@ function searchFlights() {
 }
 
 
-/* =========================================================
-   GET SELECTED TIME FILTERS
-========================================================= */
+
 
 function getSelectedTimeFilters() {
 
@@ -775,9 +727,6 @@ function getSelectedTimeFilters() {
 }
 
 
-/* =========================================================
-   GET SELECTED AIRLINES
-========================================================= */
 
 function getSelectedAirlines() {
 
@@ -790,9 +739,7 @@ function getSelectedAirlines() {
 }
 
 
-/* =========================================================
-   APPLY ALL FILTERS
-========================================================= */
+
 
 function applyFilters() {
 
@@ -864,9 +811,7 @@ function applyFilters() {
 }
 
 
-/* =========================================================
-   SORT
-========================================================= */
+
 
 function applySorting() {
 
@@ -910,9 +855,6 @@ function applySorting() {
 }
 
 
-/* =========================================================
-   RENDER FLIGHTS
-========================================================= */
 
 function renderFlights() {
 
@@ -1001,9 +943,7 @@ function renderFlights() {
 }
 
 
-/* =========================================================
-   CREATE FLIGHT CARD
-========================================================= */
+
 
 function createFlightCard(flight) {
 
@@ -1148,9 +1088,7 @@ function createFlightCard(flight) {
 }
 
 
-/* =========================================================
-   PAGINATION
-========================================================= */
+
 
 function createPagination() {
 
@@ -1221,9 +1159,6 @@ function createPagination() {
 }
 
 
-/* =========================================================
-   SELECT FLIGHT
-========================================================= */
 
 function selectFlight(id) {
 
@@ -1252,9 +1187,6 @@ function selectFlight(id) {
 }
 
 
-/* =========================================================
-   SEARCH BUTTON
-========================================================= */
 
 searchButton.addEventListener(
     "click",
@@ -1262,9 +1194,7 @@ searchButton.addEventListener(
 );
 
 
-/* =========================================================
-   TIME FILTERS
-========================================================= */
+
 
 document
     .querySelectorAll(".time-filter")
@@ -1287,10 +1217,6 @@ document
 
     });
 
-
-/* =========================================================
-   AIRLINE FILTERS
-========================================================= */
 
 document.addEventListener(
     "change",
@@ -1316,9 +1242,7 @@ document.addEventListener(
 );
 
 
-/* =========================================================
-   PRICE FILTER
-========================================================= */
+
 
 minPrice.addEventListener(
     "input",
@@ -1352,9 +1276,7 @@ maxPrice.addEventListener(
 );
 
 
-/* =========================================================
-   SORT CHANGE
-========================================================= */
+
 
 sortFlights.addEventListener(
     "change",
@@ -1370,9 +1292,6 @@ sortFlights.addEventListener(
 );
 
 
-/* =========================================================
-   CLEAR FILTERS
-========================================================= */
 
 clearFilters.addEventListener(
     "click",
@@ -1412,9 +1331,6 @@ clearFilters.addEventListener(
 );
 
 
-/* =========================================================
-   EMPTY RESET
-========================================================= */
 
 emptyReset.addEventListener(
     "click",
@@ -1445,18 +1361,12 @@ emptyReset.addEventListener(
 );
 
 
-/* =========================================================
-   INITIALIZE
-========================================================= */
 
 populateCountries();
 
 createAirlineFilters();
 
 
-/* =========================================================
-   DEFAULT DATE
-========================================================= */
 
 const today =
     new Date();
