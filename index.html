@@ -49,10 +49,7 @@
 
 
     <!-- ------------------------------------------------->
-     <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
-/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
@@ -204,15 +201,38 @@
     <br>
     <br>
     <br>
-    <section class="flight-search">
+    <section id="search--flight" class="search--flight">
+
         <div class="search--content">
             <h1>Find Your Perfect Flight</h1>
             <p>Search and book to destinations worldwide with our easy-to-use platform</p>
         </div>
-        <div class="flight-search">
 
-            <!-- Trip Type -->
-            <div class="trip-type">
+
+        <!-- guick search-------------------- -->
+
+
+        <!-- Quick Search -->
+        <div class="search-quick">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input type="search" id="flight-search" placeholder="Search Flights...">
+
+            <button type="button" id="search-btn">Search</button>
+
+        </div>
+
+
+
+    </section>
+    <!-- 
+        <div class="flight-search">
+            <form class="Quick-search-panel" id="Quick-search-panel"></form> -->
+
+    <!-- Trip Type -->
+
+    <!-- <div class="trip-type">
                 <button class="trip-btn active">
                     <i class="fa-solid fa-right-left"></i>
                     Round Trip
@@ -225,10 +245,10 @@
             </div>
 
 
-            <div class="search-fields">
+            <div class="search-fields"> -->
 
-                <!-- From -->
-                <div class="flight-field">
+    <!-- From -->
+    <!-- <div class="flight-field">
                     <i class="fa-solid fa-plane-departure field-icon"></i>
 
                     <div class="field-content">
@@ -249,11 +269,11 @@
                             <option>New York (JFK)</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
 
 
-                <!-- To -->
-                <div class="flight-field">
+    <!-- To -->
+    <!-- <div class="flight-field">
                     <i class="fa-solid fa-plane-arrival field-icon"></i>
 
                     <div class="field-content">
@@ -274,26 +294,26 @@
                             <option>New York (JFK)</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
 
 
-                <!-- Date -->
-                <div class="flight-field">
+    <!-- Date -->
+    <!-- <div class="flight-field">
                     <i class="fa-solid fa-calendar-days field-icon"></i>
 
                     <div class="field-content">
                         <label>DEPARTURE</label>
                         <input type="date">
                     </div>
-                </div>
+                </div> -->
 
 
-                <!-- Passengers -->
+    <!-- Passengers -->
 
 
 
-                <!-- Class -->
-                <div class="flight-field">
+    <!-- Class -->
+    <!-- <div class="flight-field">
                     <i class="fa-solid fa-chair field-icon"></i>
 
                     <div class="field-content">
@@ -316,9 +336,9 @@
                 Search Flights
             </button>
 
-        </div>
-
-    </section>
+        </div> -->
+    <!-- 
+    </section> -->
 
     <!-- ABOUT / JOURNEY SECTION -->
 
@@ -923,5 +943,6 @@
 <script src="js/slider.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="js/javascript.js"></script>
+<script src="js/search.js"></script>
 
 </html>

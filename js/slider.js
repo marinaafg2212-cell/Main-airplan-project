@@ -1,6 +1,4 @@
-// ================================
-// HERO SLIDER
-// ================================
+
 
 (function () {
 
@@ -190,7 +188,12 @@
         startAutoplay();
 
     }
+    function restartAutoplay() {
+        stopAutoplay();
+        startAutoplay();
+    }
 
+  
 
     // Initialize after HTML loads
     document.addEventListener(
