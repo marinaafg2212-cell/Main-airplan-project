@@ -452,36 +452,36 @@ function generateFlights(from, to, selectedClass) {
     }
 
 
-   
+
 
     const selectedAirlines = [
         airlines[
-            Math.floor(
-                Math.random() * airlines.length
-            )
+        Math.floor(
+            Math.random() * airlines.length
+        )
         ],
 
         airlines[
-            Math.floor(
-                Math.random() * airlines.length
-            )
+        Math.floor(
+            Math.random() * airlines.length
+        )
         ],
 
         airlines[
-            Math.floor(
-                Math.random() * airlines.length
-            )
+        Math.floor(
+            Math.random() * airlines.length
+        )
         ],
 
         airlines[
-            Math.floor(
-                Math.random() * airlines.length
-            )
+        Math.floor(
+            Math.random() * airlines.length
+        )
         ]
     ];
 
 
-//    time-----------------------------------
+    //    time-----------------------------------
 
     const flightTimes = [
         {
@@ -526,7 +526,7 @@ function generateFlights(from, to, selectedClass) {
             airlineCodes[airline] || "SK";
 
 
-        
+
 
         let basePrice = 250 + index * 85;
 
@@ -543,7 +543,7 @@ function generateFlights(from, to, selectedClass) {
         }
 
 
-       
+
 
         const durationHours =
             3 + ((from.length + to.length + index) % 9);
@@ -901,10 +901,9 @@ function renderFlights() {
 
 
     resultsCount.textContent =
-        `${filteredFlights.length} flight${
-            filteredFlights.length !== 1
-                ? "s"
-                : ""
+        `${filteredFlights.length} flight${filteredFlights.length !== 1
+            ? "s"
+            : ""
         } found`;
 
 

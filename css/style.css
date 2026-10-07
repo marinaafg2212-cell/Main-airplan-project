@@ -136,6 +136,43 @@ h4 {
     z-index: 700;
 }
 
+.navbar nav a {
+    position: relative;
+
+    text-decoration: none;
+
+    color: var(--text-light);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.navbar nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--blue);
+
+    transition: 0.25s;
+}
+
+.navbar nav a:hover {
+    color: var(--blue);
+}
+
+.navbar nav a:hover::after {
+    width: 100%;
+}
+
 .logo {
     display: flex;
     align-items: center;
@@ -1075,8 +1112,8 @@ h4 {
     width: 80%;
     max-width: 1200px;
     margin: 40px auto;
-    
-    
+
+
 }
 
 
@@ -1086,14 +1123,15 @@ h4 {
     display: flex;
     gap: 8px;
     margin-bottom: 20px;
-  
+
 }
-.flight-search{
-      background: #F7F9FC;
-      padding: 20px;
-      border-radius: 20px;
+
+.flight-search {
+    background: #F7F9FC;
+    padding: 20px;
+    border-radius: 20px;
     border: 1px solid #fff;
-      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.1);
 }
 
 .trip-btn {
@@ -1123,7 +1161,7 @@ h4 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    
+
 }
 
 .flight-field {
@@ -2443,6 +2481,7 @@ footer {
     }
 
 }
+
 /* Search Button */
 
 .search-quick button {

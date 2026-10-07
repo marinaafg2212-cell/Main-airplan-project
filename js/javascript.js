@@ -3,7 +3,7 @@ const testimonials = [
         title: "An Unforgettable Journey",
         description:
             "My journey with Airplan was amazing. Everything was smooth and comfortable. I enjoyed every moment of my trip and discovered beautiful places.",
-       
+
         profile: "image/4eae151a0ff83952a46f1ac1d2c8ea2d.jpg",
         name: "Marina",
         job: "Happy Traveler"
@@ -13,7 +13,7 @@ const testimonials = [
         title: "A Wonderful Experience",
         description:
             "Flying with Airplan made my trip easy and relaxing. The service was excellent, the journey was comfortable, and everything felt perfectly organized.",
-      
+
         profile: "image/banner2.jpg",
         name: "Sarah",
         job: "Adventure Traveler"
@@ -23,7 +23,7 @@ const testimonials = [
         title: "Memories I Will Never Forget",
         description:
             "This was one of the best travel experiences I have ever had. From booking my flight to arriving at my destination, everything was simple and enjoyable.",
-        
+
         profile: "image/banner1.jpg",
         name: "Daniel",
         job: "World Traveler"
@@ -33,7 +33,7 @@ const testimonials = [
         title: "Travel Made Beautiful",
         description:
             "Airplan helped me discover a beautiful destination without any stress. The whole experience was comfortable, smooth, and full of unforgettable moments.",
-       
+
         profile: "image/banner3.jpg",
         name: "Sophia",
         job: "Travel Lover"
@@ -58,7 +58,7 @@ const nextBtn = document.getElementById("nextBtn");
 
 function goTo(index) {
 
-  
+
     if (index >= testimonials.length) {
         current = 0;
     }
