@@ -1,0 +1,755 @@
+/* =========================================================
+   AIRPLAN — LOGIN / REGISTER
+   Luxury Travel Authentication
+========================================================= */
+
+:root {
+    --navy: #061c2c;
+    --navy-2: #0b2739;
+    --navy-3: #193347;
+
+    --blue: #1769e0;
+    --blue-dark: #0d4fae;
+    --blue-light: #eef6ff;
+
+    --white: #ffffff;
+    --off-white: #f7f9fc;
+
+    --text-dark: #0b1728;
+    --text: #334155;
+    --muted: #718096;
+
+    --border: #dce4ec;
+
+    --shadow:
+        0 25px 70px rgba(6, 26, 53, 0.18);
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #eef2f6;
+    color: var(--text-dark);
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.auth-container {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eef3f7 0%,
+            #f8fafc 50%,
+            #e9eff4 100%
+        );
+}
+
+
+/* =========================================================
+   AUTH BOX
+========================================================= */
+
+.auth-box {
+    width: min(1120px, 100%);
+    min-height: 650px;
+
+    display: grid;
+    grid-template-columns: 55% 45%;
+
+    background: var(--white);
+
+    border-radius: 26px;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow);
+
+    position: relative;
+}
+
+
+/* =========================================================
+   FORM SIDE
+========================================================= */
+
+.forms-container {
+    position: relative;
+
+    min-height: 650px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+
+.form {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    padding: 65px 75px;
+
+    transition:
+        transform .65s ease,
+        opacity .45s ease;
+}
+
+
+.form-content {
+    width: min(410px, 100%);
+    margin: auto;
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.back-home {
+    position: absolute;
+
+    top: 30px;
+    left: 38px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    color: #6d7b89;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: .3s;
+}
+
+.back-home i {
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+.back-home:hover {
+    color: var(--blue);
+}
+
+.back-home:hover i {
+    transform: translateX(-4px);
+}
+
+
+/* =========================================================
+   FORM ICON
+========================================================= */
+
+.form-icon {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: var(--navy);
+
+    color: white;
+
+    border-radius: 16px;
+
+    font-size: 21px;
+
+    margin-bottom: 24px;
+
+    box-shadow:
+        0 12px 25px rgba(6, 28, 44, .18);
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.form h1 {
+    color: var(--text-dark);
+
+    font-size: 35px;
+
+    font-weight: 800;
+
+    letter-spacing: -1.2px;
+
+    margin-bottom: 8px;
+}
+
+.form-subtitle {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    margin-bottom: 32px;
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    color: var(--text-dark);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .2px;
+}
+
+.input-group label i {
+    color: var(--blue);
+
+    font-size: 12px;
+}
+
+
+.input-wrapper {
+    position: relative;
+}
+
+
+.input-wrapper input {
+    width: 100%;
+
+    height: 53px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: #fafbfd;
+
+    color: var(--text-dark);
+
+    padding: 0 16px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    transition: .3s;
+}
+
+.input-wrapper input:hover {
+    border-color: #b9c9d8;
+}
+
+.input-wrapper input:focus {
+    background: white;
+
+    border-color: var(--blue);
+
+    box-shadow:
+        0 0 0 3px rgba(23, 105, 224, .08);
+}
+
+.input-wrapper input::placeholder {
+    color: #a0acb8;
+}
+
+
+/* =========================================================
+   PASSWORD EYE
+========================================================= */
+
+.password-toggle {
+    position: absolute;
+
+    right: 17px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: #8b98a5;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    transition: .25s;
+}
+
+.password-toggle:hover {
+    color: var(--blue);
+}
+
+
+/* =========================================================
+   MAIN BUTTON
+========================================================= */
+
+.main-btn {
+    width: 100%;
+    height: 54px;
+
+    margin-top: 5px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--navy);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: .2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s,
+        transform .3s,
+        box-shadow .3s;
+}
+
+.main-btn:hover {
+    background: var(--blue);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(23, 105, 224, .22);
+}
+
+.main-btn i {
+    font-size: 12px;
+
+    transition: .3s;
+}
+
+.main-btn:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   MOBILE SWITCH
+========================================================= */
+
+.mobile-switch {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.mobile-switch button {
+    border: none;
+
+    background: none;
+
+    color: var(--blue);
+
+    font-family: inherit;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    margin-left: 3px;
+}
+
+.mobile-switch button:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   RIGHT SLIDER
+========================================================= */
+
+.slider-container {
+    position: relative;
+
+    overflow: hidden;
+
+    background: var(--navy);
+}
+
+
+/* Decorative lines */
+
+.slider-container::before {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    border: 1px solid rgba(255,255,255,.09);
+
+    border-radius: 50%;
+
+    top: -170px;
+    right: -180px;
+}
+
+.slider-container::after {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    border: 1px solid rgba(255,255,255,.06);
+
+    border-radius: 50%;
+
+    bottom: -170px;
+    left: -150px;
+}
+
+
+/* =========================================================
+   SLIDER PANEL
+========================================================= */
+
+.slider-panel {
+    width: 200%;
+    height: 100%;
+
+    display: flex;
+
+    position: relative;
+
+    z-index: 2;
+
+    transition:
+        transform .7s cubic-bezier(.77, 0, .18, 1);
+}
+
+
+.slider-content {
+    width: 50%;
+
+    flex-shrink: 0;
+
+    padding: 70px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    color: white;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   TRAVEL MARK
+========================================================= */
+
+.panel-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 35px;
+
+    border: 1px solid rgba(255,255,255,.25);
+
+    color: white;
+
+    font-size: 27px;
+
+    position: relative;
+}
+
+
+/* little corner */
+
+.panel-icon::after {
+    content: "";
+
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    right: -5px;
+    top: -5px;
+
+    background: var(--blue);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   RIGHT TITLE
+========================================================= */
+
+.slider-content h2 {
+    max-width: 350px;
+
+    font-size: 42px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    margin-bottom: 18px;
+}
+
+
+.slider-content p {
+    max-width: 350px;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   SMALL TRAVEL LABEL
+========================================================= */
+
+.slider-content::before {
+    content: "AIRPLAN  /  TRAVEL";
+
+    position: absolute;
+
+    top: 35px;
+    right: 45px;
+
+    color: rgba(255,255,255,.35);
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   OUTLINE BUTTON
+========================================================= */
+
+.outline-btn {
+    min-width: 155px;
+
+    height: 49px;
+
+    padding: 0 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,.45);
+
+    color: white;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+.outline-btn:hover {
+    background: white;
+
+    color: var(--navy);
+
+    border-color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+    text-align: center;
+
+    min-height: 18px;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   REGISTER FORM
+========================================================= */
+
+.register-form {
+    transform: translateX(100%);
+
+    opacity: 0;
+}
+
+
+/* =========================================================
+   WHEN REGISTER IS ACTIVE
+
+   اگر JavaScript تو کلاس register-active را
+   روی auth-box می‌گذارد، این بخش کار می‌کند.
+========================================================= */
+
+.auth-box.register-active .login-form {
+    transform: translateX(-100%);
+
+    opacity: 0;
+}
+
+.auth-box.register-active .register-form {
+    transform: translateX(0);
+
+    opacity: 1;
+}
+
+.auth-box.register-active .slider-panel {
+    transform: translateX(-50%);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .auth-box {
+        grid-template-columns: 1fr;
+
+        max-width: 560px;
+    }
+
+    .slider-container {
+        display: none;
+    }
+
+    .forms-container {
+        min-height: 680px;
+    }
+
+    .form {
+        padding: 70px 45px 45px;
+    }
+}
+
+
+@media (max-width: 500px) {
+
+    .auth-container {
+        padding: 15px;
+    }
+
+    .auth-box {
+        border-radius: 18px;
+    }
+
+    .forms-container {
+        min-height: 650px;
+    }
+
+    .form {
+        padding: 70px 25px 35px;
+    }
+
+    .form h1 {
+        font-size: 30px;
+    }
+
+    .back-home {
+        left: 25px;
+    }
+}

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <title>Skyline in everywhere</title>
+    <title>Airplanes | Explore Flights and Aviation</title>
+
+    <meta name="description"
+        content="Explore airplanes, flights, destinations, airlines, and useful information for your next journey.">
+
+    <meta property="og:title" content="Airplanes | Explore Flights and Aviation">
+
+
+    <!-- font and icons----------------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+    <!-- css ------------------------------------------------------>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/login.css">
+  
+
+
+
+    <!-- other links=----------------------- -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+    <!-- ------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+
+</head>
+
+<body>
+<main class="auth-container">
+
+    <section class="auth-box">
+
+        <!-- ================= FORM SECTION ================= -->
+        <div class="forms-container">
+
+            <!-- LOGIN -->
+            <div class="form login-form">
+
+                <a href="../index.html" class="back-home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>Back to Home</span>
+                </a>
+
+                <div class="form-content">
+
+                    <div class="form-icon">
+                        <i class="fa-solid fa-plane-departure"></i>
+                    </div>
+
+                    <h1>Welcome Back</h1>
+
+                    <p class="form-subtitle">
+                        Login to continue your journey
+                    </p>
+
+                    <form id="loginForm">
+
+                        <div class="input-group">
+                            <label>
+                                <i class="fa-regular fa-envelope"></i>
+                                Email Address
+                            </label>
+
+                            <div class="input-wrapper">
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>
+                                <i class="fa-solid fa-lock"></i>
+                                Password
+                            </label>
+
+                            <div class="input-wrapper">
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    required
+                                >
+
+                                <i class="fa-regular fa-eye password-toggle"></i>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="main-btn">
+                            Login
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+
+                        <p id="loginMessage" class="message"></p>
+
+                    </form>
+
+                    <p class="mobile-switch">
+                        Don't have an account?
+                        <button id="showRegister">
+                            Register
+                        </button>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- REGISTER -->
+            <div class="form register-form">
+
+                <div class="form-content">
+
+                    <div class="form-icon">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+
+                    <h1>Create Account</h1>
+
+                    <p class="form-subtitle">
+                        Start your journey with us
+                    </p>
+
+                    <form id="registerForm">
+
+                        <div class="input-group">
+
+                            <label>
+                                <i class="fa-regular fa-user"></i>
+                                Full Name
+                            </label>
+
+                            <div class="input-wrapper">
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    placeholder="Enter your full name"
+                                    required
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                <i class="fa-regular fa-envelope"></i>
+                                Email Address
+                            </label>
+
+                            <div class="input-wrapper">
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                <i class="fa-solid fa-lock"></i>
+                                Password
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="Create a password"
+                                    required
+                                >
+
+                                <i class="fa-regular fa-eye password-toggle"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="input-group">
+
+                            <label>
+                                <i class="fa-solid fa-shield-halved"></i>
+                                Confirm Password
+                            </label>
+
+                            <div class="input-wrapper">
+
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm your password"
+                                    required
+                                >
+
+                                <i class="fa-regular fa-eye password-toggle"></i>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="main-btn">
+
+                            Create Account
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </button>
+
+                        <p id="registerMessage" class="message"></p>
+
+                    </form>
+
+
+                    <p class="mobile-switch">
+
+                        Already have an account?
+
+                        <button id="showLogin">
+                            Login
+                        </button>
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= SLIDER PANEL ================= -->
+
+        <div class="slider-container">
+
+            <div class="slider-panel">
+
+                <!-- LOGIN PANEL -->
+                <div class="slider-content login-panel">
+
+                    <div class="panel-icon">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+
+                    <h2>Hello, Traveler!</h2>
+
+                    <p>
+                        Don't have an account yet?
+                        Create one and start exploring
+                        amazing destinations around the world.
+                    </p>
+
+                    <button class="outline-btn" id="registerBtn">
+
+                        Register
+
+                        <i class="fa-solid fa-user-plus"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- REGISTER PANEL -->
+                <div class="slider-content register-panel">
+
+                    <div class="panel-icon">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+
+                    <h2>Welcome Back!</h2>
+
+                    <p>
+                        Already have an account?
+                        Login and continue your journey
+                        with us.
+                    </p>
+
+                    <button class="outline-btn" id="loginBtn">
+
+                        <i class="fa-solid fa-arrow-left"></i>
+
+                        Login
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+</body>
+
+</html>

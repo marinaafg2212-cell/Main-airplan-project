@@ -82,7 +82,7 @@ body {
    
 }
 .search-box{
-    padding: 10px 5px;
+  padding-top: 1px;
 }
 
 .search-content {
@@ -110,8 +110,8 @@ body {
     background: white;
 
     border-radius: 18px;
-
-    padding: 25px;
+margin-bottom: 5px;
+    padding: 23px;
 
     display: grid;
 
@@ -238,7 +238,7 @@ body {
 }
 
 .search-btn:hover {
-    background: #1d4ed8;
+    background: black;
     transform: translateY(-1px);
 }
 
@@ -852,3 +852,6 @@ body {
         flex-wrap: wrap;
     }
 }
+
+
+
