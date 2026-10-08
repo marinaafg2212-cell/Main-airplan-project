@@ -28,7 +28,7 @@
 
     <!-- css ------------------------------------------------------>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/track.css">
+    <link rel="stylesheet" href="css/faq.css">
 
 
 
@@ -58,12 +58,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
 
 
-
-
+    <link rel="stylesheet" href="css/explore.css">
 </head>
 
-
 <body>
+
     <header class="navbar">
 
         <a href="#" class="logo">
@@ -79,13 +78,12 @@
         <nav class="nav-links">
             <!-- nav-------------------------------------------------- -->
             <div class="nav-item">
-                <a href="index.html" class="active">Home</a>
+                <a href="index.html">Home</a>
                 <a href="searchFlight.html">Search Flights</a>
-                <a href="#">Track Flight</a>
-              
+                <a href="explore.html" class="active">Explore Flight</a>
                 <a href="#">About</a>
-                 <a href="contect.html" >Contect</a>
-                <a href="#">FAQ</a>
+                <a href="contect.html">Contect</a>
+                <a href="faq.html">FAQ</a>
 
             </div>
             <!-- Simple mobile nav panel -->
@@ -109,6 +107,8 @@
                 </ul>
             </div>
 
+
+
         </nav>
 
 
@@ -122,123 +122,171 @@
 
 
 
-    <section>
+    <!-- HERO -->
 
-        <canvas id="map"></canvas>
+    <section class="hero">
 
+        <div class="hero-text">
 
-        <div class="top">
+            <span class="small-title">
+                FLIGHT EXPLORER
+            </span>
 
-            <div class="logo">
-                ✈ FLIGHT TRACKER
-            </div>
-
-            <div class="info">
-                Live Flights:
-                <span id="flightCount">200</span>
-            </div>
-
-        </div>
-
-
-        <div id="selected">
-
-            <h3 id="flightName">
-                Flight HZ001
-            </h3>
+            <h1>
+                Explore Flights
+            </h1>
 
             <p>
-                Airline:
-                <b id="airline">
-                    Horizon Air
-                </b>
-            </p>
-
-            <p>
-                Altitude:
-                <b id="altitude">
-                    35,000 ft
-                </b>
-            </p>
-
-            <p>
-                Speed:
-                <b id="speed">
-                    850 km/h
-                </b>
+                Discover available flights, destinations,
+                airlines and flight details in one place.
             </p>
 
         </div>
 
 
-        <div class="flight-card">
-
-            <div class="route">
-
-                <div class="airport">
-                    KBL
-                    <small>Kabul</small>
-                </div>
-
-                <div class="plane-big">
-                    ✈
-                </div>
-
-                <div class="airport">
-                    DXB
-                    <small>Dubai</small>
-                </div>
-
-            </div>
-
-            <div class="progress-bg">
-
-                <div id="progress" class="progress">
-                </div>
-
-            </div>
-
-            <div class="details">
-
-                <span>
-                    Status:
-                    <b>In Flight</b>
-                </span>
-
-                <span>
-                    Altitude:
-                    <b>35,000 ft</b>
-                </span>
-
-                <span>
-                    Speed:
-                    <b>850 km/h</b>
-                </span>
-
-            </div>
-
-        </div>
 
 
-        <div class="controls">
-
-            <button id="plus">
-                +
-            </button>
-
-            <button id="minus">
-                −
-            </button>
-
-            <button id="reset">
-                ⌂
-            </button>
-
-        </div>
     </section>
 
 
+    <!-- FLIGHTS -->
+
+    <main class="container">
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <span><i class=" fa fa-search"></i></span>
+
+            <input type="text" id="flightSearch" placeholder="Search flight, airline or destination...">
+
+        </div>
+
+        <div class="section-title">
+
+            <div>
+                <span>AVAILABLE FLIGHTS</span>
+
+                <h2>
+                    Explore available flights
+                </h2>
+            </div>
+
+            <div class="flight-count">
+                <b id="flightCount">0</b>
+                Flights
+            </div>
+
+        </div>
+
+
+        <div id="flightList" class="flight-list">
+        </div>
+
+    </main>
+
+
+    <!-- DETAILS MODAL -->
+
+    <div id="flightModal" class="modal">
+
+        <div class="modal-box">
+
+            <button id="closeModal" class="close">
+                ×
+            </button>
+
+
+            <span class="modal-label">
+                FLIGHT DETAILS
+            </span>
+
+
+            <h2 id="modalFlight">
+                HZ001
+            </h2>
+
+
+            <p id="modalAirline" class="modal-airline">
+                Horizon Air
+            </p>
+
+
+            <div class="modal-route">
+
+                <div>
+                    <strong id="modalFrom">
+                        KBL
+                    </strong>
+
+                    <span id="modalFromCity">
+                        Kabul
+                    </span>
+                </div>
+
+
+                <div class="modal-plane">
+                    ✈
+                </div>
+
+
+                <div class="destination">
+
+                    <strong id="modalTo">
+                        DXB
+                    </strong>
+
+                    <span id="modalToCity">
+                        Dubai
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-info">
+
+                <div>
+                    <span>Status</span>
+                    <b>Scheduled</b>
+                </div>
+
+                <div>
+                    <span>Departure</span>
+                    <b id="modalDeparture">
+                        10:30 AM
+                    </b>
+                </div>
+
+                <div>
+                    <span>Arrival</span>
+                    <b id="modalArrival">
+                        12:45 PM
+                    </b>
+                </div>
+
+                <div>
+                    <span>Duration</span>
+                    <b id="modalDuration">
+                        2h 15m
+                    </b>
+                </div>
+
+            </div>
+
+
+            <button id="trackButton" class="track-button">
+                View Flight
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/explore.js"></script>
+
 </body>
 
-<script src="js/track.js"></script>
 </html>
