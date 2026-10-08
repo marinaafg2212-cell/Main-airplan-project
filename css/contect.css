@@ -1,6 +1,4 @@
-/* =========================================================
-   CONTACT HERO
-========================================================= */
+
 
 .contact-hero {
     width: 100%;
@@ -99,7 +97,7 @@
 
     color: #1769e0;
 
-    font-size: 9px;
+    font-size: 10px;
 
     font-weight: 800;
 
@@ -107,7 +105,7 @@
 }
 
 .contact-label i {
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .contact-form-area h2,
@@ -116,7 +114,7 @@
 
     color: #19324d;
 
-    font-size: 28px;
+    font-size: 30px;
 
     letter-spacing: -.6px;
 }
@@ -126,7 +124,7 @@
 
     color: #65758a;
 
-    font-size: 12px;
+    font-size: 13px;
 
     line-height: 1.7;
 }
@@ -164,7 +162,7 @@
 
     color: #19324d;
 
-    font-size: 10px;
+    font-size: 14px;
 
     font-weight: 700;
 }
@@ -172,7 +170,7 @@
 .form-group label i {
     color: #1769e0;
 
-    font-size: 10px;
+    font-size: 11px;
 }
 
 .form-group label span {
@@ -200,7 +198,7 @@
 
     color: #9aabba;
 
-    font-size: 12px;
+    font-size: 13px;
 
     pointer-events: none;
 }
@@ -222,7 +220,7 @@
 
     color: #19324d;
 
-    font-size: 12px;
+    font-size: 13px;
 
     transition: .25s;
 }
@@ -257,7 +255,7 @@
 
     color: #8b99aa;
 
-    font-size: 10px;
+    font-size: 11px;
 
     pointer-events: none;
 }
@@ -279,7 +277,7 @@
 
     color: #9aabba;
 
-    font-size: 12px;
+    font-size: 13px;
 }
 
 .textarea-box textarea {
@@ -303,7 +301,7 @@
 
     font-family: Arial, sans-serif;
 
-    font-size: 12px;
+    font-size: 13px;
 
     line-height: 1.6;
 
@@ -346,7 +344,7 @@
 
     cursor: pointer;
 
-    font-size: 11px;
+    font-size: 12px;
 
     font-weight: 800;
 
@@ -360,6 +358,10 @@
     background: #1255b8;
 
     transform: translateY(-2px);
+}
+
+.contact-submit i {
+    font-size: 13px;
 }
 
 
@@ -412,7 +414,7 @@
 
     color: #1769e0;
 
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .info-card h3 {
@@ -420,7 +422,7 @@
 
     color: #19324d;
 
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .info-card p {
@@ -428,7 +430,7 @@
 
     color: #65758a;
 
-    font-size: 11px;
+    font-size: 12px;
 
     line-height: 1.5;
 }
@@ -455,7 +457,7 @@
 
     color: #19324d;
 
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .social-icons {
@@ -482,7 +484,7 @@
 
     text-decoration: none;
 
-    font-size: 12px;
+    font-size: 13px;
 
     transition: .25s;
 }

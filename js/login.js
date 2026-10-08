@@ -29,6 +29,15 @@ if(showLogin){
 if(loginBtn){
     loginBtn.addEventListener("click",showLoginForm)
 }
+if (showLogin) {
+    showLogin.addEventListener("click", showLoginForm);
+}
+if (showRegister) {
+    showRegister.addEventListener("click", showRegisterForm);
+}
+
+
+
 
 
 // get users
@@ -338,7 +347,7 @@ function requireLogin() {
 
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href =
+            window.location.href ="inedx.html";
                 "loginForm.html";
 
         }
