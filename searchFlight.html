@@ -7,45 +7,8 @@
 
     <title>Skyline - Search Flights</title>
 
-
-    <meta name="description"
-        content="Explore airplanes, flights, destinations, airlines, and useful information for your next journey.">
-
-    <meta property="og:title" content="Airplanes | Explore Flights and Aviation">
-
-
-    <!-- font and icons----------------------------------------- -->
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-
-
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-
-
-
-
-
-    <!-- css ------------------------------------------------------>
-
-
-
     <link rel="stylesheet" href="css/searchFlight.css">
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -65,15 +28,17 @@
         <nav class="nav-links">
             <!-- nav-------------------------------------------------- -->
             <div class="nav-item">
-                <a href="index.html">Home</a>
-                <a href="searchFlight.html" class="active">Search Flights</a>
+                <a href="index.html" >Home</a>
+                <a href="searchFlight.html"class="active">Search Flights</a>
                 <a href="#">Track Flight</a>
+           
                 <a href="#">About</a>
-                <a href="#">FAQ</a>
+                 <a href="contect.html" >Contect</a>
+                <a href="fga.html">FAQ</a>
 
             </div>
             <!-- Simple mobile nav panel -->
-            <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
+           <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
                 <ul
                     style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
                     <li><a href="index.html" style="display:block;padding:10px 8px;font-weight:600;">Home</a>
@@ -82,17 +47,17 @@
                             Flights</a>
                     </li>
                     <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Track Flight</a>
+                    <li><a href="contect.html" style="display:block;padding:10px 8px;font-weight:600;">contect</a>
                     </li>
                     <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
                     </li>
                     <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
                     </li>
-                    <li><a href="./New folder/login.html" style="display:block;padding:10px 8px;font-weight:600;">Log in
-                    </a></li>
-                    <li><a href="./New folder/login.html"
-                            style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
+                    <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Log in</a></li>
+                    <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
                 </ul>
             </div>
+
 
 
         </nav>
@@ -100,8 +65,8 @@
 
         <div class="nav-actions">
 
-            <a href="./New folder/login.html" class="try-button">Log in</a>
-            <a href="./New folder/login.html" class="try-button">Register</a>
+            <a href="login.html" class="try-button">Log in</a>
+            <a href="login.html" class="try-button">Register</a>
         </div>
 
     </header>
@@ -111,20 +76,16 @@
 
     <main>
 
+        <!-- ================= SEARCH SECTION ================= -->
 
         <section class="search--flight">
 
 
 
-            <div class="search--content">
-                <h1>Find Your Perfect Flight</h1>
-
-            </div>
-
 
             <div class="search-box">
 
-
+                <!-- TRIP TYPE -->
 
                 <div class="trip-type">
 
@@ -141,7 +102,7 @@
                 </div>
 
 
-
+                <!-- FROM -->
 
                 <div class="search-field">
 
@@ -154,14 +115,14 @@
                 </div>
 
 
-
+                <!-- SWAP -->
 
                 <button type="button" id="swap-btn" class="swap-btn" title="Swap countries">
                     ⇄
                 </button>
 
 
-
+                <!-- TO -->
 
                 <div class="search-field">
 
@@ -174,7 +135,7 @@
                 </div>
 
 
-
+                <!-- DEPARTURE -->
 
                 <div class="search-field">
 
@@ -185,7 +146,7 @@
                 </div>
 
 
-
+                <!-- RETURN -->
 
                 <div class="search-field" id="return-field">
 
@@ -196,7 +157,7 @@
                 </div>
 
 
-
+                <!-- CLASS -->
 
                 <div class="search-field">
 
@@ -221,7 +182,7 @@
                 </div>
 
 
-
+                <!-- SEARCH BUTTON -->
 
                 <button type="button" id="search-flight-btn" class="search-btn">
                     Search Flights
@@ -233,11 +194,11 @@
 
 
 
-
+        <!-- ================= RESULTS ================= -->
 
         <section class="results-section">
 
-
+            <!-- SIDEBAR -->
 
             <aside class="filter-sidebar">
 
@@ -252,6 +213,7 @@
                 </div>
 
 
+                <!-- POPULAR FILTER -->
 
                 <div class="filter-group">
 
@@ -280,7 +242,7 @@
                 </div>
 
 
-
+                <!-- AIRLINES -->
 
                 <div class="filter-group">
 
@@ -291,7 +253,7 @@
                 </div>
 
 
-
+                <!-- PRICE -->
 
                 <div class="filter-group">
 
@@ -310,7 +272,7 @@
             </aside>
 
 
-
+            <!-- RESULTS -->
 
             <div class="results-container">
 
@@ -352,12 +314,12 @@
                 </div>
 
 
-
+                <!-- CARDS -->
 
                 <div id="flight-results" class="flight-results"></div>
 
 
-
+                <!-- EMPTY -->
 
                 <div id="empty-message" class="empty-message" style="display:none;">
 
@@ -379,7 +341,7 @@
                 </div>
 
 
-
+                <!-- PAGINATION -->
 
                 <div id="pagination" class="pagination"></div>
 

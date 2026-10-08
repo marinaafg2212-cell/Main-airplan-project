@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skyline in everywhere</title>
+    <title>Airplanes | Explore Flights and Aviation</title>
+
+    <meta name="description"
+        content="Explore airplanes, flights, destinations, airlines, and useful information for your next journey.">
+
+    <meta property="og:title" content="Airplanes | Explore Flights and Aviation">
+
+
+    <!-- font and icons----------------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+    <!-- css ------------------------------------------------------>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/contect.css">
+
+
+
+    <!-- other links=----------------------- -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+    <!-- ------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+
+
+</head>
+
+<body>
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">✈</span>
+            <span>Skyline</span>
+
+        </a>
+        <input type="checkbox" id="menu-check">
+
+        <label for="menu-check" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <nav class="nav-links">
+            <!-- nav-------------------------------------------------- -->
+            <div class="nav-item">
+                <a href="index.html">Home</a>
+                <a href="searchFlight.html">Search Flights</a>
+                <a href="#">Track Flight</a>
+               
+                <a href="#">About</a>
+            <a href="contect.html" class="active">Contect</a>
+                <a href="faq.html">FAQ</a>
+
+            </div>
+            <!-- Simple mobile nav panel -->
+            <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
+                <ul
+                    style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
+                    <li><a href="index.html" style="display:block;padding:10px 8px;font-weight:600;">Home</a>
+                    </li>
+                    <li><a href="searchFlight.html" style="display:block;padding:10px 8px;font-weight:600;">Search
+                            Flights</a>
+                    </li>
+                    <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Track Flight</a>
+                    <li><a href="contect.html" style="display:block;padding:10px 8px;font-weight:600;">contect</a>
+                    </li>
+                    <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
+                    </li>
+                    <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
+                    </li>
+                    <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Log in</a></li>
+                    <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
+                </ul>
+            </div>
+
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="try-button">Log in</a>
+            <a href="login.html" class="try-button">Register</a>
+        </div>
+
+    </header>
+
+    <!-- ================= CONTACT HERO ================= -->
+
+    <section class="contact-hero">
+
+        <div class="contact-hero-content">
+
+            <div class="contact-icon">
+                <i class="fa-solid fa-headset"></i>
+            </div>
+
+            <h1>Get in Touch</h1>
+
+            <p>
+                Have questions about your booking or need travel assistance?
+                We're here to help 24/7.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT SECTION ================= -->
+
+    <section class="contact-section">
+
+        <div class="contact-container">
+
+            <!-- ================= MESSAGE FORM ================= -->
+
+            <div class="contact-form-area">
+
+                <span class="contact-label">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    CONTACT US
+                </span>
+
+                <h2>Send us a Message</h2>
+
+                <p class="contact-description">
+                    Fill out the form below and our support team will
+                    get back to you as soon as possible.
+                </p>
+
+
+                <form class="contact-form">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                <i class="fa-solid fa-user"></i>
+                                Full Name <span>*</span>
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="fa-solid fa-user"></i>
+
+                                <input type="text" placeholder="John Doe">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email Address <span>*</span>
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="fa-solid fa-envelope"></i>
+
+                                <input type="email" placeholder="john@example.com">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label>
+                                <i class="fa-solid fa-phone"></i>
+                                Phone Number
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                <input type="tel" placeholder="+1 (555) 123-4567">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                <i class="fa-solid fa-list"></i>
+                                Subject <span>*</span>
+                            </label>
+
+                            <div class="input-box">
+
+                                <i class="fa-solid fa-list"></i>
+
+                                <select>
+
+                                    <option value="">
+                                        Select a subject
+                                    </option>
+
+                                    <option>
+                                        Booking Question
+                                    </option>
+
+                                    <option>
+                                        Payment
+                                    </option>
+
+                                    <option>
+                                        Flight Information
+                                    </option>
+
+                                    <option>
+                                        Cancellation
+                                    </option>
+
+                                    <option>
+                                        Other
+                                    </option>
+
+                                </select>
+
+                                <i class="fa-solid fa-chevron-down select-arrow"></i>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            <i class="fa-solid fa-ticket"></i>
+                            Booking Reference (if applicable)
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-ticket"></i>
+
+                            <input type="text" placeholder="ABC123">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label>
+                            <i class="fa-solid fa-message"></i>
+                            Message <span>*</span>
+                        </label>
+
+                        <div class="textarea-box">
+
+                            <i class="fa-solid fa-message"></i>
+
+                            <textarea placeholder="How can we help you?"></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button type="submit" class="contact-submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                        Send Message
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- ================= CONTACT INFORMATION ================= -->
+
+            <aside class="contact-info">
+
+                <span class="contact-label">
+                    <i class="fa-solid fa-address-card"></i>
+                    SUPPORT
+                </span>
+
+                <h2>Contact Information</h2>
+
+
+                <!-- SUPPORT CARD -->
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>24/7 Customer Support</h3>
+
+                        <p>
+                            <strong>Phone:</strong>
+                            +1 234 567 890
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            support@skyline.com
+                        </p>
+
+                        <p>
+                            <strong>Live Chat:</strong>
+                            Available 24/7 on our website
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL CARD -->
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>Email Us</h3>
+
+                        <p>
+                            General:
+                            support@skyline.com
+                        </p>
+
+                        <p>
+                            Booking:
+                            booking@skyline.com
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- OFFICE CARD -->
+
+                <div class="info-card">
+
+                    <div class="info-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>Our Office</h3>
+
+                        <p>
+                            123 Skyline Street
+                        </p>
+
+                        <p>
+                            Kabul, Afghanistan
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOCIAL -->
+
+                <div class="contact-social">
+
+                    <h3>Follow Us</h3>
+
+                    <div class="social-icons">
+
+                        <a href="#">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

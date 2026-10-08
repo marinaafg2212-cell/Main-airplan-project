@@ -1,231 +1,215 @@
 const authBox = document.querySelector(".auth-box");
-const registerBtn = document.querySelector("#registerBtn");
-const loginBtn = document.querySelector("#loginBtn");
-const showRegister = document.querySelector("#showRegister");
-const showLogin = document.querySelector("#showLogin");
+const registerBtn = document.getElementById("registerBtn");
+const loginBtn = document.getElementById("loginBtn");
+const showRegister = document.getElementById("showRegister");
+const showLogin = document.getElementById("showLogin");
 
-const USER_KEY = "fl_user";
-const CURRENT_USER_KEY = "fl_current_user";
 
-function showRegisterFrom() {
+const USER_KEY = "aw_users";
+const CURRENT_USER_KEY = "aw_current_user";
+
+function showRegisterForm(){
     authBox.classList.add("register-active");
 }
 
-function showLoginFrom() {
+function showLoginForm(){
     authBox.classList.remove("register-active");
 }
 
-if (showRegister) {
-    showRegister.addEventListener("click", showRegisterFrom);
+if(showRegister){
+    registerBtn.addEventListener("click",showRegisterForm)
 }
 
-if (registerBtn) {
-    registerBtn.addEventListener("click", showRegisterFrom);
+if(registerBtn){
+    registerBtn.addEventListener("click",showRegisterForm)
+}
+if(showLogin){
+    loginBtn.addEventListener("click",showLoginForm)
+}
+if(loginBtn){
+    loginBtn.addEventListener("click",showLoginForm)
 }
 
-if (showLogin) {
-    showLogin.addEventListener("click", showLoginFrom);
-}
 
-if (loginBtn) {
-    loginBtn.addEventListener("click", showLoginFrom);
-}
+// get users
 
-
-// get user
-function getUsers() {
+function getUsers(){
     return JSON.parse(
         localStorage.getItem(USER_KEY)
     ) || [];
 }
 
-
 // save users
-function saveUser(users) {
+
+function saveUsers(users){
     localStorage.setItem(
         USER_KEY,
         JSON.stringify(users)
-    );
+    )
 }
 
+// get current user
 
-// get current users
-function getCurrentUser() {
+function getCurrentUser(){
     return JSON.parse(
-        sessionStorage.getItem(
-            CURRENT_USER_KEY
-        )
-    ) || null;
+       sessionStorage.getItem(
+        CURRENT_USER_KEY
+       ) 
+    )|| null;
 }
-
 
 // check login
-function isLoggendIn() {
-    return getCurrentUser() != null;
+function isLoggedIn(){
+    return getCurrentUser() == null;
 }
 
 
-// save current user
-function setCurrent(user) {
+// seve current user
+
+function setCurrentUser(user){
     const sessionUser = {
         id: user.id,
-        name: user.name,
-        email: user.email
+        name:user.name,
+        email:user.email
     };
 
     sessionStorage.setItem(
         CURRENT_USER_KEY,
         JSON.stringify(sessionUser)
-    );
+    )
 }
 
-
 // logout
-function logoutUser() {
+function logoutUser(){
     sessionStorage.removeItem(
         CURRENT_USER_KEY
     );
-
-    window.location.href = "index.html";
+    window.location.href ="index.html";
 }
 
 
 // register
-const registerFrom = document.getElementById("registerForm");
 
-if (registerFrom) {
+const registerForm = document.getElementById("registerForm");
 
-    registerFrom.addEventListener(
-        "submit",
-        function (event) {
+registerForm.addEventListener("submit",
+    function (event){
+        event.preventDefault();
 
-            event.preventDefault();
+        const name = document.getElementById("registerName").value.trim();
+        const email = document.getElementById("registerEmail").value.trim().toLowerCase();
+        const password = document.getElementById("registerPassword").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
 
-            const name =
-                document.getElementById("registerName").value.trim();
+        const users = getUsers();
 
-            const email =
-                document.getElementById("registerEmail").value.trim().toLowerCase();
+        const existingUser = users.find(
+            user=>
+                user.email === email 
+        );
 
-            const password =
-                document.getElementById("registerPassword").value;
-
-            const confirmPassword =
-                document.getElementById("confirmPassword").value;
-
-            const users = getUsers();
-
-            const existingUser = users.find(
-                user =>
-                    user.email === email
-            );
-
-            if (existingUser) {
-
-                Swal.fire({
-                    icon: "warning",
-                    title: "Email Already Exists",
-                    text: "This email is already registered.",
-                    confirmButtonText: "OK",
-                    confirmButtonColor: "#043170"
-                });
-
-                return;
-            }
-
-
-            // password
-
-            if (password.length < 6) {
-
-                Swal.fire({
-                    icon: "error",
-                    title: "Weak Password",
-                    text: "Password must contain at least 6 characters.",
-                    confirmButtonText: "Try Again",
-                    confirmButtonColor: "#043170"
-                });
-
-                return;
-            }
-
-
-            // c_password
-
-            if (password !== confirmPassword) {
-
-                Swal.fire({
-                    icon: "error",
-                    title: "Passwords Do Not Match",
-                    text: "Passwords do not match.",
-                    confirmButtonText: "Try Again",
-                    confirmButtonColor: "#043170"
-                });
-
-                return;
-            }
-
-
-            // create getting users
-
-            const newUser = {
-                id: Date.now(),
-                name: name,
-                email: email,
-                password: password,
-                role: 0,
-                createAt: new Date().toISOString(),
-                emailVerified: true
-            };
-
-
-            // add user
-            users.push(newUser);
-
-
-            // save to local storage
-            saveUser(users);
-
-
+        if(existingUser){
             Swal.fire({
-                icon: "success",
-                title: "Account Created!",
-                text: `Welcome ${name}! Your account was created.`,
-                confirmButtonText: "Continue",
-                confirmButtonColor: "#043170"
-
-            }).then(() => {
-
-                registerFrom.reset();
-                showLoginFrom();
-
+                icon: "warning",
+                title:"Email Already Exsits",
+                text: "This email is already registerd.",
+                confirmButtonText: "OK",
+                confirmButtoncolor:"#043170"
             });
-
+            return;
         }
-    );
-}
+
+        // password
+        if(password.length < 6){
+            Swal.fire({
+                icon: "error",
+                title:"Weak Password",
+                text: "Password must contain at least 6 characters.",
+                confirmButtonText: "Try Again",
+                confirmButtoncolor:"#043170"
+            });
+            return;
+        }
+
+         // C_password
+        if(password !== confirmPassword){
+            Swal.fire({
+                icon: "error",
+                title:"Password Mismatch",
+                text: "Password must contain at least 6 characters.",
+                confirmButtonText: "Try Again",
+                confirmButtoncolor:"#043170"
+            });
+            return;
+        }
+
+        // create 
 
 
-// login
+        // 0 = user
+        // 1 = editor
+        // 2 = Manager
+        // 3 = Admin
 
-const loginFrom = document.getElementById("loginForm");
+        const newUser = {
+            id: Date.now(),
+            name:name,
+            email:email,
+            password:password,
+            role:0,
+            createAt: new Date().toISOString()
+        }
+        // add user
+        users.push(newUser);
 
-if (loginFrom) {
+        // save to local stroge
+        saveUsers(users);
 
-    loginFrom.addEventListener(
+        Swal.fire({
+            icon: "success",
+            title: "Account Created!",
+            text: `Welcome ${name}! Your account has been created successfully.`,
+            confirmButtonText: "Continue",
+            confirmButtonColor: "#043170"
+        }).then(()=>{
+            registerForm.reset();
+            showLoginForm();
+        })
+    }
+);
+
+// login---------------
+const loginForm =
+    document.getElementById("loginForm");
+
+
+if (loginForm) {
+
+    loginForm.addEventListener(
         "submit",
         function (event) {
 
             event.preventDefault();
 
+
             const email =
-                document.getElementById("loginEmail").value.trim().toLowerCase();
+                document.getElementById(
+                    "loginEmail"
+                ).value.trim().toLowerCase();
+
 
             const password =
-                document.getElementById("loginPassword").value;
+                document.getElementById(
+                    "loginPassword"
+                ).value;
 
+
+       
 
             const users = getUsers();
+
+
+     
 
             const user =
                 users.find(
@@ -235,44 +219,72 @@ if (loginFrom) {
                 );
 
 
+           
+
             if (!user) {
 
                 Swal.fire({
+
                     icon: "error",
+
                     title: "Login Failed",
-                    text: "Invalid email or password.",
-                    confirmButtonText: "Continue",
+
+                    text:
+                        "Invalid email or password.",
+
+                    confirmButtonText: "Try Again",
+
                     confirmButtonColor: "#043170"
+
                 });
 
                 return;
             }
 
 
-            if (user.emailVerified === false) {
+           
+
+            if (
+                user.emailVerified === false
+            ) {
 
                 Swal.fire({
-                    icon: "error",
+
+                    icon: "warning",
+
                     title: "Email Not Verified",
-                    text: "Please verify your email first.",
-                    confirmButtonText: "Continue",
-                    confirmButtonColor: "#043170"
+
+                    text:
+                        "Please verify your email before logging in.",
+
+                    confirmButtonText:
+                        "OK",
+
+                    confirmButtonColor:
+                        "#043170"
+
                 });
 
                 return;
             }
+
 
 
             if (
-                user.role == undefined ||
-                user.role == null
+                user.role === undefined ||
+                user.role === null
             ) {
+
                 user.role = 0;
+
             }
 
 
-            setCurrent(user);
 
+            setCurrentUser(user);
+
+
+         
 
             localStorage.setItem(
                 "loginTime",
@@ -280,22 +292,62 @@ if (loginFrom) {
             );
 
 
-            window.location.href = "index.html";
+         
+
+            Swal.fire({
+
+                icon: "success",
+
+                title:
+                    `Welcome, ${user.name}!`,
+
+                text:
+                    getRoleName(user.role),
+
+                timer: 1500,
+
+                showConfirmButton: false
+
+            }).then(() => {
+
+                window.location.href =
+                    "index.html";
+
+            });
 
         }
     );
+
 }
 
 
 function requireLogin() {
 
-    if (isLoggendIn()) {
+    if (isLoggedIn()) {
         return true;
     }
 
+    Swal.fire({
+        icon: "info",
+        title: "Login Required",
+        text:
+            "Please login first to use this feature.",
+        showCancelButton: true,
+        confirmButtonText: "Login",
+        cancelButtonText: "Cancel"
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href =
+                "loginForm.html";
+
+        }
+    });
+
     return false;
 }
-// ================= PASSWORD SHOW / HIDE =================
+
+// eye show
 
 const passwordToggles = document.querySelectorAll(".password-toggle");
 
@@ -324,4 +376,3 @@ passwordToggles.forEach(function (toggle) {
     });
 
 });
-

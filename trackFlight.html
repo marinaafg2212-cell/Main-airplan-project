@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skyline in everywhere</title>
+    <title>Airplanes | Explore Flights and Aviation</title>
+
+    <meta name="description"
+        content="Explore airplanes, flights, destinations, airlines, and useful information for your next journey.">
+
+    <meta property="og:title" content="Airplanes | Explore Flights and Aviation">
+
+
+    <!-- font and icons----------------------------------------- -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+        rel="stylesheet">
+
+
+
+
+
+    <!-- css ------------------------------------------------------>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/track.css">
+
+
+
+    <!-- other links=----------------------- -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+
+
+
+    <!-- ------------------------------------------------->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+
+
+
+</head>
+
+
+<body>
+    <header class="navbar">
+
+        <a href="#" class="logo">
+            <span class="logo-icon">✈</span>
+            <span>Skyline</span>
+
+        </a>
+        <input type="checkbox" id="menu-check">
+
+        <label for="menu-check" class="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <nav class="nav-links">
+            <!-- nav-------------------------------------------------- -->
+            <div class="nav-item">
+                <a href="index.html" class="active">Home</a>
+                <a href="searchFlight.html">Search Flights</a>
+                <a href="#">Track Flight</a>
+              
+                <a href="#">About</a>
+                 <a href="contect.html" >Contect</a>
+                <a href="#">FAQ</a>
+
+            </div>
+            <!-- Simple mobile nav panel -->
+            <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
+                <ul
+                    style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
+                    <li><a href="index.html" style="display:block;padding:10px 8px;font-weight:600;">Home</a>
+                    </li>
+                    <li><a href="searchFlight.html" style="display:block;padding:10px 8px;font-weight:600;">Search
+                            Flights</a>
+                    </li>
+                    <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Track Flight</a>
+                    <li><a href="contect.html" style="display:block;padding:10px 8px;font-weight:600;">contect</a>
+                    </li>
+                    <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
+                    </li>
+                    <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
+                    </li>
+                    <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Log in</a></li>
+                    <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
+                </ul>
+            </div>
+
+        </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="try-button">Log in</a>
+            <a href="login.html" class="try-button">Register</a>
+        </div>
+
+    </header>
+
+
+
+    <section>
+
+        <canvas id="map"></canvas>
+
+
+        <div class="top">
+
+            <div class="logo">
+                ✈ FLIGHT TRACKER
+            </div>
+
+            <div class="info">
+                Live Flights:
+                <span id="flightCount">200</span>
+            </div>
+
+        </div>
+
+
+        <div id="selected">
+
+            <h3 id="flightName">
+                Flight HZ001
+            </h3>
+
+            <p>
+                Airline:
+                <b id="airline">
+                    Horizon Air
+                </b>
+            </p>
+
+            <p>
+                Altitude:
+                <b id="altitude">
+                    35,000 ft
+                </b>
+            </p>
+
+            <p>
+                Speed:
+                <b id="speed">
+                    850 km/h
+                </b>
+            </p>
+
+        </div>
+
+
+        <div class="flight-card">
+
+            <div class="route">
+
+                <div class="airport">
+                    KBL
+                    <small>Kabul</small>
+                </div>
+
+                <div class="plane-big">
+                    ✈
+                </div>
+
+                <div class="airport">
+                    DXB
+                    <small>Dubai</small>
+                </div>
+
+            </div>
+
+            <div class="progress-bg">
+
+                <div id="progress" class="progress">
+                </div>
+
+            </div>
+
+            <div class="details">
+
+                <span>
+                    Status:
+                    <b>In Flight</b>
+                </span>
+
+                <span>
+                    Altitude:
+                    <b>35,000 ft</b>
+                </span>
+
+                <span>
+                    Speed:
+                    <b>850 km/h</b>
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="controls">
+
+            <button id="plus">
+                +
+            </button>
+
+            <button id="minus">
+                −
+            </button>
+
+            <button id="reset">
+                ⌂
+            </button>
+
+        </div>
+    </section>
+
+
+</body>
+
+<script src="js/track.js"></script>
+</html>
