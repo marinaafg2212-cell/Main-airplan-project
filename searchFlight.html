@@ -32,7 +32,7 @@
                 <a href="searchFlight.html" class="active">Search Flights</a>
                 <a href="explore.html">explore Flight</a>
 
-                <a href="#">About</a>
+                <a href="about.html">About</a>
                 <a href="contect.html">Contect</a>
                 <a href="fga.html">FAQ</a>
 
@@ -46,12 +46,12 @@
                     <li><a href="searchFlight.html" style="display:block;padding:10px 8px;font-weight:600;">Search
                             Flights</a>
                     </li>
-                    <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;">Track Flight</a>
+                    <li><a href="explore.html" style="display:block;padding:10px 8px;font-weight:600;">explore Flight</a>
                     <li><a href="contect.html" style="display:block;padding:10px 8px;font-weight:600;">contect</a>
                     </li>
-                    <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
+                    <li><a href="about.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
                     </li>
-                    <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
+                    <li><a href="faq.html" style="display:block;padding:10px 8px;font-weight:600;">FAQ</a>
                     </li>
                     <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Log in</a></li>
                     <li><a href="login.html" style="display:block;padding:10px 8px;font-weight:600;">Register</a></li>
@@ -202,7 +202,12 @@
 
             <aside class="filter-sidebar">
 
-                <div class="filter-header">
+               
+
+
+                <!-- POPULAR FILTER -->
+                <div class="bg-card">
+                     <div class="filter-header">
 
                     <h2>Filters</h2>
 
@@ -211,65 +216,62 @@
                     </button>
 
                 </div>
+                    <div class="filter-group">
 
+                        <h3>Popular Filters</h3>
 
-                <!-- POPULAR FILTER -->
+                        <label class="check-option">
+                            <input type="checkbox" class="time-filter" value="Morning">
+                            <span>Morning</span>
+                        </label>
 
-                <div class="filter-group">
+                        <label class="check-option">
+                            <input type="checkbox" class="time-filter" value="Afternoon">
+                            <span>Afternoon</span>
+                        </label>
 
-                    <h3>Popular Filters</h3>
+                        <label class="check-option">
+                            <input type="checkbox" class="time-filter" value="Evening">
+                            <span>Evening</span>
+                        </label>
 
-                    <label class="check-option">
-                        <input type="checkbox" class="time-filter" value="Morning">
-                        <span>Morning</span>
-                    </label>
-
-                    <label class="check-option">
-                        <input type="checkbox" class="time-filter" value="Afternoon">
-                        <span>Afternoon</span>
-                    </label>
-
-                    <label class="check-option">
-                        <input type="checkbox" class="time-filter" value="Evening">
-                        <span>Evening</span>
-                    </label>
-
-                    <label class="check-option">
-                        <input type="checkbox" class="time-filter" value="Night">
-                        <span>Night</span>
-                    </label>
-
-                </div>
-
-
-                <!-- AIRLINES -->
-
-                <div class="filter-group">
-
-                    <h3>Airlines</h3>
-
-                    <div id="airline-filters"></div>
-
-                </div>
-
-
-                <!-- PRICE -->
-
-                <div class="filter-group">
-
-                    <h3>Price Range</h3>
-
-                    <div class="price-inputs">
-
-                        <input type="number" id="min-price" placeholder="Min" min="0">
-
-                        <input type="number" id="max-price" placeholder="Max" min="0">
+                        <label class="check-option">
+                            <input type="checkbox" class="time-filter" value="Night">
+                            <span>Night</span>
+                        </label>
 
                     </div>
 
-                </div>
+
+                    <!-- AIRLINES -->
+
+                    <div class="filter-group">
+
+                        <h3>Airlines</h3>
+
+                        <div id="airline-filters"></div>
+
+                    </div>
+
+
+                    <!-- PRICE -->
+
+                    <div class="filter-group">
+
+                        <h3>Price Range</h3>
+
+                        <div class="price-inputs">
+
+                            <input type="number" id="min-price" placeholder="Min" min="0">
+
+                            <input type="number" id="max-price" placeholder="Max" min="0">
+
+                        </div>
+
+                    </div>
 
             </aside>
+            </div>
 
 
             <!-- RESULTS -->

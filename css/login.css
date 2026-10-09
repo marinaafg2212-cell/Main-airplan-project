@@ -168,7 +168,7 @@ body {
 }
 
 
-/* ================= ICON ================= */
+
 
 .form-icon {
 
@@ -193,14 +193,14 @@ body {
 
     font-size: 20px;
 
-    margin-bottom: 23px;
+  
 
     box-shadow:
         0 14px 30px rgba(4,49,112,.20);
 }
 
 
-/* ================= TEXT ================= */
+
 
 .small-title {
 
@@ -246,7 +246,6 @@ body {
 }
 
 
-/* ================= INPUT ================= */
 
 .input-group {
 
@@ -354,7 +353,7 @@ body {
 }
 
 
-/* ================= OPTIONS ================= */
+
 
 .form-options {
 
@@ -392,7 +391,7 @@ body {
 }
 
 
-/* ================= BUTTON ================= */
+
 
 .main-btn {
 
@@ -457,13 +456,13 @@ body {
 }
 
 
-/* ================= SWITCH ================= */
+
 
 .mobile-switch {
 
     text-align: center;
 
-    margin-top: 24px;
+   margin-bottom: 5px;
 
     color: #8995a2;
 

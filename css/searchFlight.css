@@ -83,10 +83,6 @@ body {
 
     text-align: center;
 
-    background:
-        linear-gradient(135deg,
-            #ffffff,
-            #eef9ff);
 
     border-bottom: 1px solid #e2edf3;
     width: 100%;
@@ -199,9 +195,7 @@ body {
 }
 
 
-/* =========================================================
-   TRIP TYPE
-========================================================= */
+
 
 .trip-type {
     grid-column: 1 / -1;
@@ -211,7 +205,7 @@ body {
     align-items: center;
 
     gap: 8px;
-
+    color: black;
     padding-bottom: 16px;
 
     border-bottom: 1px solid var(--border-light);
@@ -453,14 +447,12 @@ body {
 }
 
 
-/* =========================================================
-   RESULTS SECTION
-========================================================= */
 
 .results-section {
     position: relative;
 
     max-width: 1400px;
+
 
     margin: auto;
 
@@ -474,9 +466,7 @@ body {
 }
 
 
-/* =========================================================
-   FILTER SIDEBAR
-========================================================= */
+
 
 .filter-sidebar {
     height: fit-content;
@@ -488,6 +478,7 @@ body {
     padding: 0;
 
     position: sticky;
+
 
     top: 25px;
 }
@@ -501,7 +492,7 @@ body {
 
     padding-bottom: 20px;
 
-    border-bottom: 1px solid var(--border);
+   
 }
 
 .filter-small-title {
@@ -545,15 +536,25 @@ body {
 }
 
 
-/* =========================================================
-   FILTER GROUP
-========================================================= */
 
 .filter-group {
     padding: 24px 0;
 
-    border-bottom: 1px solid var(--border-light);
+
 }
+
+.bg-card {
+    padding: 24px 0;
+    z-index: 100;
+    border-radius: 10px;
+    padding: 10px 20px;
+    position: relative;
+    gap: 10px;
+   box-shadow: var(--shadow-soft);
+    border: 1px solid #f5f4f1;
+ margin: 0;
+}
+
 
 .filter-group:last-child {
     border-bottom: none;
@@ -615,7 +616,7 @@ body {
 
 .check-option span {
     display: flex;
-      font-size: 14px;
+    font-size: 14px;
     flex-direction: column;
 
     gap: 3px;
@@ -624,7 +625,7 @@ body {
 .check-option strong {
     color: var(--text-light);
 
-     font-size: 11px;
+    font-size: 11px;
 
     font-weight: 600;
 }
