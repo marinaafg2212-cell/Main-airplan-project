@@ -8,26 +8,26 @@ const showLogin = document.getElementById("showLogin");
 const USER_KEY = "aw_users";
 const CURRENT_USER_KEY = "aw_current_user";
 
-function showRegisterForm(){
+function showRegisterForm() {
     authBox.classList.add("register-active");
 }
 
-function showLoginForm(){
+function showLoginForm() {
     authBox.classList.remove("register-active");
 }
 
-if(showRegister){
-    registerBtn.addEventListener("click",showRegisterForm)
+if (showRegister) {
+    registerBtn.addEventListener("click", showRegisterForm)
 }
 
-if(registerBtn){
-    registerBtn.addEventListener("click",showRegisterForm)
+if (registerBtn) {
+    registerBtn.addEventListener("click", showRegisterForm)
 }
-if(showLogin){
-    loginBtn.addEventListener("click",showLoginForm)
+if (showLogin) {
+    loginBtn.addEventListener("click", showLoginForm)
 }
-if(loginBtn){
-    loginBtn.addEventListener("click",showLoginForm)
+if (loginBtn) {
+    loginBtn.addEventListener("click", showLoginForm)
 }
 if (showLogin) {
     showLogin.addEventListener("click", showLoginForm);
@@ -42,7 +42,7 @@ if (showRegister) {
 
 // get users
 
-function getUsers(){
+function getUsers() {
     return JSON.parse(
         localStorage.getItem(USER_KEY)
     ) || [];
@@ -50,7 +50,7 @@ function getUsers(){
 
 // save users
 
-function saveUsers(users){
+function saveUsers(users) {
     localStorage.setItem(
         USER_KEY,
         JSON.stringify(users)
@@ -59,27 +59,27 @@ function saveUsers(users){
 
 // get current user
 
-function getCurrentUser(){
+function getCurrentUser() {
     return JSON.parse(
-       sessionStorage.getItem(
-        CURRENT_USER_KEY
-       ) 
-    )|| null;
+        sessionStorage.getItem(
+            CURRENT_USER_KEY
+        )
+    ) || null;
 }
 
 // check login
-function isLoggedIn(){
+function isLoggedIn() {
     return getCurrentUser() == null;
 }
 
 
 // seve current user
 
-function setCurrentUser(user){
+function setCurrentUser(user) {
     const sessionUser = {
         id: user.id,
-        name:user.name,
-        email:user.email
+        name: user.name,
+        email: user.email
     };
 
     sessionStorage.setItem(
@@ -89,11 +89,11 @@ function setCurrentUser(user){
 }
 
 // logout
-function logoutUser(){
+function logoutUser() {
     sessionStorage.removeItem(
         CURRENT_USER_KEY
     );
-    window.location.href ="index.html";
+    window.location.href = "index.html";
 }
 
 
@@ -102,7 +102,7 @@ function logoutUser(){
 const registerForm = document.getElementById("registerForm");
 
 registerForm.addEventListener("submit",
-    function (event){
+    function (event) {
         event.preventDefault();
 
         const name = document.getElementById("registerName").value.trim();
@@ -113,41 +113,41 @@ registerForm.addEventListener("submit",
         const users = getUsers();
 
         const existingUser = users.find(
-            user=>
-                user.email === email 
+            user =>
+                user.email === email
         );
 
-        if(existingUser){
+        if (existingUser) {
             Swal.fire({
                 icon: "warning",
-                title:"Email Already Exsits",
+                title: "Email Already Exsits",
                 text: "This email is already registerd.",
                 confirmButtonText: "OK",
-                confirmButtoncolor:"#043170"
+                confirmButtoncolor: "#043170"
             });
             return;
         }
 
         // password
-        if(password.length < 6){
+        if (password.length < 6) {
             Swal.fire({
                 icon: "error",
-                title:"Weak Password",
+                title: "Weak Password",
                 text: "Password must contain at least 6 characters.",
                 confirmButtonText: "Try Again",
-                confirmButtoncolor:"#043170"
+                confirmButtoncolor: "#043170"
             });
             return;
         }
 
-         // C_password
-        if(password !== confirmPassword){
+        // C_password
+        if (password !== confirmPassword) {
             Swal.fire({
                 icon: "error",
-                title:"Password Mismatch",
+                title: "Password Mismatch",
                 text: "Password must contain at least 6 characters.",
                 confirmButtonText: "Try Again",
-                confirmButtoncolor:"#043170"
+                confirmButtoncolor: "#043170"
             });
             return;
         }
@@ -162,10 +162,10 @@ registerForm.addEventListener("submit",
 
         const newUser = {
             id: Date.now(),
-            name:name,
-            email:email,
-            password:password,
-            role:0,
+            name: name,
+            email: email,
+            password: password,
+            role: 0,
             createAt: new Date().toISOString()
         }
         // add user
@@ -180,7 +180,7 @@ registerForm.addEventListener("submit",
             text: `Welcome ${name}! Your account has been created successfully.`,
             confirmButtonText: "Continue",
             confirmButtonColor: "#043170"
-        }).then(()=>{
+        }).then(() => {
             registerForm.reset();
             showLoginForm();
         })
@@ -213,12 +213,12 @@ if (loginForm) {
                 ).value;
 
 
-       
+
 
             const users = getUsers();
 
 
-     
+
 
             const user =
                 users.find(
@@ -228,7 +228,7 @@ if (loginForm) {
                 );
 
 
-           
+
 
             if (!user) {
 
@@ -251,7 +251,7 @@ if (loginForm) {
             }
 
 
-           
+
 
             if (
                 user.emailVerified === false
@@ -293,7 +293,7 @@ if (loginForm) {
             setCurrentUser(user);
 
 
-         
+
 
             localStorage.setItem(
                 "loginTime",
@@ -301,7 +301,7 @@ if (loginForm) {
             );
 
 
-         
+
 
             Swal.fire({
 
@@ -347,8 +347,8 @@ function requireLogin() {
 
     }).then((result) => {
         if (result.isConfirmed) {
-            window.location.href ="inedx.html";
-                "loginForm.html";
+            window.location.href =
+                "login.html";
 
         }
     });

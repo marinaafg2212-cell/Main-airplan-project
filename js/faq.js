@@ -1,6 +1,4 @@
-/* =====================================================
-   FAQ ACCORDION
-===================================================== */
+
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -9,16 +7,13 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".faq-card");
 
 
-    /* اگر FAQ پیدا نشد، چیزی انجام نده */
+
 
     if (faqItems.length === 0) {
         return;
     }
 
 
-    /* =================================================
-       CLOSE FAQ
-    ================================================= */
 
     function closeFaq(item) {
 
@@ -56,9 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       OPEN FAQ
-    ================================================= */
+ 
 
     function openFaq(item) {
 
@@ -101,9 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       CLICK
-    ================================================= */
 
     faqItems.forEach(function (item) {
 
@@ -153,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-                /* Open / close current */
+             
 
                 if (isOpen) {
 
@@ -171,9 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =================================================
-       RESIZE
-    ================================================= */
 
     window.addEventListener(
         "resize",

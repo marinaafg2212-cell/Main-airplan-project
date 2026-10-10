@@ -261,7 +261,7 @@ h4 {
 }
 
 .try-button {
-    background: var(--blue);
+    background: #0d4fae;
     color: white;
     padding: 13px 21px;
     border-radius: 10px;
@@ -270,8 +270,9 @@ h4 {
 
 .try-button:hover {
 
-
-    background: #171717;
+    transform: scale(0.1);
+     transform: translateY(-1px) ;
+    background: #083d89;
     color: white;
 }
 
@@ -548,7 +549,7 @@ h4 {
 
 .button:hover {
     border: none;
-    color: #061c2c;
+  
     background: #1769e0;
     transform: translateY(-3px);
 
@@ -855,7 +856,7 @@ h4 {
 }
 
 .journey-link:hover {
-    background: #171717;
+    background: #1255b8;
     color: white;
 }
 
@@ -1238,7 +1239,7 @@ h4 {
 .search-flight:hover {
 
 
-    background: #171717;
+    background: #1255b8;
 
 }
 
@@ -1247,7 +1248,7 @@ h4 {
 }
 
 .trip-btn.active:hover {
-    background: #171717;
+    background: #0d4fae;
 }
 
 
@@ -1425,13 +1426,11 @@ h4 {
 }
 
 .cat-card_go:hover {
-    background: black;
+    background: #0d4fae;
     color: #fff;
 }
 
-/* =========================
-   FEATURES
-========================= */
+
 
 .features {
     max-width: 1150px;
@@ -1615,15 +1614,11 @@ footer {
 }
 
 
-/* =========================================================
-   COUNTRY NAME
-========================================================= */
-
 .country-name {
     position: absolute;
-
+    letter-spacing: 1px;
     left: 0;
-
+    font-family:inherit;
     right: 0;
 
     bottom: 0;
@@ -1633,8 +1628,8 @@ footer {
     padding: 35px 18px 16px;
 
     color: white;
-
-    font-size: 12px;
+    font-weight: 00;
+    font-size: 14px;
 
 
 
@@ -1643,7 +1638,7 @@ footer {
     background: linear-gradient(transparent,
             rgba(0, 0, 0, 0.85));
 
-    pointer-events: none;
+   
 }
 
 

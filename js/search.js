@@ -239,7 +239,9 @@ const airlines = [
     "Thai Airways",
     "Saudia",
     "Oman Air",
-    "Aegean Airlines"
+    "Aegean Airlines",
+
+
 ];
 
 
@@ -512,7 +514,25 @@ function generateFlights(from, to, selectedClass) {
             departure: "22:30",
             arrival: "04:45",
             period: "Night"
+        },
+
+        {
+            departure: "20:30",
+            arrival: "05:45",
+            period: "Night"
+        },
+        {
+            departure: "02:30",
+            arrival: "11:45",
+            period: "Morning"
+        },
+
+        {
+            departure: "09:30",
+            arrival: "13:40",
+            period: "Evening"
         }
+
     ];
 
 
@@ -1072,7 +1092,7 @@ function createFlightCard(flight) {
                     type="button"
                     onclick="selectFlight('${flight.id}')"
                 >
-                    Select
+                    Veiw Flight
                 </button>
 
             </div>
@@ -1174,14 +1194,14 @@ function selectFlight(id) {
     }
 
 
-    alert(
-        `Flight selected!\n\n` +
-        `${flight.airline}\n` +
-        `${flight.from} → ${flight.to}\n` +
-        `${flight.departure} - ${flight.arrival}\n` +
-        `Class: ${flight.class}\n` +
-        `Price: $${flight.price}`
-    );
+    // alert(
+    //     `Flight selected!\n\n` +
+    //     `${flight.airline}\n` +
+    //     `${flight.from} → ${flight.to}\n` +
+    //     `${flight.departure} - ${flight.arrival}\n` +
+    //     `Class: ${flight.class}\n` +
+    //     `Price: $${flight.price}`
+    // );
 
 }
 
