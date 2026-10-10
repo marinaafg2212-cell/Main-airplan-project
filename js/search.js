@@ -415,7 +415,7 @@ tripTypeInputs.forEach(input => {
 });
 
 
-
+// swap------------------------------------
 
 swapButton.addEventListener("click", function () {
 
