@@ -1,4 +1,3 @@
-
 .faq-hero {
     width: 100%;
     min-height: 300px;
@@ -137,6 +136,75 @@
     gap: 55px;
 }
 
+/* Others FAQ Form */
+
+.others-description {
+    margin-bottom: 15px;
+    color: #666;
+    line-height: 1.7;
+}
+
+.faq-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-contact-form label {
+    font-weight: 600;
+    color: #222;
+}
+
+.faq-contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    resize: vertical;
+    font: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.faq-contact-form textarea:focus {
+    border-color: #164e9b;
+}
+
+.faq-submit-btn {
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    background: #164e9b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font: inherit;
+    transition: background 0.3s ease;
+}
+
+.faq-submit-btn:hover {
+    background: #10376d;
+}
+
+.faq-message {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Empty question box */
+
+#user-question.invalid {
+    border: 1px solid red;
+}
+
+.faq-message.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
 
 
 .faq-categories {

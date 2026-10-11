@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
- 
+
 
     function openFaq(item) {
 
@@ -143,7 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 );
 
 
-             
+
 
                 if (isOpen) {
 
@@ -197,4 +197,29 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     );
 
+});
+questionForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const question = questionInput.value.trim();
+
+    if (question === "") {
+        message.textContent = "Please enter your question.";
+        return;
+    }
+
+    const subject = encodeURIComponent("Airplan - User Question");
+    const body = encodeURIComponent(question);
+
+    window.open(
+        `https://mail.google.com/mail/?view=cm&fs=1&to=marinaafg2212Gmail.com&su=${subject}&body=${body}`,
+        "_blank"
+    );
+});
+questionInput.addEventListener("input", function () {
+    if (questionInput.value.trim() !== "") {
+        questionInput.classList.remove("invalid");
+        message.classList.remove("error");
+        message.textContent = "";
+    }
 });
