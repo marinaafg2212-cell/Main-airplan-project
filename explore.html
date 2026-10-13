@@ -59,6 +59,7 @@
 
 
     <link rel="stylesheet" href="css/explore.css">
+    <link rel="stylesheet" href="css/sidbar.css">
 </head>
 
 <body>
@@ -113,10 +114,74 @@
         </nav>
 
 
+      <!-- button------------------------------------- -->
         <div class="nav-actions">
 
             <a href="login.html" class="try-button">Log in</a>
-            <a href="login.html" class="try-button">Register</a>
+
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+
+                <button class="profile-btn" id="profile-btn" type="button">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                </button>
+
+                <!-- Popup Box -->
+                <div class="profile-menu" id="profile-menu">
+
+                    <!-- User Information -->
+                    <div class="profile-user">
+                        <div class="profile-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="profile-user-info">
+                            <h4>Welcome, User!</h4>
+                            <p>user@example.com</p>
+                            <span class="user-role">
+                                <i class="fa-solid fa-user-shield"></i>
+                                User
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-divider"></div>
+
+                    <!-- Menu Links -->
+                    <a href="index.html" class="profile-item">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+
+                    <a href="profile.html" class="profile-item">
+                        <i class="fa-regular fa-id-card"></i>
+                        <span>My Profile</span>
+                    </a>
+
+                    <a href="#settings" class="profile-item">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+
+                    <div class="profile-divider"></div>
+
+                    <!-- Login -->
+                    <a href="login.html" class="profile-item login-item">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>Login</span>
+                    </a>
+
+                    <!-- Logout -->
+                    <button type="button" class="profile-item logout-item" id="profile-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </button>
+
+                </div>
+            </div>
+
         </div>
 
     </header>
@@ -287,6 +352,7 @@
 
 
     <script src="js/explore.js"></script>
+    <script src="js/sideder.js"></script>
 
 </body>
 

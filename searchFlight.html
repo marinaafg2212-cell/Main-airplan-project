@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-   <title>Skyline in everywhere</title>
+    <title>Skyline in everywhere</title>
     <title>Airplanes | Explore Flights and Aviation</title>
 
     <meta name="description"
@@ -27,7 +27,7 @@
 
 
     <!-- css ------------------------------------------------------>
-   
+
 
 
 
@@ -60,12 +60,13 @@
 
     <link rel="stylesheet" href="css/searchFlight.css">
     <link rel="stylesheet" href="css/style.css">
-   
+    <link rel="stylesheet" href="css/sidbar.css">
+
 </head>
 
 <body>
 
-     <header class="navbar">
+    <header class="navbar">
 
         <a href="#" class="logo">
             <span class="logo-icon">✈</span>
@@ -80,8 +81,8 @@
         <nav class="nav-links">
             <!-- nav-------------------------------------------------- -->
             <div class="nav-item">
-                <a href="index.html" >Home</a>
-                <a href="searchFlight.html"class="active">Search Flights</a>
+                <a href="index.html">Home</a>
+                <a href="searchFlight.html" class="active">Search Flights</a>
                 <a href="explore.html">Explore Flight</a>
                 <a href="about.html">About</a>
                 <a href="contect.html">Contect</a>
@@ -97,7 +98,8 @@
                     <li><a href="searchFlight.html" style="display:block;padding:10px 8px;font-weight:600;">Search
                             Flights</a>
                     </li>
-                    <li><a href="explore.html" style="display:block;padding:10px 8px;font-weight:600;">Explore Flight</a>
+                    <li><a href="explore.html" style="display:block;padding:10px 8px;font-weight:600;">Explore
+                            Flight</a>
                     <li><a href="contect.html" style="display:block;padding:10px 8px;font-weight:600;">contect</a>
                     </li>
                     <li><a href="about.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
@@ -113,298 +115,274 @@
 
         </nav>
 
-
+        <!-- button------------------------------------- -->
         <div class="nav-actions">
 
             <a href="login.html" class="try-button">Log in</a>
-            <a href="login.html" class="try-button">Register</a>
-        </div>
 
+            <!-- Profile Dropdown -->
+            <div class="profile-dropdown">
+
+                <button class="profile-btn" id="profile-btn" type="button">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Profile</span>
+                    <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                </button>
+
+                <!-- Popup Box -->
+                <div class="profile-menu" id="profile-menu">
+
+                    <!-- User Information -->
+                    <div class="profile-user">
+                        <div class="profile-avatar">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+
+                        <div class="profile-user-info">
+                            <h4>Welcome, User!</h4>
+                            <p>user@example.com</p>
+                            <span class="user-role">
+                                <i class="fa-solid fa-user-shield"></i>
+                                User
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="profile-divider"></div>
+
+                    <!-- Menu Links -->
+                    <a href="index.html" class="profile-item">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+
+                    <a href="profile.html" class="profile-item">
+                        <i class="fa-regular fa-id-card"></i>
+                        <span>My Profile</span>
+                    </a>
+
+                    <a href="#settings" class="profile-item">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+
+                    <div class="profile-divider"></div>
+
+                    <!-- Login -->
+                    <a href="login.html" class="profile-item login-item">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>Login</span>
+                    </a>
+
+                    <!-- Logout -->
+                    <button type="button" class="profile-item logout-item" id="profile-logout">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        <span>Logout</span>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
     </header>
 
     <!-- search---------------------------------- -->
 
     <main>
+        <section class="hero">
+            <div class="hero-content">
+              
+                <h1>Find your next destination.</h1>
+              
+            </div>
+        </section>
 
+        <section class="search-section" id="search-section">
+            <div class="search-card">
 
-        <section class="search--flight">
+                <div class="search-heading">
+                    <div>
+                        <span class="small-label">PLAN YOUR TRIP</span>
+                        <h2>Search Flights</h2>
+                    </div>
+                    <i class="fa-solid fa-plane-departure heading-icon"></i>
+                </div>
 
-
-
-
-            <div class="search-box">
-
-                <!-- TRIP TYPE -->
-
-                <div class="trip-type">
-
+                <div class="trip-options">
                     <label>
                         <input type="radio" name="tripType" value="oneway" checked>
-                        One Way
+                        <span>One Way</span>
                     </label>
 
                     <label>
                         <input type="radio" name="tripType" value="roundtrip">
-                        Round Trip
+                        <span>Round Trip</span>
                     </label>
-
                 </div>
 
-
-                <!-- FROM -->
-
-                <div class="search-field">
-
-                    <label>From</label>
-
-                    <select id="from-country">
-                        <option value="">Select departure country</option>
-                    </select>
-
-                </div>
-
-
-                <!-- SWAP -->
-
-                <button type="button" id="swap-btn" class="swap-btn" title="Swap countries">
-                    ⇄
-                </button>
-
-
-                <!-- TO -->
-
-                <div class="search-field">
-
-                    <label>To</label>
-
-                    <select id="to-country">
-                        <option value="">Select destination country</option>
-                    </select>
-
-                </div>
-
-
-                <!-- DEPARTURE -->
-
-                <div class="search-field">
-
-                    <label>Departure</label>
-
-                    <input type="date" id="depart-date">
-
-                </div>
-
-
-                <!-- RETURN -->
-
-                <div class="search-field" id="return-field">
-
-                    <label>Return</label>
-
-                    <input type="date" id="return-date" disabled>
-
-                </div>
-
-
-                <!-- CLASS -->
-
-                <div class="search-field">
-
-                    <label>Class</label>
-
-                    <select id="cabin-class">
-
-                        <option value="Economy">
-                            Economy
-                        </option>
-
-                        <option value="Business">
-                            Business
-                        </option>
-
-                        <option value="First">
-                            First Class
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- SEARCH BUTTON -->
-
-                <button type="button" id="search-flight-btn" class="search-btn">
-                    Search Flights
-                </button>
-
-            </div>
-
-        </section>
-
-
-
-      
-
-        <section class="results-section">
-
-            <!-- SIDEBAR -->
-
-            <aside class="filter-sidebar">
-
-               
-
-
-                <!-- POPULAR FILTER -->
-                <div class="bg-card">
-                     <div class="filter-header">
-
-                    <h2>Filters</h2>
-
-                    <button type="button" id="clear-filters">
-                        Clear All
-                    </button>
-
-                </div>
-                    <div class="filter-group">
-
-                        <h3>Popular Filters</h3>
-
-                        <label class="check-option">
-                            <input type="checkbox" class="time-filter" value="Morning">
-                            <span>Morning</span>
-                        </label>
-
-                        <label class="check-option">
-                            <input type="checkbox" class="time-filter" value="Afternoon">
-                            <span>Afternoon</span>
-                        </label>
-
-                        <label class="check-option">
-                            <input type="checkbox" class="time-filter" value="Evening">
-                            <span>Evening</span>
-                        </label>
-
-                        <label class="check-option">
-                            <input type="checkbox" class="time-filter" value="Night">
-                            <span>Night</span>
-                        </label>
-
-                    </div>
-
-
-                    <!-- AIRLINES -->
-
-                    <div class="filter-group">
-
-                        <h3>Airlines</h3>
-
-                        <div id="airline-filters"></div>
-
-                    </div>
-                    
-
-
-                    <!-- PRICE -->
-
-                    <div class="filter-group">
-
-                        <h3>Price Range</h3>
-
-                        <div class="price-inputs">
-
-                            <input type="number" id="min-price" placeholder="Min" min="0">
-
-                            <input type="number" id="max-price" placeholder="Max" min="0">
-
+                <form id="flight-search-form">
+                    <div class="search-grid">
+
+                        <div class="field">
+                            <label for="from-country">FROM</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-plane-departure"></i>
+                                <select id="from-country" required>
+                                    <option value="">Choose origin</option>
+                                </select>
+                            </div>
                         </div>
 
-                    </div>
+                        <button type="button" id="swap-btn" class="swap-button" aria-label="Swap origin and destination"
+                            title="Swap">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                        </button>
 
-            </aside>
+                        <div class="field">
+                            <label for="to-country">TO</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <select id="to-country" required>
+                                    <option value="">Choose destination</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="depart-date">DEPARTURE</label>
+                            <div class="input-wrap">
+                                <i class="fa-regular fa-calendar"></i>
+                                <input type="date" id="depart-date" required>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="return-date">RETURN</label>
+                            <div class="input-wrap">
+                                <i class="fa-regular fa-calendar-check"></i>
+                                <input type="date" id="return-date" disabled>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="cabin-class">CABIN CLASS</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-couch"></i>
+                                <select id="cabin-class">
+                                    <option value="Economy">Economy</option>
+                                    <option value="Business">Business</option>
+                                    <option value="First Class">First Class</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label for="passenger-type">PASSENGER</label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-user"></i>
+                                <select id="passenger-type">
+                                    <option value="Adult">Adult</option>
+                                    <option value="Child">Child</option>
+                                    <option value="Youth">Youth</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <button type="submit" id="search-flight-btn" class="search-button">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            Search Flights
+                        </button>
+
+                    </div>
+                    <p id="form-message" class="form-message" role="status"></p>
+                </form>
+            </div>
+        </section>
+
+        <section class="results-section" id="results-section">
+            <div class="results-header">
+                <div>
+                    <span class="small-label">YOUR OPTIONS</span>
+                    <h2>Available Flights</h2>
+                    <p id="results-summary">Enter your trip details to find flights.</p>
+                </div>
+
+                <div class="sort-field">
+                    <label for="sort-flights">Sort by</label>
+                    <select id="sort-flights">
+                        <option value="recommended">Recommended</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="duration">Shortest Duration</option>
+                    </select>
+                </div>
             </div>
 
+            <div class="results-layout">
 
-            <!-- RESULTS -->
-
-            <div class="results-container">
-
-                <div class="results-top">
-
-                    <div>
-
-                        <h2 id="results-title">
-                            Search Results
-                        </h2>
-
-                        <p id="results-count">
-                            Search for a flight to see available flights.
-                        </p>
-
+                <aside class="filter-card">
+                    <div class="filter-heading">
+                        <h3><i class="fa-solid fa-sliders"></i> Filters</h3>
+                        <button type="button" id="clear-filters">Reset</button>
                     </div>
 
+                    <div class="filter-group">
+                        <h4>Departure Time</h4>
 
-                    <select id="sort-flights">
+                        <label class="check-row">
+                            <input type="checkbox" class="time-filter" value="morning">
+                            <span>Morning</span>
+                            <small>05:00–11:59</small>
+                        </label>
 
-                        <option value="recommended">
-                            Recommended
-                        </option>
+                        <label class="check-row">
+                            <input type="checkbox" class="time-filter" value="afternoon">
+                            <span>Afternoon</span>
+                            <small>12:00–17:59</small>
+                        </label>
 
-                        <option value="price-low">
-                            Price: Low to High
-                        </option>
-
-                        <option value="price-high">
-                            Price: High to Low
-                        </option>
-
-                        <option value="duration">
-                            Shortest Duration
-                        </option>
-
-                    </select>
-
-                </div>
-
-
-                <!-- CARDS -->
-
-                <div id="flight-results" class="flight-results"></div>
-
-
-                <!-- EMPTY -->
-
-                <div id="empty-message" class="empty-message" style="display:none;">
-
-                    <div class="empty-icon">
-                        ✈
+                        <label class="check-row">
+                            <input type="checkbox" class="time-filter" value="evening">
+                            <span>Evening</span>
+                            <small>18:00–23:59</small>
+                        </label>
                     </div>
 
-                    <h2>No Flight Found</h2>
+                    <div class="filter-group">
+                        <h4>Airlines</h4>
+                        <div id="airline-filters">
+                            <p class="filter-hint">Search for flights to see airlines.</p>
+                        </div>
+                    </div>
+                </aside>
 
-                    <p>
-                        We couldn't find any flights matching
-                        your selected search and filters.
-                    </p>
+                <div class="flight-results">
+                    <div id="flight-list" class="flight-list">
+                        <div class="empty-state">
+                            <i class="fa-solid fa-plane"></i>
+                            <h3>Your journey begins here</h3>
+                            <p>Choose your origin, destination and travel dates above.</p>
+                        </div>
+                    </div>
 
-                    <button type="button" id="empty-reset">
-                        Try Another Flight
-                    </button>
-
+                    <p id="results-count" class="results-count"></p>
                 </div>
-
-
-                <!-- PAGINATION -->
-
                 <div id="pagination" class="pagination"></div>
 
             </div>
-
         </section>
 
     </main>
 
-
+    <footer class="footer">
+        <a href="#" class="logo footer-logo">
+            <i class="fa-solid fa-plane"></i> Skyline
+        </a>
+        <p>Discover the world, one flight at a time.</p>
+        <small>&copy; 2026 Skyline. All rights reserved.</small>
+    </footer>
     <script src="js/search.js"></script>
+    <script src="js/sideder.js"></script>
 
 </body>
 

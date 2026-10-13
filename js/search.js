@@ -1,1419 +1,736 @@
+document.addEventListener("DOMContentLoaded", function () {
+  
+
+    const fromSelect = document.getElementById("from-country");
+    const toSelect = document.getElementById("to-country");
+    const swapButton = document.getElementById("swap-btn");
+    const departDate = document.getElementById("depart-date");
+    const returnDate = document.getElementById("return-date");
+    const cabinClass = document.getElementById("cabin-class");
+    const passengerType = document.getElementById("passenger-type");
+    const searchForm = document.getElementById("flight-search-form");
+    const searchButton = document.getElementById("search-flight-btn");
+    const formMessage = document.getElementById("form-message");
+    const flightList = document.getElementById("flight-list");
+    const resultsSummary = document.getElementById("results-summary");
+    const resultsCount = document.getElementById("results-count");
+    const airlineFilters = document.getElementById("airline-filters");
+    const clearFiltersButton = document.getElementById("clear-filters");
+    const sortSelect = document.getElementById("sort-flights");
+    const pagination = document.getElementById("pagination");
+
+
+
+    const countries = [
+        { name: "Afghanistan", code: "AF" },
+        { name: "United Arab Emirates", code: "AE" },
+        { name: "Australia", code: "AU" },
+        { name: "Austria", code: "AT" },
+        { name: "Azerbaijan", code: "AZ" },
+        { name: "Bahrain", code: "BH" },
+        { name: "Bangladesh", code: "BD" },
+        { name: "Belgium", code: "BE" },
+        { name: "Canada", code: "CA" },
+        { name: "China", code: "CN" },
+        { name: "Denmark", code: "DK" },
+        { name: "Egypt", code: "EG" },
+        { name: "France", code: "FR" },
+        { name: "Germany", code: "DE" },
+        { name: "India", code: "IN" },
+        { name: "Indonesia", code: "ID" },
+        { name: "Iran", code: "IR" },
+        { name: "Iraq", code: "IQ" },
+        { name: "Italy", code: "IT" },
+        { name: "Japan", code: "JP" },
+        { name: "Kazakhstan", code: "KZ" },
+        { name: "Kuwait", code: "KW" },
+        { name: "Malaysia", code: "MY" },
+        { name: "Nepal", code: "NP" },
+        { name: "Netherlands", code: "NL" },
+        { name: "Oman", code: "OM" },
+        { name: "Pakistan", code: "PK" },
+        { name: "Qatar", code: "QA" },
+        { name: "Saudi Arabia", code: "SA" },
+        { name: "Singapore", code: "SG" },
+        { name: "South Korea", code: "KR" },
+        { name: "Spain", code: "ES" },
+        { name: "Sri Lanka", code: "LK" },
+        { name: "Sweden", code: "SE" },
+        { name: "Switzerland", code: "CH" },
+        { name: "Thailand", code: "TH" },
+        { name: "Turkey", code: "TR" },
+        { name: "United Kingdom", code: "GB" },
+        { name: "United States", code: "US" },
+        { name: "Uzbekistan", code: "UZ" }
+    ];
+
+    const airlines = [
+        "Skyline Airways",
+        "Emirates",
+        "Qatar Airways",
+        "Turkish Airlines",
+        "FlyDubai",
+        "Air India",
+        "Lufthansa",
+        "Etihad Airways"
+    ];
+
+    let allFlights = [];
+    let hasSearched = false;
+
+
+    function populateCountries(selectElement) {
+        countries.forEach(function (country) {
+            const option = document.createElement("option");
+            option.value = country.name;
+            option.textContent = country.name;
+            selectElement.appendChild(option);
+        });
+    }
+
+    populateCountries(fromSelect);
+    populateCountries(toSelect);
+
+    fromSelect.value = "Afghanistan";
+    toSelect.value = "United Arab Emirates";
+
+
+    function getLocalDateString(date) {
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
 
-const countries = [
-    "Afghanistan",
-    "Albania",
-    "Algeria",
-    "Andorra",
-    "Angola",
-    "Antigua and Barbuda",
-    "Argentina",
-    "Armenia",
-    "Australia",
-    "Austria",
-    "Azerbaijan",
-
-    "Bahamas",
-    "Bahrain",
-    "Bangladesh",
-    "Barbados",
-    "Belarus",
-    "Belgium",
-    "Belize",
-    "Benin",
-    "Bhutan",
-    "Bolivia",
-    "Bosnia and Herzegovina",
-    "Botswana",
-    "Brazil",
-    "Brunei",
-    "Bulgaria",
-    "Burkina Faso",
-    "Burundi",
-
-    "Cabo Verde",
-    "Cambodia",
-    "Cameroon",
-    "Canada",
-    "Central African Republic",
-    "Chad",
-    "Chile",
-    "China",
-    "Colombia",
-    "Comoros",
-    "Congo",
-    "Costa Rica",
-    "Croatia",
-    "Cuba",
-    "Cyprus",
-    "Czech Republic",
-
-    "Denmark",
-    "Djibouti",
-    "Dominica",
-    "Dominican Republic",
-
-    "Ecuador",
-    "Egypt",
-    "El Salvador",
-    "Estonia",
-    "Eswatini",
-    "Ethiopia",
-
-    "Fiji",
-    "Finland",
-    "France",
-
-    "Gabon",
-    "Gambia",
-    "Georgia",
-    "Germany",
-    "Ghana",
-    "Greece",
-    "Grenada",
-    "Guatemala",
-    "Guinea",
-    "Guinea-Bissau",
-    "Guyana",
-
-    "Haiti",
-    "Honduras",
-    "Hungary",
-
-    "Iceland",
-    "India",
-    "Indonesia",
-    "Iran",
-    "Iraq",
-    "Ireland",
-    "Italy",
-
-    "Jamaica",
-    "Japan",
-    "Jordan",
-
-    "Kazakhstan",
-    "Kenya",
-    "Kiribati",
-    "Kuwait",
-    "Kyrgyzstan",
-
-    "Laos",
-    "Latvia",
-    "Lebanon",
-    "Lesotho",
-    "Liberia",
-    "Libya",
-    "Liechtenstein",
-    "Lithuania",
-    "Luxembourg",
-
-    "Madagascar",
-    "Malawi",
-    "Malaysia",
-    "Maldives",
-    "Mali",
-    "Malta",
-    "Marshall Islands",
-    "Mauritania",
-    "Mauritius",
-    "Mexico",
-    "Micronesia",
-    "Moldova",
-    "Monaco",
-    "Mongolia",
-    "Montenegro",
-    "Morocco",
-    "Mozambique",
-    "Myanmar",
-
-    "Namibia",
-    "Nauru",
-    "Nepal",
-    "Netherlands",
-    "New Zealand",
-    "Nicaragua",
-    "Niger",
-    "Nigeria",
-    "North Korea",
-    "North Macedonia",
-    "Norway",
-
-    "Oman",
-
-    "Pakistan",
-    "Palau",
-    "Palestine",
-    "Panama",
-    "Papua New Guinea",
-    "Paraguay",
-    "Peru",
-    "Philippines",
-    "Poland",
-    "Portugal",
-
-    "Qatar",
-
-    "Romania",
-    "Russia",
-    "Rwanda",
-
-    "Saint Kitts and Nevis",
-    "Saint Lucia",
-    "Saint Vincent and the Grenadines",
-    "Samoa",
-    "San Marino",
-    "Sao Tome and Principe",
-    "Saudi Arabia",
-    "Senegal",
-    "Serbia",
-    "Seychelles",
-    "Sierra Leone",
-    "Singapore",
-    "Slovakia",
-    "Slovenia",
-    "Solomon Islands",
-    "Somalia",
-    "South Africa",
-    "South Korea",
-    "South Sudan",
-    "Spain",
-    "Sri Lanka",
-    "Sudan",
-    "Suriname",
-    "Sweden",
-    "Switzerland",
-    "Syria",
-
-    "Taiwan",
-    "Tajikistan",
-    "Tanzania",
-    "Thailand",
-    "Timor-Leste",
-    "Togo",
-    "Tonga",
-    "Trinidad and Tobago",
-    "Tunisia",
-    "Turkey",
-    "Turkmenistan",
-    "Tuvalu",
-
-    "Uganda",
-    "Ukraine",
-    "United Arab Emirates",
-    "United Kingdom",
-    "United States",
-    "Uruguay",
-    "Uzbekistan",
-
-    "Vanuatu",
-    "Vatican City",
-    "Venezuela",
-    "Vietnam",
-
-    "Yemen",
-
-    "Zambia",
-    "Zimbabwe"
-];
-
-
-
-
-const airlines = [
-    "Emirates",
-    "Qatar Airways",
-    "Turkish Airlines",
-    "Etihad Airways",
-    "Flydubai",
-    "Air India",
-    "Lufthansa",
-    "Singapore Airlines",
-    "Korean Air",
-    "British Airways",
-    "Air France",
-    "KLM",
-    "Qantas",
-    "Japan Airlines",
-    "ANA",
-    "Malaysia Airlines",
-    "Thai Airways",
-    "Saudia",
-    "Oman Air",
-    "Aegean Airlines",
-
-
-];
-
-
-
-
-const airlineCodes = {
-    "Emirates": "EK",
-    "Qatar Airways": "QR",
-    "Turkish Airlines": "TK",
-    "Etihad Airways": "EY",
-    "Flydubai": "FZ",
-    "Air India": "AI",
-    "Lufthansa": "LH",
-    "Singapore Airlines": "SQ",
-    "Korean Air": "KE",
-    "British Airways": "BA",
-    "Air France": "AF",
-    "KLM": "KL",
-    "Qantas": "QF",
-    "Japan Airlines": "JL",
-    "ANA": "NH",
-    "Malaysia Airlines": "MH",
-    "Thai Airways": "TG",
-    "Saudia": "SV",
-    "Oman Air": "WY",
-    "Aegean Airlines": "A3"
-};
-
-
-
-
-const fromCountry = document.getElementById("from-country");
-const toCountry = document.getElementById("to-country");
-
-const searchButton =
-    document.getElementById("search-flight-btn");
+        return `${year}-${month}-${day}`;
+    }
 
-const swapButton =
-    document.getElementById("swap-btn");
+    const today = getLocalDateString(new Date());
 
-const tripTypeInputs =
-    document.querySelectorAll('input[name="tripType"]');
-
-const returnDate =
-    document.getElementById("return-date");
-
-const departDate =
-    document.getElementById("depart-date");
+    departDate.min = today;
+    returnDate.min = today;
 
-const cabinClass =
-    document.getElementById("cabin-class");
+    departDate.addEventListener("change", function () {
+        returnDate.min = departDate.value || today;
 
-const resultsContainer =
-    document.getElementById("flight-results");
-
-const emptyMessage =
-    document.getElementById("empty-message");
-
-const resultsTitle =
-    document.getElementById("results-title");
-
-const resultsCount =
-    document.getElementById("results-count");
-
-const pagination =
-    document.getElementById("pagination");
-
-const clearFilters =
-    document.getElementById("clear-filters");
-
-const emptyReset =
-    document.getElementById("empty-reset");
-
-const sortFlights =
-    document.getElementById("sort-flights");
-
-const minPrice =
-    document.getElementById("min-price");
-
-const maxPrice =
-    document.getElementById("max-price");
-
-const airlineFilters =
-    document.getElementById("airline-filters");
-
-
-
-
-let searched = false;
-
-let currentFlights = [];
-
-let filteredFlights = [];
-
-let currentPage = 1;
-
-const flightsPerPage = 5;
-
-
-
-
-function populateCountries() {
-
-    countries.forEach(country => {
-
-        const optionFrom =
-            document.createElement("option");
-
-        optionFrom.value = country;
-        optionFrom.textContent = country;
-
-        fromCountry.appendChild(optionFrom);
-
-
-        const optionTo =
-            document.createElement("option");
-
-        optionTo.value = country;
-        optionTo.textContent = country;
-
-        toCountry.appendChild(optionTo);
-
-    });
-}
-
-
-
-function createAirlineFilters() {
-
-    airlines.forEach(airline => {
-
-        const label =
-            document.createElement("label");
-
-        label.className = "check-option";
-
-        label.innerHTML = `
-            <input
-                type="checkbox"
-                class="airline-filter"
-                value="${airline}"
-            >
-
-            <span>${airline}</span>
-        `;
-
-        airlineFilters.appendChild(label);
-
-    });
-}
-
-
-
-tripTypeInputs.forEach(input => {
-
-    input.addEventListener("change", function () {
-
-        if (this.value === "roundtrip") {
-
-            returnDate.disabled = false;
-
-        } else {
-
-            returnDate.disabled = true;
-            returnDate.value = "";
-
+        if (
+            returnDate.value &&
+            departDate.value &&
+            returnDate.value < departDate.value
+        ) {
+            returnDate.value = departDate.value;
         }
-
     });
 
-});
 
 
-// swap------------------------------------
-
-swapButton.addEventListener("click", function () {
-
-    const oldFrom = fromCountry.value;
-
-    fromCountry.value = toCountry.value;
-
-    toCountry.value = oldFrom;
-
-});
-
-
-
-
-function getTripType() {
-
-    const selected =
-        document.querySelector(
+    function updateTripType() {
+        const selectedTrip = document.querySelector(
             'input[name="tripType"]:checked'
         );
 
-    return selected
-        ? selected.value
-        : "oneway";
-}
+        const isRoundTrip =
+            selectedTrip && selectedTrip.value === "roundtrip";
 
+        returnDate.disabled = !isRoundTrip;
+        returnDate.required = Boolean(isRoundTrip);
 
-
-
-function generateFlights(from, to, selectedClass) {
-
-    const generatedFlights = [];
-
-    if (!from || !to || from === to) {
-        return generatedFlights;
+        if (!isRoundTrip) {
+            returnDate.value = "";
+        }
     }
 
+    document.querySelectorAll('input[name="tripType"]').forEach(function (radio) {
+        radio.addEventListener("change", updateTripType);
+    });
 
+    updateTripType();
 
+ 
 
-    const selectedAirlines = [
-        airlines[
-        Math.floor(
-            Math.random() * airlines.length
-        )
-        ],
+    swapButton.addEventListener("click", function () {
+        const oldFrom = fromSelect.value;
 
-        airlines[
-        Math.floor(
-            Math.random() * airlines.length
-        )
-        ],
-
-        airlines[
-        Math.floor(
-            Math.random() * airlines.length
-        )
-        ],
-
-        airlines[
-        Math.floor(
-            Math.random() * airlines.length
-        )
-        ]
-    ];
-
-
-    //    time-----------------------------------
-
-    const flightTimes = [
-        {
-            departure: "06:30",
-            arrival: "10:45",
-            period: "Morning"
-        },
-
-        {
-            departure: "09:15",
-            arrival: "13:30",
-            period: "Morning"
-        },
-
-        {
-            departure: "13:20",
-            arrival: "17:40",
-            period: "Afternoon"
-        },
-
-        {
-            departure: "17:50",
-            arrival: "22:10",
-            period: "Evening"
-        },
-
-        {
-            departure: "22:30",
-            arrival: "04:45",
-            period: "Night"
-        },
-
-        {
-            departure: "20:30",
-            arrival: "05:45",
-            period: "Night"
-        },
-        {
-            departure: "02:30",
-            arrival: "11:45",
-            period: "Morning"
-        },
-
-        {
-            departure: "09:30",
-            arrival: "13:40",
-            period: "Evening"
-        }
-
-    ];
-
-
-    flightTimes.forEach((time, index) => {
-
-        const airline =
-            selectedAirlines[index % selectedAirlines.length];
-
-
-        const code =
-            airlineCodes[airline] || "SK";
-
-
-
-
-        let basePrice = 250 + index * 85;
-
-        if (selectedClass === "Business") {
-
-            basePrice += 450;
-
-        }
-
-        if (selectedClass === "First") {
-
-            basePrice += 1000;
-
-        }
-
-
-
-
-        const durationHours =
-            3 + ((from.length + to.length + index) % 9);
-
-        const durationMinutes =
-            (durationHours * 60) +
-            ((from.length * 7 + to.length * 5 + index * 13) % 60);
-
-
-        const hours =
-            Math.floor(durationMinutes / 60);
-
-        const minutes =
-            durationMinutes % 60;
-
-
-        const duration =
-            `${hours}h ${minutes}m`;
-
-
-        generatedFlights.push({
-
-            id:
-                Date.now() +
-                index +
-                Math.random(),
-
-            from: from,
-
-            to: to,
-
-            airline: airline,
-
-            flightNumber:
-                `${code}-${100 + index * 73}`,
-
-            departure:
-                time.departure,
-
-            arrival:
-                time.arrival,
-
-            period:
-                time.period,
-
-            duration:
-                duration,
-
-            durationMinutes:
-                durationMinutes,
-
-            class:
-                selectedClass,
-
-            price:
-                basePrice,
-
-            stops:
-                index === 0
-                    ? "Non-stop"
-                    : index === 4
-                        ? "1 Stop"
-                        : "Non-stop"
-
-        });
-
+        fromSelect.value = toSelect.value;
+        toSelect.value = oldFrom;
     });
 
 
-    return generatedFlights;
-}
 
-
-
-
-function searchFlights() {
-
-    const from =
-        fromCountry.value;
-
-    const to =
-        toCountry.value;
-
-    const selectedClass =
-        cabinClass.value;
-
-    const tripType =
-        getTripType();
-
-
-    /* VALIDATION */
-
-    if (!from || !to) {
-
-        alert(
-            "Please select both departure and destination countries."
-        );
-
-        return;
-    }
-
-
-    if (from === to) {
-
-        alert(
-            "Departure and destination countries cannot be the same."
-        );
-
-        return;
-    }
-
-
-    if (!departDate.value) {
-
-        alert(
-            "Please select your departure date."
-        );
-
-        return;
-    }
-
-
-    if (
-        tripType === "roundtrip" &&
-        !returnDate.value
-    ) {
-
-        alert(
-            "Please select your return date."
-        );
-
-        return;
-    }
-
-
-    if (
-        tripType === "roundtrip" &&
-        returnDate.value <= departDate.value
-    ) {
-
-        alert(
-            "Return date must be after departure date."
-        );
-
-        return;
-    }
-
-
-    /*
-       SEARCH
-    */
-
-    currentFlights =
-        generateFlights(
-            from,
-            to,
-            selectedClass
-        );
-
-
-    searched = true;
-
-    currentPage = 1;
-
-
-    applyFilters();
-
-}
-
-
-
-
-function getSelectedTimeFilters() {
-
-    return [
-        ...document.querySelectorAll(
-            ".time-filter:checked"
-        )
-    ].map(input => input.value);
-
-}
-
-
-
-function getSelectedAirlines() {
-
-    return [
-        ...document.querySelectorAll(
-            ".airline-filter:checked"
-        )
-    ].map(input => input.value);
-
-}
-
-
-
-
-function applyFilters() {
-
-    if (!searched) {
-        return;
-    }
-
-
-    const timeFilters =
-        getSelectedTimeFilters();
-
-
-    const selectedAirlines =
-        getSelectedAirlines();
-
-
-    const minimum =
-        minPrice.value
-            ? Number(minPrice.value)
-            : 0;
-
-
-    const maximum =
-        maxPrice.value
-            ? Number(maxPrice.value)
-            : Infinity;
-
-
-    filteredFlights =
-        currentFlights.filter(flight => {
-
-
-            /* TIME */
-
-            const timeMatch =
-                timeFilters.length === 0 ||
-                timeFilters.includes(
-                    flight.period
-                );
-
-
-            /* AIRLINE */
-
-            const airlineMatch =
-                selectedAirlines.length === 0 ||
-                selectedAirlines.includes(
-                    flight.airline
-                );
-
-
-            /* PRICE */
-
-            const priceMatch =
-                flight.price >= minimum &&
-                flight.price <= maximum;
-
-
-            return (
-                timeMatch &&
-                airlineMatch &&
-                priceMatch
-            );
-
+    function getCountryCode(countryName) {
+        const country = countries.find(function (item) {
+            return item.name === countryName;
         });
 
+        return country ? country.code : "---";
+    }
 
-    applySorting();
+    function formatTime(totalMinutes) {
+        const hours = Math.floor(totalMinutes / 60) % 24;
+        const minutes = totalMinutes % 60;
 
-}
-
-
-
-
-function applySorting() {
-
-    const sortValue =
-        sortFlights.value;
-
-
-    if (sortValue === "price-low") {
-
-        filteredFlights.sort(
-            (a, b) =>
-                a.price - b.price
+        return (
+            String(hours).padStart(2, "0") +
+            ":" +
+            String(minutes).padStart(2, "0")
         );
+    }
 
+    function getDurationText(minutes) {
+        const hours = Math.floor(minutes / 60);
+        const remainingMinutes = minutes % 60;
+
+        return `${hours}h ${remainingMinutes}m`;
+    }
+
+    function getTimePeriod(time) {
+        const hour = Number(time.split(":")[0]);
+
+        if (hour >= 5 && hour < 12) {
+            return "morning";
+        }
+
+        if (hour >= 12 && hour < 18) {
+            return "afternoon";
+        }
+
+        return "evening";
+    }
+
+    function escapeHTML(value) {
+        return String(value).replace(/[&<>"']/g, function (character) {
+            const replacements = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&quot;",
+                "'": "&#039;"
+            };
+
+            return replacements[character];
+        });
     }
 
 
-    if (sortValue === "price-high") {
 
-        filteredFlights.sort(
-            (a, b) =>
-                b.price - a.price
-        );
+    function generateFlights(from, to, selectedClass, selectedPassenger) {
+        const basePrices = [
+            230, 310, 275, 360, 195, 420, 340, 290
+        ];
 
+        const departureTimes = [
+            390, 485, 625, 750, 890, 1020, 1125, 1290
+        ];
+
+        const durations = [
+            150, 185, 210, 165, 240, 195, 225, 175
+        ];
+
+        const classMultiplier = {
+            "Economy": 1,
+            "Business": 2.4,
+            "First Class": 4
+        };
+
+        const multiplier = classMultiplier[selectedClass] || 1;
+
+        return airlines.map(function (airline, index) {
+            const departureMinutes = departureTimes[index];
+            const duration = durations[index];
+
+            const arrivalMinutes =
+                (departureMinutes + duration) % (24 * 60);
+
+            const basePrice = basePrices[index];
+
+            return {
+                id: `flight-${index + 1}`,
+                airline: airline,
+                from: from,
+                to: to,
+                departure: formatTime(departureMinutes),
+                arrival: formatTime(arrivalMinutes),
+                duration: duration,
+                price: Math.round(basePrice * multiplier),
+                cabin: selectedClass,
+                passenger: selectedPassenger,
+                period: getTimePeriod(formatTime(departureMinutes)),
+                stops: index % 3 === 0 ? 1 : 0
+            };
+        });
     }
 
 
-    if (sortValue === "duration") {
 
-        filteredFlights.sort(
-            (a, b) =>
-                a.durationMinutes -
-                b.durationMinutes
-        );
+    function createAirlineFilters() {
+        airlineFilters.innerHTML = "";
 
+        const uniqueAirlines = [
+            ...new Set(allFlights.map(function (flight) {
+                return flight.airline;
+            }))
+        ];
+
+        uniqueAirlines.forEach(function (airline, index) {
+            const label = document.createElement("label");
+            label.className = "airline-option";
+
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.className = "airline-filter";
+            checkbox.value = airline;
+            checkbox.id = `airline-${index}`;
+
+            const text = document.createElement("span");
+            text.textContent = airline;
+
+            label.appendChild(checkbox);
+            label.appendChild(text);
+            airlineFilters.appendChild(label);
+
+            checkbox.addEventListener("change", applyFilters);
+        });
     }
 
 
-    renderFlights();
+    function renderFlights(flights) {
+        flightList.innerHTML = "";
 
-}
+        if (flights.length === 0) {
+            flightList.innerHTML = `
+                <div class="empty-state">
+                    <i class="fa-solid fa-plane-slash"></i>
+                    <h3>No flights found</h3>
+                    <p>Try changing your departure time or airline filters.</p>
+                </div>
+            `;
+
+            resultsCount.textContent = "No matching demo flights.";
+            return;
+        }
+
+        flights.forEach(function (flight) {
+            const card = document.createElement("article");
+            card.className = "flight-card";
+
+            const fromCode = getCountryCode(flight.from);
+            const toCode = getCountryCode(flight.to);
+
+            const stopText = flight.stops === 0
+                ? "Non-stop"
+                : "1 stop";
+
+            card.innerHTML = `
+                <div class="flight-top">
+                    <div class="airline-name">
+                        <div class="airline-symbol">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <div>
+                            <div>${escapeHTML(flight.airline)}</div>
+                            <small style="color:#8291a0;font-size:10px;">
+                                ${escapeHTML(flight.cabin)}
+                            </small>
+                        </div>
+                    </div>
+
+                    <span class="flight-badge">${stopText}</span>
+                </div>
+
+                <div class="flight-route">
+                    <div>
+                        <div class="route-time">${flight.departure}</div>
+                        <span class="route-city">
+                            ${escapeHTML(fromCode)} · ${escapeHTML(flight.from)}
+                        </span>
+                    </div>
+
+                    <div class="route-middle">
+                        <span>${getDurationText(flight.duration)}</span>
+                        <div class="route-line">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <span>${stopText}</span>
+                    </div>
+
+                    <div class="route-end">
+                        <div class="route-time">${flight.arrival}</div>
+                        <span class="route-city">
+                            ${escapeHTML(toCode)} · ${escapeHTML(flight.to)}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="flight-bottom">
+                    <div class="flight-details">
+                        <span>
+                            <i class="fa-regular fa-clock"></i>
+                            ${getDurationText(flight.duration)}
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-user"></i>
+                            ${escapeHTML(flight.passenger)}
+                        </span>
+
+                        <span>
+                            <i class="fa-solid fa-suitcase"></i>
+                            ${escapeHTML(flight.cabin)}
+                        </span>
+                    </div>
+
+                    <div class="price-block">
+                        <div class="price">
+                            $${flight.price.toLocaleString("en-US")}
+                        </div>
+                        <span class="price-note">Demo price per passenger</span>
+                        <button type="button"
+                            class="select-flight"
+                            data-flight-id="${flight.id}">
+                            Book Flight
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            flightList.appendChild(card);
+        });
+
+        resultsCount.textContent =
+            `${flights.length} demo flight option(s) shown.`;
+    }
+
+  
+
+    function applyFilters() {
+        if (!hasSearched) {
+            return;
+        }
+
+        const selectedTimes = Array.from(
+            document.querySelectorAll(".time-filter:checked")
+        ).map(function (checkbox) {
+            return checkbox.value;
+        });
+
+        const selectedAirlines = Array.from(
+            document.querySelectorAll(".airline-filter:checked")
+        ).map(function (checkbox) {
+            return checkbox.value;
+        });
+
+        let filteredFlights = allFlights.filter(function (flight) {
+            const timeMatches =
+                selectedTimes.length === 0 ||
+                selectedTimes.includes(flight.period);
+
+            const airlineMatches =
+                selectedAirlines.length === 0 ||
+                selectedAirlines.includes(flight.airline);
+
+            return timeMatches && airlineMatches;
+        });
+
+        const sortValue = sortSelect.value;
+
+        if (sortValue === "price-low") {
+            filteredFlights.sort(function (a, b) {
+                return a.price - b.price;
+            });
+        } else if (sortValue === "price-high") {
+            filteredFlights.sort(function (a, b) {
+                return b.price - a.price;
+            });
+        } else if (sortValue === "duration") {
+            filteredFlights.sort(function (a, b) {
+                return a.duration - b.duration;
+            });
+        }
+
+        renderFlights(filteredFlights);
+    }
+
+    document.querySelectorAll(".time-filter").forEach(function (checkbox) {
+        checkbox.addEventListener("change", applyFilters);
+    });
+
+    sortSelect.addEventListener("change", applyFilters);
+
+    clearFiltersButton.addEventListener("click", function () {
+        document.querySelectorAll(".time-filter, .airline-filter")
+            .forEach(function (checkbox) {
+                checkbox.checked = false;
+            });
+
+        sortSelect.value = "recommended";
+        applyFilters();
+    });
 
 
 
-function renderFlights() {
+    searchForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    resultsContainer.innerHTML = "";
+        formMessage.textContent = "";
 
+        const from = fromSelect.value;
+        const to = toSelect.value;
+        const departure = departDate.value;
+        const returnValue = returnDate.value;
+        const selectedTrip = document.querySelector(
+            'input[name="tripType"]:checked'
+        );
+
+        const isRoundTrip =
+            selectedTrip && selectedTrip.value === "roundtrip";
+
+        if (!from || !to) {
+            formMessage.textContent =
+                "Please select your origin and destination.";
+            return;
+        }
+
+        if (from === to) {
+            formMessage.textContent =
+                "Origin and destination must be different.";
+            return;
+        }
+
+        if (!departure) {
+            formMessage.textContent =
+                "Please choose your departure date.";
+            return;
+        }
+
+        if (departure < today) {
+            formMessage.textContent =
+                "Departure date cannot be in the past.";
+            return;
+        }
+
+        if (isRoundTrip && !returnValue) {
+            formMessage.textContent =
+                "Please choose your return date.";
+            return;
+        }
+
+        if (isRoundTrip && returnValue < departure) {
+            formMessage.textContent =
+                "Return date cannot be before departure.";
+            return;
+        }
+
+        allFlights = generateFlights(
+            from,
+            to,
+            cabinClass.value,
+            passengerType.value
+        );
+
+        hasSearched = true;
+
+        document.querySelectorAll(".time-filter").forEach(function (checkbox) {
+            checkbox.checked = false;
+        });
+
+        sortSelect.value = "recommended";
+
+        createAirlineFilters();
+
+        const tripText = isRoundTrip ? "Round trip" : "One way";
+
+        resultsSummary.textContent =
+            `${from} → ${to} · ${departure}` +
+            (isRoundTrip ? ` · Return ${returnValue}` : "") +
+            ` · ${tripText} · ${passengerType.value} · ${cabinClass.value}`;
+
+        applyFilters();
+
+        document.getElementById("results-section").scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    });
+
+
+    flightList.addEventListener("click", function (event) {
+        const button = event.target.closest(".select-flight");
+
+        if (!button) {
+            return;
+        }
+
+        const flight = allFlights.find(function (item) {
+            return item.id === button.dataset.flightId;
+        });
+
+        if (!flight) {
+            return;
+        }
+
+    //    remove
+
+        if (confirmed) {
+            button.textContent = "Selected";
+            button.disabled = true;
+            button.style.opacity = "0.7";
+        }
+    });
+});
+let currentPage = 1;
+const flightsPerPage = 3;
+
+function renderFlights(flights) {
+    flightList.innerHTML = "";
     pagination.innerHTML = "";
 
+    if (flights.length === 0) {
+        flightList.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-solid fa-plane-slash"></i>
+                <h3>No flights found</h3>
+                <p>Try changing your departure time or airline filters.</p>
+            </div>
+        `;
 
-    if (!searched) {
-
-        emptyMessage.style.display = "none";
-
-        resultsTitle.textContent =
-            "Search Results";
-
-        resultsCount.textContent =
-            "Search for a flight to see available flights.";
-
+        resultsCount.textContent = "No matching demo flights.";
         return;
-
     }
 
+    const totalPages = Math.ceil(flights.length / flightsPerPage);
 
-    if (filteredFlights.length === 0) {
-
-        emptyMessage.style.display = "block";
-
-        resultsTitle.textContent =
-            `${fromCountry.value} → ${toCountry.value}`;
-
-        resultsCount.textContent =
-            "No flights match your current filters.";
-
-        return;
-
+    if (currentPage > totalPages) {
+        currentPage = totalPages;
     }
 
-
-    emptyMessage.style.display = "none";
-
-
-    resultsTitle.textContent =
-        `${fromCountry.value} → ${toCountry.value}`;
-
-
-    resultsCount.textContent =
-        `${filteredFlights.length} flight${filteredFlights.length !== 1
-            ? "s"
-            : ""
-        } found`;
-
-
-    /* PAGINATION */
-
-    const start =
-        (currentPage - 1) *
-        flightsPerPage;
-
-
-    const end =
-        start +
-        flightsPerPage;
-
-
-    const pageFlights =
-        filteredFlights.slice(
-            start,
-            end
-        );
-
-
-    pageFlights.forEach(
-        flight => {
-
-            resultsContainer.appendChild(
-                createFlightCard(flight)
-            );
-
-        }
+    const startIndex = (currentPage - 1) * flightsPerPage;
+    const pageFlights = flights.slice(
+        startIndex,
+        startIndex + flightsPerPage
     );
 
+    pageFlights.forEach(function (flight) {
+        const card = document.createElement("article");
+        card.className = "flight-card";
 
-    createPagination();
+        const fromCode = getCountryCode(flight.from);
+        const toCode = getCountryCode(flight.to);
 
-}
+        const stopText = flight.stops === 0 ? "Non-stop" : "1 stop";
 
-
-
-
-function createFlightCard(flight) {
-
-    const card =
-        document.createElement("div");
-
-    card.className =
-        "flight-card1";
-
-
-    const airlineCode =
-        airlineCodes[flight.airline]
-        || "SK";
-
-
-    card.innerHTML = `
-
-        <div class="card-top">
-
-            <div class="airline-info1">
-
-                <div class="airline-logo1">
-                    ${airlineCode}
+        card.innerHTML = `
+            <div class="flight-top">
+                <div class="airline-name">
+                    <div class="airline-symbol">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <div>
+                        <div>${escapeHTML(flight.airline)}</div>
+                        <small style="color:#8291a0;font-size:10px;">
+                            ${escapeHTML(flight.cabin)}
+                        </small>
+                    </div>
                 </div>
+                <span class="flight-badge">${stopText}</span>
+            </div>
 
+            <div class="flight-route">
                 <div>
-
-                    <h4>
-                        ${flight.airline}
-                    </h4>
-
-                    <p>
-                        ${flight.flightNumber}
-                    </p>
-
+                    <div class="route-time">${flight.departure}</div>
+                    <span class="route-city">
+                        ${escapeHTML(fromCode)} · ${escapeHTML(flight.from)}
+                    </span>
                 </div>
 
+                <div class="route-middle">
+                    <span>${getDurationText(flight.duration)}</span>
+                    <div class="route-line">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <span>${stopText}</span>
+                </div>
+
+                <div class="route-end">
+                    <div class="route-time">${flight.arrival}</div>
+                    <span class="route-city">
+                        ${escapeHTML(toCode)} · ${escapeHTML(flight.to)}
+                    </span>
+                </div>
             </div>
 
+            <div class="flight-bottom">
+                <div class="flight-details">
+                    <span><i class="fa-regular fa-clock"></i>
+                        ${getDurationText(flight.duration)}</span>
+                    <span><i class="fa-solid fa-user"></i>
+                        ${escapeHTML(flight.passenger)}</span>
+                    <span><i class="fa-solid fa-suitcase"></i>
+                        ${escapeHTML(flight.cabin)}</span>
+                </div>
 
-            <div class="class-badge">
-                ${flight.class}
+                <div class="price-block">
+                    <div class="price">
+                        $${flight.price.toLocaleString("en-US")}
+                    </div>
+                    <span class="price-note">Demo price per passenger</span>
+                    <button type="button" class="select-flight"
+                        data-flight-id="${flight.id}">
+                        Select Flight
+                    </button>
+                </div>
             </div>
+        `;
 
-        </div>
+        flightList.appendChild(card);
+    });
 
-
-        <div class="flight-route">
-
-
-            <div class="flight-time1">
-
-                <h3>
-                    ${flight.departure}
-                </h3>
-
-                <p>
-                    ${flight.from}
-                </p>
-
-            </div>
-
-
-            <div class="flight-line">
-
-                <span>
-                    ${flight.stops}
-                </span>
-
-                <div class="line"></div>
-
-                <small>
-                    ${flight.duration}
-                </small>
-
-            </div>
-
-
-            <div class="flight-time1">
-
-                <h3>
-                    ${flight.arrival}
-                </h3>
-
-                <p>
-                    ${flight.to}
-                </p>
-
-            </div>
-
-
-        </div>
-
-
-        <div class="card-bottom">
-
-
-            <div class="flight-meta">
-
-                <span>
-                    ${flight.period}
-                </span>
-
-                <span>
-                    ${flight.class}
-                </span>
-
-                <span>
-                    ${flight.stops}
-                </span>
-
-            </div>
-
-
-            <div class="flight-price1">
-
-                <span>
-                    Starting from
-                </span>
-
-                <strong>
-                    $${flight.price}
-                </strong>
-
-                <button
-                    class="select-flight"
-                    type="button"
-                    onclick="selectFlight('${flight.id}')"
-                >
-                    Veiw Flight
-                </button>
-
-            </div>
-
-
-        </div>
-
-    `;
-
-
-    return card;
-}
-
-
-
-
-function createPagination() {
-
-    const totalPages =
-        Math.ceil(
-            filteredFlights.length /
-            flightsPerPage
-        );
-
+    resultsCount.textContent =
+        `Showing ${startIndex + 1}–${Math.min(
+            startIndex + flightsPerPage,
+            flights.length
+        )} of ${flights.length} demo flights`;
 
     if (totalPages <= 1) {
         return;
     }
 
+    function addPageButton(label, page, disabled, active) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        button.disabled = disabled;
 
-    for (
-        let i = 1;
-        i <= totalPages;
-        i++
-    ) {
-
-        const button =
-            document.createElement("button");
-
-        button.className =
-            "page-btn";
-
-
-        if (i === currentPage) {
-
-            button.classList.add(
-                "active"
-            );
-
+        if (active) {
+            button.classList.add("active");
+            button.setAttribute("aria-current", "page");
         }
 
-
-        button.textContent = i;
-
-
-        button.addEventListener(
-            "click",
-            function () {
-
-                currentPage = i;
-
-                renderFlights();
-
-                window.scrollTo({
-                    top:
-                        document.querySelector(
-                            ".results-section"
-                        ).offsetTop - 30,
-
-                    behavior: "smooth"
-                });
-
-            }
-        );
-
-
-        pagination.appendChild(
-            button
-        );
-
-    }
-
-}
-
-
-
-function selectFlight(id) {
-
-    const flight =
-        filteredFlights.find(
-            item =>
-                String(item.id) ===
-                String(id)
-        );
-
-
-    if (!flight) {
-        return;
-    }
-
-
-    // alert(
-    //     `Flight selected!\n\n` +
-    //     `${flight.airline}\n` +
-    //     `${flight.from} → ${flight.to}\n` +
-    //     `${flight.departure} - ${flight.arrival}\n` +
-    //     `Class: ${flight.class}\n` +
-    //     `Price: $${flight.price}`
-    // );
-
-}
-
-
-
-searchButton.addEventListener(
-    "click",
-    searchFlights
-);
-
-
-
-
-document
-    .querySelectorAll(".time-filter")
-    .forEach(input => {
-
-        input.addEventListener(
-            "change",
-            function () {
-
-                if (searched) {
-
-                    currentPage = 1;
-
-                    applyFilters();
-
-                }
-
-            }
-        );
-
-    });
-
-
-document.addEventListener(
-    "change",
-    function (event) {
-
-        if (
-            event.target.classList.contains(
-                "airline-filter"
-            )
-        ) {
-
-            if (searched) {
-
-                currentPage = 1;
-
-                applyFilters();
-
-            }
-
-        }
-
-    }
-);
-
-
-
-
-minPrice.addEventListener(
-    "input",
-    function () {
-
-        if (searched) {
-
-            currentPage = 1;
-
+        button.addEventListener("click", function () {
+            currentPage = page;
             applyFilters();
 
-        }
-
-    }
-);
-
-
-maxPrice.addEventListener(
-    "input",
-    function () {
-
-        if (searched) {
-
-            currentPage = 1;
-
-            applyFilters();
-
-        }
-
-    }
-);
-
-
-
-
-sortFlights.addEventListener(
-    "change",
-    function () {
-
-        if (searched) {
-
-            applyFilters();
-
-        }
-
-    }
-);
-
-
-
-clearFilters.addEventListener(
-    "click",
-    function () {
-
-
-        document
-            .querySelectorAll(
-                ".time-filter, .airline-filter"
-            )
-            .forEach(input => {
-
-                input.checked = false;
-
+            document.getElementById("results-section").scrollIntoView({
+                behavior: "smooth",
+                block: "start"
             });
+        });
 
-
-        minPrice.value = "";
-
-        maxPrice.value = "";
-
-
-        sortFlights.value =
-            "recommended";
-
-
-        currentPage = 1;
-
-
-        if (searched) {
-
-            applyFilters();
-
-        }
-
+        pagination.appendChild(button);
     }
-);
 
+    addPageButton("‹", currentPage - 1, currentPage === 1, false);
 
-
-emptyReset.addEventListener(
-    "click",
-    function () {
-
-        document
-            .querySelectorAll(
-                ".time-filter, .airline-filter"
-            )
-            .forEach(input => {
-
-                input.checked = false;
-
-            });
-
-
-        minPrice.value = "";
-
-        maxPrice.value = "";
-
-
-        currentPage = 1;
-
-
-        applyFilters();
-
+    for (let page = 1; page <= totalPages; page++) {
+        addPageButton(
+            String(page),
+            page,
+            false,
+            page === currentPage
+        );
     }
-);
 
-
-
-populateCountries();
-
-createAirlineFilters();
-
-
-
-const today =
-    new Date();
-
-
-const yyyy =
-    today.getFullYear();
-
-
-const mm =
-    String(
-        today.getMonth() + 1
-    ).padStart(2, "0");
-
-
-const dd =
-    String(
-        today.getDate()
-    ).padStart(2, "0");
-
-
-const todayString =
-    `${yyyy}-${mm}-${dd}`;
-
-
-departDate.min =
-    todayString;
-
-
-returnDate.min =
-    todayString;
+    addPageButton(
+        "›",
+        currentPage + 1,
+        currentPage === totalPages,
+        false
+    );
+}
