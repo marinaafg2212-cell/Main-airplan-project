@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../components"
+		},
+		{
+			"path": "../css"
+		},
+		{
+			"path": "../image"
+		},
+		{
+			"path": "../js"
+		},
+		{
+			"path": "../New folder"
+		}
+	]
+}

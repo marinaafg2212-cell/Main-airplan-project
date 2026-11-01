@@ -61,6 +61,7 @@
     <link rel="stylesheet" href="css/searchFlight.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/sidbar.css">
+    <link rel="stylesheet" href="css/booking.css">
 
 </head>
 
@@ -191,9 +192,9 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-              
+
                 <h1>Find your next destination.</h1>
-              
+
             </div>
         </section>
 
@@ -370,6 +371,159 @@
                 <div id="pagination" class="pagination"></div>
 
             </div>
+
+
+            <form id="passenger-form">
+
+                <!-- STEP 1: FLIGHT DETAILS -->
+                <div class="booking-panel active" data-panel="1">
+                    <h2><i class="fa-solid fa-plane-departure"></i> Flight Details</h2>
+
+                    <div id="booking-flight-details"></div>
+
+                    <div class="booking-total">
+                        <span>Total fare</span>
+                        <strong id="booking-fare">$0</strong>
+                    </div>
+
+                    <button type="button" class="booking-button" data-next="2">
+                        Continue to Passenger Details
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- STEP 2: PASSENGER INFORMATION -->
+                <div class="booking-panel" data-panel="2">
+                    <h2><i class="fa-regular fa-user"></i> Passenger Information</h2>
+
+                    <div class="booking-field">
+                        <label for="passenger-name">Full Name</label>
+                        <input id="passenger-name" name="name" type="text" maxlength="100" autocomplete="name" required>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="passenger-email">Email Address</label>
+                        <input id="passenger-email" name="email" type="email" maxlength="254" autocomplete="email"
+                            required>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="passenger-phone">Phone Number</label>
+                        <input id="passenger-phone" name="phone" type="tel" maxlength="25" autocomplete="tel" required>
+                    </div>
+
+                    <div class="booking-actions">
+                        <button type="button" class="booking-button secondary" data-back="1">Back</button>
+                        <button type="submit" class="booking-button">
+                            Continue to Payment
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 3: DEMO CARD PAYMENT -->
+                <div class="booking-panel" data-panel="3">
+                    <h2><i class="fa-regular fa-credit-card"></i> Card Payment</h2>
+
+                    <div class="demo-notice">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Demo payment only. No real payment will be processed.
+                    </div>
+
+                    <div class="demo-bank-card">
+                        <div class="bank-card-top">
+                            <span>SKYLINE</span>
+                            <i class="fa-solid fa-wifi"></i>
+                        </div>
+                        <i class="fa-solid fa-sim-card chip"></i>
+                        <div class="demo-card-number" id="demo-card-preview">
+                            •••• •••• •••• ••••
+                        </div>
+                        <div class="bank-card-bottom">
+                            <span id="demo-card-name">CARDHOLDER NAME</span>
+                            <i class="fa-brands fa-cc-visa"></i>
+                        </div>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="card-name">Cardholder Name</label>
+                        <input id="card-name" type="text" autocomplete="off" maxlength="100" placeholder="Name on card"
+                            required>
+                    </div>
+
+                    <div class="booking-field">
+                        <label for="card-number">Demo Card Number</label>
+                        <input id="card-number" type="text" inputmode="numeric" autocomplete="off" maxlength="19"
+                            placeholder="4242 4242 4242 4242" required>
+                    </div>
+
+                    <div class="booking-grid">
+                        <div class="booking-field">
+                            <label for="card-expiry">Expiry Date</label>
+                            <input id="card-expiry" type="text" inputmode="numeric" autocomplete="off" maxlength="5"
+                                placeholder="MM/YY" required>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="card-cvv">CVV (Demo)</label>
+                            <input id="card-cvv" type="password" inputmode="numeric" autocomplete="off" maxlength="4"
+                                placeholder="123" required>
+                        </div>
+                    </div>
+
+                    <p class="payment-hint">
+                        Use fictional details for this demonstration.
+                        Card details are not stored.
+                    </p>
+
+                    <div class="booking-total">
+                        <span>Amount to pay</span>
+                        <strong id="payment-total">$0</strong>
+                    </div>
+
+                    <label class="terms-row">
+                        <input type="checkbox" id="booking-terms" required>
+                        <span>I have reviewed my booking details.</span>
+                    </label>
+
+                    <div class="booking-actions">
+                        <button type="button" class="booking-button secondary" data-back="2">Back</button>
+                        <button type="button" class="booking-button" id="confirm-booking">
+                            Pay & Confirm Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- STEP 4: CONFIRMATION -->
+                <div class="booking-panel" data-panel="4">
+                    <div class="confirmation-icon">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+
+                    <h2 class="confirmation-title">Booking Complete!</h2>
+                    <p class="confirmation-text">
+                        Your demo booking has been confirmed on this browser.
+                        No real flight ticket or payment has been issued.
+                    </p>
+
+                    <div class="confirmation-reference">
+                        <span>Demo Reference Number</span>
+                        <strong id="booking-reference"></strong>
+                    </div>
+
+                    <div id="confirmation-details" class="confirmation-details"></div>
+
+                    <button type="button" class="booking-button" id="finish-booking">
+                        Done
+                    </button>
+                </div>
+
+            </form>
+
+            <p id="booking-message" class="booking-message" role="status" aria-live="polite"></p>
+
+
+
         </section>
 
     </main>
@@ -383,6 +537,8 @@
     </footer>
     <script src="js/search.js"></script>
     <script src="js/sideder.js"></script>
+    <script src="js/booking.js"></script>
+    <script src="js/login.js"></script>
 
 </body>
 

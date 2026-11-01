@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  
+
 
     const fromSelect = document.getElementById("from-country");
     const toSelect = document.getElementById("to-country");
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateTripType();
 
- 
+
 
     swapButton.addEventListener("click", function () {
         const oldFrom = fromSelect.value;
@@ -398,7 +398,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `${flights.length} demo flight option(s) shown.`;
     }
 
-  
+
 
     function applyFilters() {
         if (!hasSearched) {
@@ -566,7 +566,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-    //    remove
+        //    remove
 
         if (confirmed) {
             button.textContent = "Selected";

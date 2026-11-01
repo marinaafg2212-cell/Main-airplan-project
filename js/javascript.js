@@ -4,7 +4,7 @@ const testimonials = [
         description:
             "My journey with Skyline was amazing. Everything was smooth and comfortable. I enjoyed every moment of my trip and discovered beautiful places.",
 
-        profile: "./image/pro2",
+        profile: "./image/pro2.jpg",
         name: "Marina",
         job: "Happy Traveler"
     },
@@ -14,7 +14,7 @@ const testimonials = [
         description:
             "Flying with Skyline made my trip easy and relaxing. The service was excellent, the journey was comfortable, and everything felt perfectly organized.",
 
-        profile: "./image/pro1",
+        profile: "./image/pro1.jpg",
         name: "Sarah",
         job: "Adventure Traveler"
     },
@@ -24,7 +24,7 @@ const testimonials = [
         description:
             "This was one of the best travel experiences I have ever had. everything was simple and enjoyable.",
 
-        profile: "./image/pto3",
+        profile: "./image/pro3.jpg",
         name: "Daniel",
         job: "World Traveler"
     },
@@ -34,7 +34,7 @@ const testimonials = [
         description:
             "Skyline helped me discover a beautiful destination without any stress. The whole experience was comfortable, smooth, and full of unforgettable moments.",
 
-        profile: "./image/pro4",
+        profile: "./image/pro4.jpg",
         name: "Sophia",
         job: "Travel Lover"
     }
