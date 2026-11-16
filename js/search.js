@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    
+
 
     const fromSelect = document.getElementById("from-country");
     const toSelect = document.getElementById("to-country");
@@ -551,29 +553,88 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    flightList.addEventListener("click", function (event) {
-        const button = event.target.closest(".select-flight");
+   flightList.addEventListener("click", function (event) {
 
-        if (!button) {
-            return;
-        }
+    const button = event.target.closest(".select-flight");
 
-        const flight = allFlights.find(function (item) {
-            return item.id === button.dataset.flightId;
-        });
+    if (!button) return;
 
-        if (!flight) {
-            return;
-        }
-
-        //    remove
-
-        if (confirmed) {
-            button.textContent = "Selected";
-            button.disabled = true;
-            button.style.opacity = "0.7";
-        }
+    const flight = allFlights.find(function (item) {
+        return item.id === button.dataset.flightId;
     });
+
+    if (!flight) {
+        console.error("Selected flight was not found.");
+        return;
+    }
+
+    // Get the correct payment modal
+    const paymentModal = document.getElementById("booking-modal");
+
+    if (!paymentModal) {
+        console.error("Booking modal was not found.");
+        return;
+    }
+
+    // Save selected flight
+    sessionStorage.setItem("selectedFlight", JSON.stringify({
+        id: flight.id,
+        airline: flight.airline,
+        from: flight.from,
+        to: flight.to,
+        departure: flight.departure,
+        arrival: flight.arrival,
+        duration: flight.duration,
+        price: flight.price,
+        cabin: flight.cabin,
+        passenger: flight.passenger,
+        stops: flight.stops
+    }));
+
+    // Get country codes
+    const fromCode = getCountryCode(flight.from);
+    const toCode = getCountryCode(flight.to);
+
+    // Update payment information
+    const updateText = function (id, value) {
+        const element = document.getElementById(id);
+        if (element) element.textContent = value;
+    };
+
+    updateText("payment-from", fromCode);
+    updateText("payment-from-city", flight.from);
+
+    updateText("payment-to", toCode);
+    updateText("payment-to-city", flight.to);
+
+    updateText("payment-duration", getDurationText(flight.duration));
+    updateText("payment-airline", flight.airline);
+    updateText("payment-flight-number", flight.id.toUpperCase());
+
+    updateText("payment-departure", flight.departure);
+    updateText("payment-arrival", flight.arrival);
+
+    updateText("payment-class", flight.cabin);
+    updateText("payment-passengers", flight.passenger);
+
+    // Calculate price
+    const ticketPrice = flight.price;
+    const tax = 15;
+    const serviceFee = 5;
+    const total = ticketPrice + tax + serviceFee;
+
+    updateText("payment-ticket-price", "$" + ticketPrice.toFixed(2));
+    updateText("payment-tax", "$" + tax.toFixed(2));
+    updateText("payment-service-fee", "$" + serviceFee.toFixed(2));
+    updateText("payment-total", "$" + total.toFixed(2));
+    updateText("payment-button-total", "$" + total.toFixed(2));
+
+    // Open payment modal
+    paymentModal.hidden = false;
+    document.body.style.overflow = "hidden";
+
+});
+// chages
 });
 let currentPage = 1;
 const flightsPerPage = 3;
