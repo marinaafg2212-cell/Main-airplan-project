@@ -616,6 +616,10 @@ a {
     padding-top: 15px;
     border-top: 1px solid #edf1f5;
 }
+html {
+    scroll-behavior: smooth;
+}
+
 
 .flight-details {
     display: flex;

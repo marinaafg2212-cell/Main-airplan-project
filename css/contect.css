@@ -172,6 +172,10 @@
 
     font-size: 11px;
 }
+html {
+    scroll-behavior: smooth;
+}
+
 
 .form-group label span {
     color: #1769e0;

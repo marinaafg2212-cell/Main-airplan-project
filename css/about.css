@@ -82,7 +82,7 @@ a {
     flex-direction: column;
     justify-content: center;
     padding: 85px 8% 100px;
-    background: var(--navy);
+    background: #f1f5ff;
     color: var(--white);
     isolation: isolate;
 }
@@ -92,7 +92,7 @@ a {
     inset: 0;
     z-index: -1;
 
-    background: #f5f4f1;
+   background: #fbfcff;
 }
 
 .hero-container {
@@ -1061,3 +1061,6 @@ a {
 
 
 /* cunm */
+html {
+    scroll-behavior: smooth;
+}

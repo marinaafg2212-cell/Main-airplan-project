@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             return;
         }
-        
+
 
         previousFocus = document.activeElement;
 
@@ -248,19 +248,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Reset payment fields  change
-// Show card payment by default
+        // Show card payment by default
 
-const cardMethod = document.querySelector(
-    'input[name="paymentMethod"][value="card"]'
-);
+        const cardMethod = document.querySelector(
+            'input[name="paymentMethod"][value="card"]'
+        );
 
-if (cardMethod) {
-    cardMethod.checked = true;
-}
+        if (cardMethod) {
+            cardMethod.checked = true;
+        }
 
-if (cardFields) cardFields.hidden = false;
+        if (cardFields) cardFields.hidden = false;
 
-if (walletFields) walletFields.hidden = true;
+        if (walletFields) walletFields.hidden = true;
 
         // Update flight information
 
@@ -674,122 +674,122 @@ if (walletFields) walletFields.hidden = true;
     // ==================================
 
     // ==================================
-// 16. SUBMIT PAYMENT
-// ==================================
+    // 16. SUBMIT PAYMENT
+    // ==================================
 
-form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function (event) {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    const user = getCurrentUser();
+        const user = getCurrentUser();
 
-    if (!user) {
-        window.location.href = "login.html";
-        return;
-    }
-
-    const error = validateForm();
-
-    if (error) {
-        showMessage(error, "error");
-        return;
-    }
-
-    const selectedMethod = document.querySelector(
-        'input[name="paymentMethod"]:checked'
-    );
-
-    const reference =
-        "SKY-" + Date.now().toString().slice(-8);
-
-    // Get all passenger information
-
-    const passenger = {
-        name: document.getElementById("booking-name").value.trim(),
-        email: document.getElementById("booking-email").value.trim(),
-        phone: document.getElementById("booking-phone").value.trim(),
-        nationality: document.getElementById("passenger-nationality").value.trim(),
-        passport: document.getElementById("passenger-passport").value.trim(),
-        dateOfBirth: document.getElementById("passenger-dob").value,
-        gender: document.getElementById("passenger-gender")?.value || ""
-    };
-
-    // Create complete booking information
-
-    const booking = {
-
-        reference: reference,
-
-        type: "flight",
-
-        status: "pending",
-
-        createdAt: new Date().toISOString(),
-
-        userEmail: user.email.trim().toLowerCase(),
-
-        flight: {
-            ...selectedFlight
-        },
-
-        passenger: passenger,
-
-        payment: {
-            method: selectedMethod.value,
-            ticketPrice: Number(selectedFlight.ticketPrice),
-            tax: Number(selectedFlight.tax),
-            serviceFee: Number(selectedFlight.serviceFee),
-            passengers: Number(selectedFlight.passengers),
-            totalAmount: calculateTotal(),
-            status: "pending"
+        if (!user) {
+            window.location.href = "login.html";
+            return;
         }
 
-    };
+        const error = validateForm();
 
-    try {
-
-        // Get existing bookings
-
-        const oldBookings = JSON.parse(
-            localStorage.getItem("aw_bookings") || "[]"
-        );
-
-        if (!Array.isArray(oldBookings)) {
-            throw new Error("Invalid booking storage.");
+        if (error) {
+            showMessage(error, "error");
+            return;
         }
 
-        // Save complete booking
-
-        oldBookings.push(booking);
-
-        localStorage.setItem(
-            "aw_bookings",
-            JSON.stringify(oldBookings)
+        const selectedMethod = document.querySelector(
+            'input[name="paymentMethod"]:checked'
         );
 
-        // Show confirmation
+        const reference =
+            "SKY-" + Date.now().toString().slice(-8);
 
-        showMessage(
-            "Your booking has been saved successfully. Status: Pending.",
-            "success"
-        );
+        // Get all passenger information
 
-        showConfirmation(reference, user);
+        const passenger = {
+            name: document.getElementById("booking-name").value.trim(),
+            email: document.getElementById("booking-email").value.trim(),
+            phone: document.getElementById("booking-phone").value.trim(),
+            nationality: document.getElementById("passenger-nationality").value.trim(),
+            passport: document.getElementById("passenger-passport").value.trim(),
+            dateOfBirth: document.getElementById("passenger-dob").value,
+            gender: document.getElementById("passenger-gender")?.value || ""
+        };
 
-        console.log("Saved Booking:", booking);
+        // Create complete booking information
 
-    } catch (error) {
+        const booking = {
 
-        console.error("Booking error:", error);
+            reference: reference,
 
-        showMessage(
-            "Unable to save your booking. Please try again.",
-            "error"
-        );
+            type: "flight",
 
-    }
+            status: "pending",
 
-});
+            createdAt: new Date().toISOString(),
+
+            userEmail: user.email.trim().toLowerCase(),
+
+            flight: {
+                ...selectedFlight
+            },
+
+            passenger: passenger,
+
+            payment: {
+                method: selectedMethod.value,
+                ticketPrice: Number(selectedFlight.ticketPrice),
+                tax: Number(selectedFlight.tax),
+                serviceFee: Number(selectedFlight.serviceFee),
+                passengers: Number(selectedFlight.passengers),
+                totalAmount: calculateTotal(),
+                status: "pending"
+            }
+
+        };
+
+        try {
+
+            // Get existing bookings
+
+            const oldBookings = JSON.parse(
+                localStorage.getItem("aw_bookings") || "[]"
+            );
+
+            if (!Array.isArray(oldBookings)) {
+                throw new Error("Invalid booking storage.");
+            }
+
+            // Save complete booking
+
+            oldBookings.push(booking);
+
+            localStorage.setItem(
+                "aw_bookings",
+                JSON.stringify(oldBookings)
+            );
+
+            // Show confirmation
+
+            showMessage(
+                "Your booking has been saved successfully. Status: Pending.",
+                "success"
+            );
+
+            showConfirmation(reference, user);
+
+            console.log("Saved Booking:", booking);
+
+        } catch (error) {
+
+            console.error("Booking error:", error);
+
+            showMessage(
+                "Unable to save your booking. Please try again.",
+                "error"
+            );
+
+        }
+
+    });
 
     // ==================================
     // 17. CLOSE CONFIRMATION MODAL
@@ -855,9 +855,9 @@ form.addEventListener("submit", function (event) {
     });
 
     localStorage.setItem(
-    "aw_bookings",
-    JSON.stringify(oldBookings)
-);
+        "aw_bookings",
+        JSON.stringify(oldBookings)
+    );
 
     // ==================================
     // 19. INITIAL PAYMENT METHOD STATE

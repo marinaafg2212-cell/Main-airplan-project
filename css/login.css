@@ -168,6 +168,9 @@ body {
 }
 
 
+html {
+    scroll-behavior: smooth;
+}
 
 
 .form-icon {

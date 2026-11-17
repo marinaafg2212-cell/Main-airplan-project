@@ -321,7 +321,7 @@ if (loginForm) {
 
         const user = users.find(function (item) {
             return item.email === email &&
-                   item.password === password;
+                item.password === password;
         });
 
 

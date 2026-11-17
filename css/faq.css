@@ -199,6 +199,9 @@
 #user-question.invalid {
     border: 1px solid red;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 .faq-message.error {
     color: red;

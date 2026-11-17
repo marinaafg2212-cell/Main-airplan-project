@@ -596,16 +596,37 @@ const flights = [
 
 ];
 
-const flightList =
-    document.getElementById(
-        "flightList"
-    );
+
+const flightList = document.getElementById("flightList");
+
+const flightCount = document.getElementById("flightCount");
+
+const searchInput = document.getElementById("flightSearch");
+
+const loading = document.getElementById("searchLoading");
+
+const emptyState = document.getElementById("emptyState");
+
+const modal = document.getElementById("flightModal");
+
+const closeModal = document.getElementById("closeModal");
+
+const fareCards = document.querySelectorAll(".fare-card");
+
+const bookNowBtn = document.getElementById("bookNowBtn");
 
 
-const flightCount =
-    document.getElementById(
-        "flightCount"
-    );
+
+
+let currentFlight = null;
+
+let selectedFlightFare = "value";
+
+let valuePrice = 230;
+
+let flexPrice = 310;
+
+let searchTimer;
 
 
 
@@ -614,39 +635,28 @@ function showFlights(list) {
 
     flightList.innerHTML = "";
 
-
-    flightCount.textContent =
-        list.length;
-
+    flightCount.textContent = list.length;
 
     if (list.length === 0) {
 
-        flightList.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:50px;
-                color:#81929d;
-            ">
-                No flights found.
-            </div>
-        `;
+        flightList.style.display = "none";
+
+        emptyState.style.display = "block";
 
         return;
+
     }
+
+    emptyState.style.display = "none";
+
+    flightList.style.display = "grid";
 
 
     list.forEach(function (flight) {
 
-        const card =
-            document.createElement(
-                "div"
-            );
+        const card = document.createElement("div");
 
-
-        card.className =
-            "flight-card";
-
+        card.className = "flight-card";
 
         card.innerHTML = `
 
@@ -757,21 +767,16 @@ function showFlights(list) {
         `;
 
 
-        card.addEventListener(
-            "click",
-            function () {
+        // OPEN MODAL
 
-                openFlight(
-                    flight
-                );
+        card.addEventListener("click", function () {
 
-            }
-        );
+            openFlight(flight);
+
+        });
 
 
-        flightList.appendChild(
-            card
-        );
+        flightList.appendChild(card);
 
     });
 
@@ -779,188 +784,286 @@ function showFlights(list) {
 
 
 
-const modal =
-    document.getElementById(
-        "flightModal"
-    );
-
-
 function openFlight(flight) {
 
-    document.getElementById(
-        "modalFlight"
-    ).textContent =
+    currentFlight = flight;
+
+
+    // FLIGHT DETAILS
+
+    document.getElementById("modalFlight").textContent =
         flight.id;
 
-
-    document.getElementById(
-        "modalAirline"
-    ).textContent =
+    document.getElementById("modalAirline").textContent =
         flight.airline;
 
-
-    document.getElementById(
-        "modalFrom"
-    ).textContent =
-        flight.from;
-
-
-    document.getElementById(
-        "modalFromCity"
-    ).textContent =
+    document.getElementById("modalFromCity").textContent =
         flight.fromCity;
 
-
-    document.getElementById(
-        "modalTo"
-    ).textContent =
-        flight.to;
-
-
-    document.getElementById(
-        "modalToCity"
-    ).textContent =
+    document.getElementById("modalToCity").textContent =
         flight.toCity;
 
-
-    document.getElementById(
-        "modalDeparture"
-    ).textContent =
+    document.getElementById("modalDeparture").textContent =
         flight.departure;
 
-
-    document.getElementById(
-        "modalArrival"
-    ).textContent =
+    document.getElementById("modalArrival").textContent =
         flight.arrival;
 
-
-    document.getElementById(
-        "modalDuration"
-    ).textContent =
+    document.getElementById("modalDuration").textContent =
         flight.duration;
 
 
-    modal.classList.add(
-        "show"
-    );
+    // FARE PRICES
+
+    valuePrice = flight.price || 230;
+
+    flexPrice = valuePrice + 80;
 
 
-    /* Save selected flight */
+    document.getElementById("farePrice1").textContent =
+        "$" + valuePrice.toLocaleString();
+
+    document.getElementById("farePrice2").textContent =
+        "$" + flexPrice.toLocaleString();
+
+
+    // DEFAULT FARE
+
+    selectedFlightFare = "value";
+
+    updateFareSelection();
+
+
+    // SAVE FLIGHT
 
     localStorage.setItem(
         "selectedFlight",
         JSON.stringify(flight)
     );
 
+
+    // SHOW MODAL
+
+    modal.classList.add("show");
+
 }
 
 
 
-document
-    .getElementById("closeModal")
-    .addEventListener(
-        "click",
-        function () {
+fareCards.forEach(function (card) {
 
-            modal.classList.remove(
-                "show"
-            );
+    card.addEventListener("click", function () {
 
-        }
-    );
+        selectedFlightFare = this.dataset.fare;
 
+        updateFareSelection();
+
+    });
+
+});
 
 
 
-modal.addEventListener(
-    "click",
-    function (event) {
+function updateFareSelection() {
 
-        if (
-            event.target === modal
-        ) {
+    fareCards.forEach(function (card) {
 
-            modal.classList.remove(
-                "show"
-            );
+        card.classList.remove("selected");
+
+        if (card.dataset.fare === selectedFlightFare) {
+
+            card.classList.add("selected");
 
         }
+
+    });
+
+
+    let selectedPrice;
+
+    if (selectedFlightFare === "value") {
+
+        selectedPrice = valuePrice;
+
+    } else {
+
+        selectedPrice = flexPrice;
 
     }
-);
+
+
+    document.getElementById("selectedFarePrice").textContent =
+        "$" + selectedPrice.toLocaleString();
+
+}
 
 
 
+closeModal.addEventListener("click", function () {
 
-document
-    .getElementById("flightSearch")
-    .addEventListener(
-        "input",
-        function () {
+    modal.classList.remove("show");
 
-            const value =
-                this.value
-                    .toLowerCase()
-                    .trim();
+});
 
 
-            const filtered =
-                flights.filter(
-                    function (flight) {
+modal.addEventListener("click", function (event) {
 
-                        return (
+    if (event.target === modal) {
 
-                            flight.id
-                                .toLowerCase()
-                                .includes(value)
+        modal.classList.remove("show");
 
-                            ||
+    }
 
-                            flight.airline
-                                .toLowerCase()
-                                .includes(value)
-
-                            ||
-
-                            flight.from
-                                .toLowerCase()
-                                .includes(value)
-
-                            ||
-
-                            flight.to
-                                .toLowerCase()
-                                .includes(value)
-
-                            ||
-
-                            flight.fromCity
-                                .toLowerCase()
-                                .includes(value)
-
-                            ||
-
-                            flight.toCity
-                                .toLowerCase()
-                                .includes(value)
-
-                        );
-
-                    }
-                );
+});
 
 
-            showFlights(
-                filtered
-            );
 
-        }
+bookNowBtn.addEventListener("click", function () {
+
+    if (!currentFlight) {
+
+        return;
+
+    }
+
+
+    const selectedPrice =
+        selectedFlightFare === "value"
+            ? valuePrice
+            : flexPrice;
+
+
+    const bookingData = {
+
+        flight: currentFlight,
+
+        fare: selectedFlightFare,
+
+        price: selectedPrice,
+
+        currency: "USD"
+
+    };
+
+
+    // SAVE BOOKING
+
+    localStorage.setItem(
+        "selectedBooking",
+        JSON.stringify(bookingData)
     );
 
 
+    // GO TO PAYMENT PAGE
+
+    window.location.href = "searchFlight.html";
+
+});
 
 
-showFlights(
-    flights
-);
+
+
+searchInput.addEventListener("input", function () {
+
+    const value = this.value.toLowerCase().trim();
+
+
+    // CLEAR PREVIOUS TIMER
+
+    clearTimeout(searchTimer);
+
+
+    // SHOW LOADING
+
+    loading.style.display = "block";
+
+    flightList.style.display = "none";
+
+    emptyState.style.display = "none";
+
+
+    // SEARCH DELAY
+
+    searchTimer = setTimeout(function () {
+
+
+        // FILTER FLIGHTS
+
+        const filtered = flights.filter(function (flight) {
+
+            return (
+
+                flight.id.toLowerCase().includes(value)
+
+                ||
+
+                flight.airline.toLowerCase().includes(value)
+
+                ||
+
+                flight.from.toLowerCase().includes(value)
+
+                ||
+
+                flight.to.toLowerCase().includes(value)
+
+                ||
+
+                flight.fromCity.toLowerCase().includes(value)
+
+                ||
+
+                flight.toCity.toLowerCase().includes(value)
+
+                ||
+
+                flight.fromCountry.toLowerCase().includes(value)
+
+                ||
+
+                flight.toCountry.toLowerCase().includes(value)
+
+            );
+
+        });
+
+
+        // HIDE LOADING
+
+        loading.style.display = "none";
+
+
+        // SHOW RESULTS
+
+        if (filtered.length === 0) {
+
+            flightCount.textContent = "0";
+
+            flightList.innerHTML = "";
+
+            flightList.style.display = "none";
+
+            emptyState.style.display = "block";
+
+        } else {
+
+            emptyState.style.display = "none";
+
+            showFlights(filtered);
+
+        }
+
+
+    }, 500);
+
+});
+
+
+
+loading.style.display = "none";
+
+emptyState.style.display = "none";
+
+showFlights(flights);
+
+

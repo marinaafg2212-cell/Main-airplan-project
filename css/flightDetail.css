@@ -888,6 +888,10 @@ button {
     }
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* Payment Page */
 
 /* Payment Page */

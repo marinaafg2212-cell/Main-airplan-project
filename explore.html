@@ -80,8 +80,9 @@
             <!-- nav-------------------------------------------------- -->
             <div class="nav-item">
                 <a href="index.html">Home</a>
-                <a href="searchFlight.html">Search Flights</a>
+              
                 <a href="explore.html" class="active">Explore Flight</a>
+                  <a href="searchFlight.html">Search Flights</a>
                 <a href="about.html">About</a>
                 <a href="contect.html">Contect</a>
                 <a href="faq.html">FAQ</a>
@@ -93,11 +94,12 @@
                     style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
                     <li><a href="index.html" style="display:block;padding:10px 8px;font-weight:600;">Home</a>
                     </li>
-                    <li><a href="searchFlight.html" style="display:block;padding:10px 8px;font-weight:600;">Search
+                  
+                    <li><a href="explore.html" style="display:block;padding:10px 8px;font-weight:600;">Explore
+                            Flight</a></li>
+                              <li><a href="searchFlight.html" style="display:block;padding:10px 8px;font-weight:600;">Search
                             Flights</a>
                     </li>
-                    <li><a href="explore.html" style="display:block;padding:10px 8px;font-weight:600;">Explore
-                            Flight</a>
                     <li><a href="contect.html" style="display:block;padding:10px 8px;font-weight:600;">contect</a>
                     </li>
                     <li><a href="about.html" style="display:block;padding:10px 8px;font-weight:600;">About</a>
@@ -244,7 +246,27 @@
             </div>
 
         </div>
+<!-- LOADING -->
 
+<div id="searchLoading" class="search-loading">
+    <div class="loader"></div>
+    <p>Searching available flights...</p>
+</div>
+
+<!-- EMPTY STATE -->
+
+<div id="emptyState" class="empty-state">
+
+    <i class="fa-solid fa-plane-circle-xmark"></i>
+
+    <h3>No Flights Found</h3>
+
+    <p>
+        Sorry, we couldn't find any flights matching your search.
+        Try another airline, flight number or destination.
+    </p>
+
+</div>
 
         <div id="flightList" class="flight-list">
         </div>
@@ -254,101 +276,206 @@
 
     <!-- DETAILS MODAL -->
 
-    <div id="flightModal" class="modal">
+   <!-- FLIGHT DETAILS & FARE MODAL -->
 
-        <div class="modal-box">
+<div id="flightModal" class="modal">
 
-            <button id="closeModal" class="close">
-                ×
-            </button>
+    <div class="modal-box fare-modal">
 
+        <!-- HEADER -->
+        <div class="fare-header">
+            <div>
+                <span class="fare-label">FLIGHT DETAILS</span>
+                <h2>Flight Details & Fare Options</h2>
+            </div>
 
-            <span class="modal-label">
-                FLIGHT DETAILS
-            </span>
+            <button id="closeModal" class="fare-close">&times;</button>
+        </div>
 
+        <!-- ROUTE -->
+        <div class="fare-content">
 
-            <h2 id="modalFlight">
-                HZ001
-            </h2>
+            <h3 class="fare-route">
+                <span id="modalFromCity">Kabul</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span id="modalToCity">Dubai</span>
+            </h3>
 
+            <div class="fare-flight-info">
 
-            <p id="modalAirline" class="modal-airline">
-                Horizon Air
+                <span id="modalFlight">HZ001</span>
+                <span id="modalAirline">Horizon Air</span>
+                <span id="modalDeparture">10:30 AM</span>
+                <span class="fare-arrow">→</span>
+                <span id="modalArrival">12:45 PM</span>
+
+            </div>
+
+            <div class="fare-duration">
+                <i class="fa-regular fa-clock"></i>
+                Duration:
+                <strong id="modalDuration">2h 15m</strong>
+            </div>
+
+            <div class="fare-divider"></div>
+
+            <h3 class="fare-options-title">
+                Choose Your Fare
+            </h3>
+
+            <p class="fare-subtitle">
+                Select the fare that best suits your journey.
             </p>
 
+            <!-- TWO FARE CARDS -->
 
-            <div class="modal-route">
+            <div class="fare-cards">
 
-                <div>
-                    <strong id="modalFrom">
-                        KBL
-                    </strong>
+                <!-- CARD ONE -->
 
-                    <span id="modalFromCity">
-                        Kabul
-                    </span>
-                </div>
+                <button type="button"
+                    class="fare-card selected"
+                    data-fare="value">
+
+                    <div class="fare-card-top">
+                        <div class="fare-radio"></div>
+
+                        <div>
+                            <span class="fare-name">ECONOMY VALUE</span>
+                            <h2 id="farePrice1">$230</h2>
+                            <small>per adult</small>
+                        </div>
+
+                        <span class="fare-tag">VALUE</span>
+                    </div>
+
+                    <div class="fare-card-body">
+
+                        <h4>Baggage</h4>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            7 Kg Cabin Baggage
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            20 Kg Check-in Baggage
+                        </p>
+
+                        <h4>Flexibility</h4>
+
+                        <p>
+                            <i class="fa-solid fa-minus"></i>
+                            Cancellation fee applies
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-minus"></i>
+                            Date change fee applies
+                        </p>
+
+                        <h4>Seats, Meals & More</h4>
+
+                        <p>
+                            <i class="fa-solid fa-minus"></i>
+                            Paid Seats
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-minus"></i>
+                            Paid Meals
+                        </p>
+
+                    </div>
+
+                </button>
 
 
-                <div class="modal-plane">
-                    ✈
-                </div>
+                <!-- CARD TWO -->
 
+                <button type="button"
+                    class="fare-card"
+                    data-fare="flex">
 
-                <div class="destination">
+                    <div class="fare-card-top">
+                        <div class="fare-radio"></div>
 
-                    <strong id="modalTo">
-                        DXB
-                    </strong>
+                        <div>
+                            <span class="fare-name">ECONOMY FLEX</span>
+                            <h2 id="farePrice2">$310</h2>
+                            <small>per adult</small>
+                        </div>
 
-                    <span id="modalToCity">
-                        Dubai
-                    </span>
+                        <span class="fare-tag flex-tag">FLEX</span>
+                    </div>
 
-                </div>
+                    <div class="fare-card-body">
+
+                        <h4>Baggage</h4>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            7 Kg Cabin Baggage
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            25 Kg Check-in Baggage
+                        </p>
+
+                        <h4>Flexibility</h4>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            Flexible Cancellation
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            Flexible Date Changes
+                        </p>
+
+                        <h4>Seats, Meals & More</h4>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            Standard Seat Included
+                        </p>
+
+                        <p>
+                            <i class="fa-solid fa-check"></i>
+                            Meal Included
+                        </p>
+
+                    </div>
+
+                </button>
 
             </div>
 
+        </div>
 
-            <div class="modal-info">
+        <!-- STICKY FOOTER -->
 
-                <div>
-                    <span>Status</span>
-                    <b>Scheduled</b>
-                </div>
+        <div class="fare-footer">
 
-                <div>
-                    <span>Departure</span>
-                    <b id="modalDeparture">
-                        10:30 AM
-                    </b>
-                </div>
-
-                <div>
-                    <span>Arrival</span>
-                    <b id="modalArrival">
-                        12:45 PM
-                    </b>
-                </div>
-
-                <div>
-                    <span>Duration</span>
-                    <b id="modalDuration">
-                        2h 15m
-                    </b>
-                </div>
-
+            <div class="fare-total">
+                <span>Total price</span>
+                <h2 id="selectedFarePrice">$230</h2>
+                <small>FOR 1 ADULT</small>
             </div>
 
-
-            <button id="trackButton" class="track-button">
-                View Flight
+            <button type="button" id="bookNowBtn">
+                BOOK NOW
+                <i class="fa-solid fa-arrow-right"></i>
             </button>
 
         </div>
 
     </div>
+
+</div>
 
 
     <script src="js/explore.js"></script>

@@ -199,6 +199,10 @@
         right: 0;
     }
 }
+html {
+    scroll-behavior: smooth;
+}
+
 .profile-dropdown {
     position: relative;
 }

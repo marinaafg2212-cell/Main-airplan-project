@@ -26,9 +26,11 @@
 
     padding: 70px 20px;
 
-    background: linear-gradient(135deg,
-            #1769e0,
-            #1255b8);
+    background: linear-gradient(rgba(5,25,65,0.65), rgba(5,25,65,0.65)), url("../image/8d92d5a074c4572987a38e1d876510ec.jpg");
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
     color: white;
 }
@@ -698,4 +700,393 @@
         font-size: 21px;
     }
 
+}
+/* ==================================
+   FLIGHT DETAILS & FARE MODAL
+================================== */
+
+.fare-modal {
+    width: 95%;
+    max-width: 1050px;
+    height: 88vh;
+    max-height: 850px;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    position: relative;
+}
+
+/* HEADER */
+
+.fare-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 30px;
+    border-bottom: 1px solid #e8edf3;
+}
+
+.fare-label {
+    color: #1769e0;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.fare-header h2 {
+    font-size: 21px;
+    color: #172b4d;
+    margin-top: 5px;
+}
+
+.fare-close {
+    border: none;
+    background: transparent;
+    font-size: 32px;
+    color: #8492a6;
+    cursor: pointer;
+}
+
+/* CONTENT */
+
+.fare-content {
+    padding: 25px 30px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+.fare-route {
+    font-size: 24px;
+    color: #172b4d;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.fare-route i {
+    color: #1769e0;
+    font-size: 17px;
+}
+
+.fare-flight-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: 18px;
+    color: #53657d;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.fare-flight-info span:first-child {
+    color: #1769e0;
+}
+
+.fare-arrow {
+    color: #1769e0;
+}
+
+.fare-duration {
+    margin-top: 15px;
+    font-size: 13px;
+    color: #738198;
+}
+
+.fare-duration i {
+    color: #1769e0;
+    margin-right: 5px;
+}
+
+.fare-divider {
+    height: 1px;
+    background: #e8edf3;
+    margin: 25px 0;
+}
+
+/* FARE OPTIONS */
+
+.fare-options-title {
+    color: #172b4d;
+    font-size: 20px;
+}
+
+.fare-subtitle {
+    font-size: 13px;
+    color: #8793a5;
+    margin-top: 7px;
+    margin-bottom: 22px;
+}
+
+/* TWO CARDS */
+
+.fare-cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.fare-card {
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1.5px solid #dce5ef;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 0.25s;
+    color: #172b4d;
+}
+
+.fare-card:hover {
+    border-color: #1769e0;
+    transform: translateY(-3px);
+}
+
+.fare-card.selected {
+    border: 2px solid #1769e0;
+    background: #f5f9ff;
+}
+
+.fare-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 17px;
+    border-bottom: 1px solid #e5ebf2;
+}
+
+.fare-radio {
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+    border: 2px solid #a9b7c9;
+    border-radius: 50%;
+}
+
+.fare-card.selected .fare-radio {
+    border: 5px solid #1769e0;
+}
+
+.fare-name {
+    font-size: 11px;
+    font-weight: 800;
+    color: #526781;
+    letter-spacing: 0.7px;
+}
+
+.fare-card-top h2 {
+    font-size: 25px;
+    margin-top: 5px;
+    color: #172b4d;
+}
+
+.fare-card-top small {
+    font-size: 11px;
+    color: #8793a5;
+}
+
+.fare-tag {
+    margin-left: auto;
+    align-self: flex-start;
+    background: #e5f3ff;
+    color: #1769e0;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.flex-tag {
+    color: #13866a;
+    background: #e3f7f0;
+}
+
+/* CARD DETAILS */
+
+.fare-card-body {
+    padding: 17px;
+}
+
+.fare-card-body h4 {
+    font-size: 13px;
+    margin: 8px 0 12px;
+    color: #263b56;
+}
+
+.fare-card-body p {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 12px;
+    color: #627187;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.fare-card-body p i {
+    color: #16a47a;
+    font-size: 12px;
+}
+
+/* FOOTER */
+
+.fare-footer {
+    min-height: 85px;
+    padding: 14px 30px;
+    border-top: 1px solid #e8edf3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    background: #fff;
+}
+
+.fare-total {
+    text-align: right;
+}
+
+.fare-total span {
+    color: #8592a4;
+    font-size: 12px;
+}
+
+.fare-total h2 {
+    font-size: 24px;
+    color: #172b4d;
+}
+
+.fare-total small {
+    color: #8b97a8;
+    font-size: 10px;
+}
+
+#bookNowBtn {
+    border: none;
+    border-radius: 7px;
+    background: #1769e0;
+    color: white;
+    padding: 16px 25px;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+#bookNowBtn:hover {
+    background: #104fae;
+}
+
+#bookNowBtn i {
+    margin-left: 8px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 650px) {
+
+    .fare-modal {
+        width: 96%;
+        height: 94vh;
+    }
+
+    .fare-header {
+        padding: 17px;
+    }
+
+    .fare-header h2 {
+        font-size: 17px;
+    }
+
+    .fare-content {
+        padding: 20px 15px;
+    }
+
+    .fare-route {
+        font-size: 19px;
+        gap: 8px;
+    }
+
+    .fare-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .fare-footer {
+        padding: 12px 15px;
+        gap: 12px;
+    }
+
+    #bookNowBtn {
+        padding: 14px 15px;
+        font-size: 11px;
+    }
+
+    .fare-total h2 {
+        font-size: 20px;
+    }
+}
+/* LOADING */
+
+.search-loading {
+    display: none;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.loader {
+    width: 45px;
+    height: 45px;
+    border: 4px solid #dce9fa;
+    border-top: 4px solid #1769e0;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 0.8s linear infinite;
+}
+
+.search-loading p {
+    color: #1769e0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* EMPTY STATE */
+
+.empty-state {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.empty-state i {
+    font-size: 55px;
+    color: #1769e0;
+    margin-bottom: 20px;
+}
+
+.empty-state h3 {
+    color: #172b4d;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    color: #8190a5;
+    font-size: 14px;
+    max-width: 430px;
+    margin: auto;
+    line-height: 1.8;
+}
+html {
+    scroll-behavior: smooth;
 }
